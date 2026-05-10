@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace NumericSorterApp.Classes;
+namespace CommonLibrary;
 
 /// <summary>
 /// Provides a mechanism for comparing strings that contain numeric values in a culture-sensitive manner.

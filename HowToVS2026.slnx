@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Class projects/">
+    <Project Path="CommonLibrary/CommonLibrary.csproj" />
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
   </Folder>
   <Folder Name="/Console projects/">

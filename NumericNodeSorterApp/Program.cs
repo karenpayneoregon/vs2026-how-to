@@ -1,6 +1,6 @@
 ﻿using Spectre.Console;
 using System.Globalization;
-using NumericSorterApp.Classes;
+using CommonLibrary;
 using NumericSorterApp.Classes.Core;
 
 namespace NumericSorterApp;
