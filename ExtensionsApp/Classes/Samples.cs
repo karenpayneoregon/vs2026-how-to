@@ -10,6 +10,38 @@ namespace ExtensionsApp.Classes;
 internal class Samples
 {
     /// <summary>
+    /// Demonstrates the usage of the <see cref="ComparerExtensions.IsBetween{T}(T,T,T)"/> method
+    /// to check whether a value or date falls within a specified range.
+    /// </summary>
+    /// <remarks>
+    /// This method showcases examples of checking both numeric and date ranges
+    /// using the <c>IsBetween</c> extension method.
+    /// </remarks>
+    public static void BetweenExamples()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+        
+        int startValue = 5;
+        int endValue = 15;
+        int valueToCheck = 10;
+
+        AnsiConsole.MarkupLine(valueToCheck.IsBetween(startValue, endValue)
+            ? $"[green bold]{valueToCheck} is between {startValue} and {endValue}[/]"
+            : $"[red]{valueToCheck} is NOT between {startValue} and {endValue}[/]");
+
+        DateOnly startDate = new DateOnly(2026, 5, 1);
+        DateOnly endDate = new DateOnly(2026, 5, 20);
+        DateOnly dateToCheck = new DateOnly(2026, 5, 22);
+
+        AnsiConsole.MarkupLine(dateToCheck.IsBetween(startDate, endDate)
+            ? $"[green bold]{dateToCheck} is between {startDate} and {endDate}[/]"
+            : $"[red]{dateToCheck} is NOT between {startDate} and {endDate}[/]");
+
+        Console.WriteLine();
+    }
+
+    /// <summary>
     /// Increments a value and prints it to the console multiple times.
     /// </summary>
     /// <remarks>
@@ -35,6 +67,9 @@ internal class Samples
         }
 
         Console.WriteLine(string.Join(",", values));
+        
+        Console.WriteLine();
+        
     }
     /// <summary>
     /// Demonstrates various extension methods and utilities for working with dates, times, and business logic.
@@ -83,5 +118,8 @@ internal class Samples
         bool isBetween = DateTime.Now.IsBetween(new Time(9), new Time(17));
         AnsiConsole.MarkupLine($"[green bold]Is the[/] [HotPink]{DateTime.Now:HH:mm tt}[/] [green bold]between 9 AM and 5 PM?[/] " +
                                $"[yellow]{isBetween.ToYesNo()}[/]");
+
+        Console.WriteLine();
+        
     }
 }
