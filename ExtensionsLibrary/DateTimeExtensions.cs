@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace ExtensionsLibrary
 {
+    /// <summary>
+    /// Provides a set of extension methods for the <see cref="System.DateTime"/> structure.
+    /// </summary>
     public static class DateTimeExtensions
     {
         /// <summary>

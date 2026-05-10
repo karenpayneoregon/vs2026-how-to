@@ -1,5 +1,8 @@
-﻿namespace ExtensionsLibrary;
+﻿namespace ExtensionsLibrary.Classes;
 
+/// <summary>
+/// Provides a collection of helper methods and extensions for working with <see cref="DateOnly"/> and date-related operations.
+/// </summary>
 public static class DateTimeHelpers
 {
     /// <summary>
@@ -11,7 +14,7 @@ public static class DateTimeHelpers
         var start = DateTime.Now;
         var nextSunday = DateOnly.FromDateTime(start).Next(DayOfWeek.Sunday);
         return Enumerable.Range(0, 7)
-            .Select(index => nextSunday.AddDays(index))
+            .Select(nextSunday.AddDays)
             .ToList();
     }
 

@@ -1,5 +1,8 @@
 ﻿namespace ExtensionsLibrary;
 
+/// <summary>
+/// Provides a set of extension methods for working with comparers.
+/// </summary>
 public static class ComparerExtensions
 {
     /// <param name="value">The value to compare.</param>

@@ -1,0 +1,87 @@
+﻿using DateTimeExtensions;
+using DateTimeExtensions.TimeOfDay;
+using DateTimeExtensions.WorkingDays;
+using ExtensionsLibrary;
+using Spectre.Console;
+using SpectreConsoleLibrary.Core;
+
+namespace ExtensionsApp.Classes;
+
+internal class Samples
+{
+    /// <summary>
+    /// Increments a value and prints it to the console multiple times.
+    /// </summary>
+    /// <remarks>
+    /// This method initializes an integer value, prints its initial state, 
+    /// and then increments it in a loop, printing the updated value after each increment.
+    /// The increment operation is performed using the <see cref="ExtensionsLibrary.IntExtensions.RefIncrement"/> extension method.
+    /// </remarks>
+    public static void IncrementAndPrintValues()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+
+
+        List<int> values = [];
+        int value = 42;
+
+        values.Add(value);
+
+        for (int index = 0; index < 10; index++)
+        {
+            value.RefIncrement();
+            values.Add(value);
+        }
+
+        Console.WriteLine(string.Join(",", values));
+    }
+    /// <summary>
+    /// Demonstrates various extension methods and utilities for working with dates, times, and business logic.
+    /// </summary>
+    /// <remarks>
+    /// This method showcases the following examples:
+    /// <list type="bullet">
+    /// <item>Checking if a specific date is a working day using a culture-specific calendar.</item>
+    /// <item>Determining if a date falls within daylight saving time.</item>
+    /// <item>Setting a specific time for a date and verifying if it is within business hours.</item>
+    /// <item>Adding a specified number of working days to the current date.</item>
+    /// <item>Checking if the current time falls between two specified times.</item>
+    /// </list>
+    /// The results of these operations are displayed in the console using Spectre.Console for formatting.
+    /// </remarks>
+    public static void DateOnlyExamples()
+    {
+        
+        SpectreConsoleHelpers.PrintPink();
+
+        var culture = new WorkingDayCultureInfo("en-US");
+
+        var specificDate = new DateTime(DateTime.Now.Year, 7, 4); // Example holiday
+        AnsiConsole.MarkupLine(specificDate.IsWorkingDay(culture)
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS a working day.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT a working day.[/]");
+
+        AnsiConsole.MarkupLine(specificDate.IsDaylightSavingTime()
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS in daylight saving time.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT in daylight saving time.[/]");
+
+        specificDate = new DateTime(2026, 4, 23);
+        specificDate = specificDate.SetTime(10);
+        AnsiConsole.MarkupLine(specificDate.IsWithinBusinessHours(new TimeSpan(9, 0, 0), new TimeSpan(17, 0, 0))
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS within business hours.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT within business hours.[/]");
+
+
+        // Add 5 working days to a date
+        DateTime futureDate = DateTime.Now.AddWorkingDays(5);
+        AnsiConsole.MarkupLine($"[green bold]Add 5 working days to a {DateTime.Now:MM/dd/yyyy}:[/] " +
+                               $"[yellow]{futureDate:yyyy-MM-dd}[/]");
+
+
+        // Check if a time is between two other times
+        bool isBetween = DateTime.Now.IsBetween(new Time(9), new Time(17));
+        AnsiConsole.MarkupLine($"[green bold]Is the[/] [HotPink]{DateTime.Now:HH:mm tt}[/] [green bold]between 9 AM and 5 PM?[/] " +
+                               $"[yellow]{isBetween.ToYesNo()}[/]");
+    }
+}

@@ -15,4 +15,9 @@
 		<PackageReference Include="FluentValidation" Version="12.1.1" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DateTimeExtensions" Version="5.11.17" />
+	</ItemGroup>
+
 </Project>
