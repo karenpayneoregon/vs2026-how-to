@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Class projects/">
+    <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="readme.md" />
+  </Folder>
+</Solution>
