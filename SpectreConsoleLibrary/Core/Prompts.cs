@@ -1,6 +1,6 @@
 ﻿using Spectre.Console;
 
-namespace NumericSorterApp.Classes.Core;
+namespace SpectreConsoleLibrary.Core;
 /// <summary>
 /// Examples of various prompts using Spectre.Console to capture user input with validation and styling.
 /// </summary>

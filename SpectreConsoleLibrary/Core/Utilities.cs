@@ -1,4 +1,4 @@
-﻿namespace NumericSorterApp.Classes.Core;
+﻿namespace SpectreConsoleLibrary.Core;
 
 /// <summary>
 /// Provides utility methods for working with file paths and project structures.

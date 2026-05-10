@@ -1,14 +1,14 @@
 ﻿using ConsoleConfigurationLibrary.Classes;
 using ConsoleHelperLibrary.Classes;
+using ExtensionsApp.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SpectreConsoleLibrary.Core;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using NumericSorterApp.Classes.Configuration;
-using SpectreConsoleLibrary.Core;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 // ReSharper disable once CheckNamespace
-namespace NumericSorterApp;
+namespace ExtensionsApp;
 
 internal partial class Program
 {

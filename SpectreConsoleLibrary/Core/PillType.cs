@@ -1,4 +1,4 @@
-﻿namespace NumericSorterApp.Classes.Core;
+﻿namespace SpectreConsoleLibrary.Core;
 /// <summary>
 /// Represents the type of pill-shaped UI element, determining its visual style and color scheme.
 /// </summary>

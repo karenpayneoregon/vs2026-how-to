@@ -2,8 +2,11 @@
   <Folder Name="/Class projects/">
     <Project Path="CommonLibrary/CommonLibrary.csproj" />
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
+    <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
   <Folder Name="/Console projects/">
+    <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
+    <Project Path="NullConditionalAssignment/NullConditionalAssignment.csproj" Id="e52edbc5-dfb5-4602-b111-b11ff28bc22d" />
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">

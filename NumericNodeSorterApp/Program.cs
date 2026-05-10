@@ -1,7 +1,7 @@
 ﻿using Spectre.Console;
 using System.Globalization;
 using CommonLibrary;
-using NumericSorterApp.Classes.Core;
+using SpectreConsoleLibrary.Core;
 
 namespace NumericSorterApp;
 
@@ -9,7 +9,15 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        SpectreConsoleHelpers.PinkPill(Justify.Left, "Sorting");
+        
+        SortAndDisplayNumericStrings();
+
+        SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    private static void SortAndDisplayNumericStrings()
+    {
+        SpectreConsoleHelpers.PrintPink();
         
         Console.WriteLine("\n");
         
@@ -24,8 +32,5 @@ internal partial class Program
         names.Sort(new NumericStringComparer(CultureInfo.CurrentCulture));
 
         Console.WriteLine(string.Join(", ", names));
-        
-        SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
-
 }

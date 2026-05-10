@@ -8,10 +8,15 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Natural sort</Product>
+		<Product>Null-conditional</Product>
 		<Description>A sample project demonstrating assembly metadata retrieval.</Description>
 		<Company>Payne services</Company>
 		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- for ConsoleConfigurationLibrary dependent package -->
+		<NuGetAuditMode>direct</NuGetAuditMode>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -23,7 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Serilog" Version="4.3.1" />
+		<PackageReference Include="Serilog" Version="4.3.0" />
 		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
@@ -33,18 +38,21 @@
 		<BuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</BuildDate>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <NoWarn>1701;1702;CS8600</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <NoWarn>1701;1702;CS8600</NoWarn>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<AssemblyMetadata Include="BuildDate" Value="$(BuildDate)" />
 	</ItemGroup>
 
-	<PropertyGroup>
-		<!-- for ConsoleConfigurationLibrary dependent package -->
-		<NuGetAuditMode>direct</NuGetAuditMode>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
-		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.13" />
+		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.12" />
 	</ItemGroup>
 
 	<ItemGroup>

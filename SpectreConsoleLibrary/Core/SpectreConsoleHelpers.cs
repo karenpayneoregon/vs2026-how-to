@@ -1,9 +1,10 @@
-﻿using System.Text;
-using Spectre.Console;
+﻿using Spectre.Console;
 using Spectre.Console.Json;
 using Spectre.Console.Rendering;
+using System.Runtime.CompilerServices;
+using System.Text;
 
-namespace NumericSorterApp.Classes.Core;
+namespace SpectreConsoleLibrary.Core;
 
 public static class SpectreConsoleHelpers
 {
@@ -271,4 +272,24 @@ public static class SpectreConsoleHelpers
 
     }
 
+    /// <summary>
+    /// Prints a formatted message to the console in pink color, including the project name, file name, and method name.
+    /// </summary>
+    /// <param name="filePath">
+    /// The file path of the caller. This parameter is automatically populated by the compiler.
+    /// </param>
+    /// <param name="methodName">
+    /// The name of the calling method. This parameter is automatically populated by the compiler.
+    /// </param>
+    public static void PrintPink([CallerFilePath] string? filePath = null, [CallerMemberName] string? methodName = null)
+    {
+
+        // Get file and project name
+        var fileName = Path.GetFileNameWithoutExtension(filePath);
+        var projectName = Utilities.GetProjectName(filePath!);
+
+        AnsiConsole.MarkupLine($"[hotpink2]{fileName}[/][yellow bold].[/][hotpink2]{methodName}[/]");
+
+        Console.WriteLine();
+    }
 }
