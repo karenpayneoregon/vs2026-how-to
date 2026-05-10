@@ -1,6 +1,6 @@
 ﻿# About
 
-The `field` keyword would allow us to create semi-automatic properties. 
+The token `field` enables you to write a property accessor body without declaring an explicit backing field. The token field is replaced with a compiler synthesized backing field.
 
 - See Micorosoft's [documentation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field) for more information.
 - Blog post: [The C# "field" Keyword and Visual Studio Tooling](https://jeremybytes.blogspot.com/2024/11/the-c-field-keyword-and-visual-studio.html)
@@ -10,7 +10,7 @@ The `field` keyword would allow us to create semi-automatic properties.
 
 ## Example 1
 
-Uppercase first letter 
+Uppercase first letter
 
 ```csharp
 public required string FirstName
