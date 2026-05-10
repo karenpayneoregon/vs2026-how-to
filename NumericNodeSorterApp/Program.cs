@@ -19,7 +19,7 @@ internal partial class Program
 
         Console.WriteLine(string.Join(", ", files));
 
-        var names = new List<string> { "item12", "item3", "item1", "item20" };
+        List<string> names = ["item12", "item3", "item1", "item20"];
 
         names.Sort(new NumericStringComparer(CultureInfo.CurrentCulture));
 
