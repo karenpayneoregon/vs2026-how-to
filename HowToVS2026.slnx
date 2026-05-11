@@ -12,6 +12,9 @@
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
     <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
+  <Folder Name="/Console projects/EF Core/">
+    <Project Path="QueryFiltersApp/QueryFiltersApp.csproj" Id="09e921f3-808f-4a0f-bab4-7f654026c4c0" />
+  </Folder>
   <Folder Name="/Console projects/Experiments/">
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
   </Folder>

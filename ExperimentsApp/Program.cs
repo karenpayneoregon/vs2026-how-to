@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using ExperimentsApp.Models;
+using Spectre.Console;
 using SpectreConsoleLibrary.Core;
 
 namespace ExperimentsApp;
@@ -14,7 +15,7 @@ internal partial class Program
 
     private static void DisplayItemDetails()
     {
-        var item = new Models.PartialExamples();
+        PartialExamples item = new();
         AnsiConsole.MarkupLine($"[green]Capacity:[/] {item.Capacity}");
         AnsiConsole.WriteLine();
         SpectreConsoleHelpers.InfoPill(Justify.Left, "Item capacity is now: " + item.Capacity);
