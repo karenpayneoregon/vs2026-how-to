@@ -10,6 +10,7 @@
     <Project Path="LambdaParametersApp/LambdaParametersApp.csproj" Id="0ec6652c-b26c-4cdd-9084-e3bec7273ca4" />
     <Project Path="NullConditionalAssignment/NullConditionalAssignment.csproj" Id="e52edbc5-dfb5-4602-b111-b11ff28bc22d" />
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
+    <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
   <Folder Name="/Console projects/Experiments/">
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
