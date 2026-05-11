@@ -13,6 +13,7 @@
     <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
   <Folder Name="/Console projects/EF Core/">
+    <Project Path="NamedQueryFiltersApp/NamedQueryFiltersApp.csproj" Id="f4e09bc4-7702-43d4-b345-02e9eaee5672" />
     <Project Path="QueryFiltersApp/QueryFiltersApp.csproj" Id="09e921f3-808f-4a0f-bab4-7f654026c4c0" />
   </Folder>
   <Folder Name="/Console projects/Experiments/">
