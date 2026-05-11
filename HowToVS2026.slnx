@@ -7,8 +7,12 @@
   <Folder Name="/Console projects/">
     <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
     <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
+    <Project Path="LambdaParametersApp/LambdaParametersApp.csproj" Id="0ec6652c-b26c-4cdd-9084-e3bec7273ca4" />
     <Project Path="NullConditionalAssignment/NullConditionalAssignment.csproj" Id="e52edbc5-dfb5-4602-b111-b11ff28bc22d" />
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
+  </Folder>
+  <Folder Name="/Console projects/Experiments/">
+    <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />

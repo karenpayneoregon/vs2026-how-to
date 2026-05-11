@@ -1,0 +1,15 @@
+{
+  "help": "https://go.microsoft.com/fwlink/?linkid=866610",
+  "root": true,
+  "dependentFileProviders": {
+    "add": {
+      "fileToFile": {
+        "add": {
+          "PartialExamples1.cs": [
+            "PartialExamples.cs"
+          ]
+        }
+      }
+    }
+  }
+}
