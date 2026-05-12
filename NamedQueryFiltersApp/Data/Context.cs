@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using NamedQueryFiltersApp.Models;
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using NamedQueryFiltersApp.Classes;
 
 namespace NamedQueryFiltersApp.Data;
 
@@ -22,7 +24,16 @@ public partial class Context : DbContext
     public virtual DbSet<Employee> Employees { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
+    {
+        optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection,
+            o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
+            //.EnableSensitiveDataLogging()
+            .LogTo(new DbContextToFileLogger().Log, new[]
+                {
+                    DbLoggerCategory.Database.Command.Name
+                },
+                LogLevel.Information); ;
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -35,7 +46,7 @@ public partial class Context : DbContext
                 .IsRequired()
                 .HasMaxLength(50);
             entity.HasQueryFilter("SoftDelete", e => !e.IsDeleted);
-            entity.HasQueryFilter("IsManager", e => !e.IsManager);
+            entity.HasQueryFilter("IsManager", e => e.IsManager);
         });
 
         OnModelCreatingPartial(modelBuilder);
