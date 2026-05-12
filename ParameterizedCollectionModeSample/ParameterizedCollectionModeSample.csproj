@@ -19,6 +19,10 @@
 		<NuGetAuditMode>direct</NuGetAuditMode>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<None Remove="readme.md" />
 	</ItemGroup>

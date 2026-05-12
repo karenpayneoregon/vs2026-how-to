@@ -32,6 +32,7 @@ internal partial class Program
 
         await using var context = new Context();
         var employees = await context.Employees
+            .TagWithCallSite()
             .Where(b => ((IEnumerable<int>)EF.Constant(ids)).Contains(b.Id))
             .ToListAsync();
 
