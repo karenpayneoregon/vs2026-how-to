@@ -18,6 +18,14 @@ internal partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Retrieves and displays a list of employees while ignoring specific query filters.
+    /// </summary>
+    /// <remarks>
+    /// This method bypasses the "SoftDelete" and "IsManager" query filters to fetch all employees,
+    /// regardless of their deletion status or managerial role. The retrieved data is displayed in a
+    /// formatted table using Spectre.Console.
+    /// </remarks>
     private static void IgnoreBothFilters()
     {
 
@@ -46,6 +54,13 @@ internal partial class Program
     }
 
 
+    /// <summary>
+    /// Retrieves and displays a list of employees while ignoring specific query filters, such as the soft delete filter.
+    /// </summary>
+    /// <remarks>
+    /// This method uses Entity Framework Core's query filter functionality to bypass filters applied to the 
+    /// <see cref="Context.Employees"/> DbSet. The retrieved data is displayed in a formatted table using Spectre.Console.
+    /// </remarks>
     private static void IgnoreSoftDeleteFilters()
     {
 
@@ -71,6 +86,14 @@ internal partial class Program
         
     }
 
+    /// <summary>
+    /// Retrieves and displays a list of employees while ignoring the "IsManager" query filter.
+    /// </summary>
+    /// <remarks>
+    /// This method demonstrates how to bypass specific query filters in Entity Framework Core
+    /// by ignoring the "IsManager" filter. The retrieved employee data is displayed in a formatted table
+    /// using Spectre.Console.
+    /// </remarks>
     private static void IgnoreIsManagerFilters()
     {
 
