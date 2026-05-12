@@ -8,15 +8,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Playground</Product>
-		<Description>A sample project</Description>
+		<Product>Basic</Product>
+		<Description>A sample project demonstrating assembly metadata retrieval.</Description>
 		<Company>Payne services</Company>
 		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<!-- for ConsoleConfigurationLibrary dependent package -->
-		<NuGetAuditMode>direct</NuGetAuditMode>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -28,6 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.7" />
 		<PackageReference Include="Serilog" Version="4.3.0" />
 		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
@@ -54,12 +50,20 @@
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.55.2" />
 		<PackageReference Include="Spectre.Console.Json" Version="0.55.2" />
-		<PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.8" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<!-- for ConsoleConfigurationLibrary dependent package -->
+		<NuGetAuditMode>direct</NuGetAuditMode>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+	</PropertyGroup>
 
 	<!--<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
@@ -74,9 +78,5 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
 	</ItemGroup>
 </Project>

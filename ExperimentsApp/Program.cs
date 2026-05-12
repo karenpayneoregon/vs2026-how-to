@@ -10,11 +10,14 @@ internal partial class Program
     {
         DisplayItemDetails();
 
+
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
     private static void DisplayItemDetails()
     {
+
+        SpectreConsoleHelpers.PrintPink();
         PartialExamples item = new();
         AnsiConsole.MarkupLine($"[green]Capacity:[/] {item.Capacity}");
         AnsiConsole.WriteLine();
@@ -29,5 +32,9 @@ internal partial class Program
 
         var itemAtIndex10 = item.TryGetAt(10);
         AnsiConsole.MarkupLine($"[bold yellow]Item at index 10 (via TryGetAt):[/] {itemAtIndex10 ?? "null"}");
+
+        Console.WriteLine();
+        
     }
+    
 }

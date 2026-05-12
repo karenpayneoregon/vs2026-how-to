@@ -16,6 +16,7 @@
     <Project Path="NamedQueryFiltersApp/NamedQueryFiltersApp.csproj" Id="f4e09bc4-7702-43d4-b345-02e9eaee5672" />
     <Project Path="ParameterizedCollectionModeSample/ParameterizedCollectionModeSample.csproj" Id="3536f28b-254f-43bf-99f1-87a56c72a727" />
     <Project Path="QueryFiltersApp/QueryFiltersApp.csproj" Id="09e921f3-808f-4a0f-bab4-7f654026c4c0" />
+    <Project Path="UseIdentityColumnSample/UseIdentityColumnSample.csproj" Id="5259a569-f3bd-4639-a0a8-896184f62900" />
   </Folder>
   <Folder Name="/Console projects/Experiments/">
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
