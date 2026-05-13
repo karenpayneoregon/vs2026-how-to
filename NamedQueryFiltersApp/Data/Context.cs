@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NamedQueryFiltersApp.Models;
 using System;
 using System.Collections.Generic;
+using EntityFrameworkLibrary;
 using Microsoft.Extensions.Logging;
 using NamedQueryFiltersApp.Classes;
 
@@ -28,10 +29,8 @@ public partial class Context : DbContext
         optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection,
             o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
             //.EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log, new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
+            .LogTo(new DbContextToFileLogger().Log, 
+                [DbLoggerCategory.Database.Command.Name],
                 LogLevel.Information); ;
     }
 

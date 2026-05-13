@@ -1,6 +1,6 @@
 ﻿using static System.DateTime;
 
-namespace NamedQueryFiltersApp.Classes;
+namespace EntityFrameworkLibrary;
 
 /// <summary>
 /// Provides a mechanism for logging Entity Framework Core (EF Core) database context activities to a file.
