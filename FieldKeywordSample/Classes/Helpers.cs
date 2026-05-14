@@ -4,7 +4,9 @@ internal class Helpers
     /// <summary>
     /// Retrieves a list of valid U.S. state abbreviations.
     /// </summary>
-    /// <returns>A <see cref="List{T}"/> of strings containing two-letter state abbreviations.</returns>
+    /// <returns>
+    /// A <see cref="List{T}"/> of strings containing two-letter state abbreviations.
+    /// </returns>
     public static List<string> GetStateAbbreviations() =>
     [
         "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
