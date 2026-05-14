@@ -50,7 +50,7 @@ public class WineContext : DbContext
     /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Setup conversion to and from int/enum
+        
         modelBuilder
             .Entity<Wine>()
             .Property(e => e.WineType)
@@ -58,5 +58,7 @@ public class WineContext : DbContext
 
         modelBuilder.Entity<WineTypes>().HasData(MockedData.WineTypes());
         modelBuilder.Entity<Wine>().HasData(MockedData.Wines());
+        
+        
     }
 }

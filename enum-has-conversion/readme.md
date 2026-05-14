@@ -35,6 +35,7 @@ List<Wine> rose = context.Wines.Where(wine => wine.WineType == WineType.Rose).To
 ```
 
 Example to group by wine type using a class [WineGroupItem](Models/WineGroupItem.cs) to provide the ability to pass to a caller.
+
 ```csharp
 List<WineGroupItem> allWinesGrouped = context.Wines
     .GroupBy( wine => wine.WineType)
