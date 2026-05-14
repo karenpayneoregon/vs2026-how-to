@@ -1,4 +1,4 @@
-﻿namespace ExperimentsApp.Models;
+﻿namespace ExperimentsApp.Classes;
 
 public partial class PartialExamples
 {

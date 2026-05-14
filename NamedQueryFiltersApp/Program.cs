@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityFrameworkLibrary;
+using Microsoft.EntityFrameworkCore;
 using NamedQueryFiltersApp.Data;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
@@ -102,6 +103,7 @@ internal partial class Program
         using var context = new Context();
         var employees = context.Employees
             .IgnoreQueryFilters(["IsManager"])
+            .TagWithDebugInfo("Running IgnoreQueryFilters([\"IsManager\"]")
             .ToList();
 
         AnsiConsole.WriteLine();

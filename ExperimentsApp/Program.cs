@@ -1,6 +1,6 @@
-﻿using ExperimentsApp.Models;
-using Spectre.Console;
+﻿using Spectre.Console;
 using SpectreConsoleLibrary.Core;
+using PartialExamples = ExperimentsApp.Classes.PartialExamples;
 
 namespace ExperimentsApp;
 

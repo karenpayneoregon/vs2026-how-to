@@ -17,10 +17,14 @@ public static partial class StringExtensions
         public static bool HasValue(string value)
             => !string.IsNullOrEmpty(value);
 
-        public bool IsEmpty => string.IsNullOrEmpty(sender);
-        public bool IsWhitespace => string.IsNullOrWhiteSpace(sender);
+        public bool IsEmpty 
+            => string.IsNullOrEmpty(sender);
+        
+        public bool IsWhitespace 
+            => string.IsNullOrWhiteSpace(sender);
 
-        public bool IsNumeric => !sender.IsEmpty && sender.All(char.IsDigit);
+        public bool IsNumeric 
+            => !sender.IsEmpty && sender.All(char.IsDigit);
 
         /// <summary>
         /// Splits a camel case string into separate words.
@@ -39,7 +43,9 @@ public static partial class StringExtensions
         /// A new string with the first character converted to uppercase 
         /// </returns>
         public string CapitalizeFirstLetter()
-            => string.IsNullOrEmpty(sender) ? sender : $"{char.ToUpper(sender[0])}{sender[1..].ToLower()}";
+            => string.IsNullOrEmpty(sender) ? 
+                sender : 
+                $"{char.ToUpper(sender[0])}{sender[1..].ToLower()}";
 
         /// <summary>
         /// Replaces the last occurrence of a specified string within the given string.
@@ -50,6 +56,7 @@ public static partial class StringExtensions
         public string ReplaceLast(string find, string replace)
         {
             int index = sender.LastIndexOf(find, StringComparison.OrdinalIgnoreCase);
+            
             return index == -1 ?
                 sender :
                 sender.Remove(index, find.Length).Insert(index, replace);
