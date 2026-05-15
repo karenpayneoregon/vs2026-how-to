@@ -31,4 +31,7 @@
     <File Path=".editorconfig" />
     <File Path="readme.md" />
   </Folder>
+  <Folder Name="/Validation/">
+    <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
+  </Folder>
 </Solution>
