@@ -37,6 +37,7 @@ public class IndexModel(ReadToast readToast) : PageModel
     public IActionResult OnPostShowToast()
     {
         var options = readToast.GetToastOptions();
+        
         ToastTitle = options.ToastTitle;
         ToastMessage = options.ToastMessage;
         ToastDelay = options.ToastDelay;
