@@ -1,18 +1,14 @@
 <Solution>
+  <Folder Name="/Bootstrap projects/">
+    <Project Path="Bootstrap5ToastExampleApp/Bootstrap5ToastExampleApp.csproj" />
+  </Folder>
   <Folder Name="/Class projects/">
     <Project Path="CommonLibrary/CommonLibrary.csproj" />
     <Project Path="EntityFrameworkLibrary/EntityFrameworkLibrary.csproj" Id="b1463bab-13f0-475c-83c0-48340918bbd1" />
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
-  <Folder Name="/Console projects/">
-    <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
-    <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
-    <Project Path="LambdaParametersApp/LambdaParametersApp.csproj" Id="0ec6652c-b26c-4cdd-9084-e3bec7273ca4" />
-    <Project Path="NullConditionalAssignment/NullConditionalAssignment.csproj" Id="e52edbc5-dfb5-4602-b111-b11ff28bc22d" />
-    <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
-    <Project Path="PartialSamples1/PartialSamples1.csproj" />
-  </Folder>
+  <Folder Name="/Console projects/" />
   <Folder Name="/Console projects/EF Core/">
     <Project Path="enum-has-conversion/EnumHasConversion.csproj" />
     <Project Path="NamedQueryFiltersApp/NamedQueryFiltersApp.csproj" Id="f4e09bc4-7702-43d4-b345-02e9eaee5672" />
@@ -22,6 +18,14 @@
   </Folder>
   <Folder Name="/Console projects/Experiments/">
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
+  </Folder>
+  <Folder Name="/Console projects/Features/">
+    <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
+    <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
+    <Project Path="LambdaParametersApp/LambdaParametersApp.csproj" Id="0ec6652c-b26c-4cdd-9084-e3bec7273ca4" />
+    <Project Path="NullConditionalAssignment/NullConditionalAssignment.csproj" Id="e52edbc5-dfb5-4602-b111-b11ff28bc22d" />
+    <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
+    <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />

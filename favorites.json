@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "name": "QueryExtensions.cs",
+      "path": "EntityFrameworkLibrary\\QueryExtensions.cs"
+    }
+  ]
+}
