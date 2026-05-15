@@ -15,6 +15,25 @@ public class ToastOptions
 }
 ```
 
+appsettings.json
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ToastOptions": {
+    "ToastMessage": "Failed to open database!",
+    "ToastTitle": "Error",
+    "ToastDelay": 10000
+  }
+}
+```
+
 ## Dependency injection - Program.cs
 
 ```csharp
