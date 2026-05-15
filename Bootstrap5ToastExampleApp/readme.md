@@ -1,0 +1,46 @@
+﻿# About
+
+A demonstration of a Bootstrap toast that reads settings from `appsettings.json` using dependency injection.
+
+## Settings model
+
+```csharp
+public class ToastOptions
+{
+    public string? ToastMessage { get; set; }
+
+    public string? ToastTitle { get; set; }
+
+    public int ToastDelay { get; set; }
+}
+```
+
+## Dependency injection - Program.cs
+
+```csharp
+builder.Services.Configure<ToastOptions>(builder.Configuration.GetSection(nameof(ToastOptions)));
+
+builder.Services.AddScoped<ReadToast>();
+```
+
+## Index page
+
+- Uses primary constructor injection to read the toast options.
+
+```csharp
+public class IndexModel(ReadToast readToast) : PageModel
+```
+
+- Form post `asp-page-handler="ShowToast"`
+
+```csharp
+public IActionResult OnPostShowToast()
+{
+    ToastTitle = readToast.GetToastOptions().ToastTitle;
+    ToastMessage = readToast.GetToastOptions().ToastMessage;
+    ToastDelay = readToast.GetToastOptions().ToastDelay;
+
+    return RedirectToPage();
+        
+}
+```
