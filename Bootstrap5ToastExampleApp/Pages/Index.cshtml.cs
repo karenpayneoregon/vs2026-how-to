@@ -36,9 +36,10 @@ public class IndexModel(ReadToast readToast) : PageModel
     /// </returns>
     public IActionResult OnPostShowToast()
     {
-        ToastTitle = readToast.GetToastOptions().ToastTitle;
-        ToastMessage = readToast.GetToastOptions().ToastMessage;
-        ToastDelay = readToast.GetToastOptions().ToastDelay;
+        var options = readToast.GetToastOptions();
+        ToastTitle = options.ToastTitle;
+        ToastMessage = options.ToastMessage;
+        ToastDelay = options.ToastDelay;
 
         return RedirectToPage();
         
