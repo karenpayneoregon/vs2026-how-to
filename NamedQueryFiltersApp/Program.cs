@@ -1,6 +1,7 @@
 ﻿using EntityFrameworkLibrary;
 using Microsoft.EntityFrameworkCore;
 using NamedQueryFiltersApp.Data;
+using NamedQueryFiltersApp.Models;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
 
@@ -10,13 +11,36 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+        DisplayEmployeeQueryFilters();
 
-        IgnoreIsManagerFilters();
+        //IgnoreIsManagerFilters();
         //IgnoreSoftDeleteFilters();
         //IgnoreBothFilters();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    private static void DisplayEmployeeQueryFilters()
+    {
+        using var context = new Context();
+        if (context.HasQueryFilter<Employee>())
+        {
+            var filters = context.GetQueryFilters<Employee>();
+            if (filters is not null)
+            {
+                foreach (var (index, filter) in filters.Index())
+                {
+                    AnsiConsole.MarkupLine($"{index, -4}" +
+                                           $"[cyan]Name[/] {filter.Key} " +
+                                           $"[cyan]Expression[/] {filter.Expression}");
+                }
+            }
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[red]No query filters found for Employee entity.[/]");
+        }
     }
 
     /// <summary>
@@ -38,9 +62,9 @@ internal partial class Program
             .IgnoreQueryFilters(["SoftDelete"])
             .IgnoreQueryFilters(["IsManager"])
             .ToList();
-            
+
         AnsiConsole.WriteLine();
-        
+
         var table = CreateTable();
 
         foreach (var employee in employees)
@@ -51,7 +75,7 @@ internal partial class Program
 
         AnsiConsole.Write(table);
         AnsiConsole.WriteLine();
-        
+
     }
 
 
@@ -66,7 +90,7 @@ internal partial class Program
     {
 
         SpectreConsoleHelpers.PrintPink();
-        
+
         using var context = new Context();
         var employees = context.Employees
             .IgnoreQueryFilters(["SoftDelete"])
@@ -84,7 +108,7 @@ internal partial class Program
 
         AnsiConsole.Write(table);
         AnsiConsole.WriteLine();
-        
+
     }
 
     /// <summary>
@@ -99,7 +123,7 @@ internal partial class Program
     {
 
         SpectreConsoleHelpers.PrintPink();
-        
+
         using var context = new Context();
         var employees = context.Employees
             .IgnoreQueryFilters(["IsManager"])
@@ -118,7 +142,7 @@ internal partial class Program
 
         AnsiConsole.Write(table);
         AnsiConsole.WriteLine();
-        
+
     }
 
     /// <summary>
@@ -130,15 +154,15 @@ internal partial class Program
     private static Table CreateTable()
     {
         var table = new Table();
-        
+
         table.Title("[HotPink]Employees[/]");
-        
+
         table.AddColumn("[bold HotPink]Id[/]");
         table.AddColumn("[bold HotPink]Name[/]");
         table.AddColumn("[bold HotPink]Is Manager[/]");
         table.AddColumn("[bold HotPink]Is Deleted[/]");
-        
+
         return table;
-        
+
     }
 }

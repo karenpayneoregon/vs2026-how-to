@@ -16,7 +16,7 @@ public class Program
         builder.Services.Configure<ToastOptions>(
             builder.Configuration.GetSection(nameof(ToastOptions)));
 
-        // Register the ReadToast service for dependency injection
+        // Register the ReadToastConfiguration service for dependency injection
         builder.Services.AddScoped<ReadToastConfiguration>();
 
         var app = builder.Build();
