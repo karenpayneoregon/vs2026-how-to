@@ -3,17 +3,21 @@
 namespace Bootstrap5ToastExampleApp.Models;
 
 /// <summary>
-/// Represents the configuration options for a Bootstrap 5 toast notification.
+/// Represents the configuration options for toast notifications in the Bootstrap 5 Toast example application.
 /// </summary>
 /// <remarks>
-/// This class is used to define the properties required to configure and display a toast notification,
-/// such as the message, title, and delay duration.
+/// This class is used to define and manage toast notification settings, such as error messages or other
+/// predefined toast configurations. It is typically configured via dependency injection and appsettings.json.
 /// </remarks>
 public class ToastOptions
 {
-    public string? ToastMessage { get; set; }
-
-    public string? ToastTitle { get; set; }
-
-    public int ToastDelay { get; set; }
+    /// <summary>
+    /// Gets or sets the options for configuring a toast message that represents a database error.
+    /// </summary>
+    /// <remarks>
+    /// This property provides the configuration for a toast notification that is displayed
+    /// when a database error occurs. It includes settings such as the title, message, and delay
+    /// for the toast notification.
+    /// </remarks>
+    public ToastMessageOptions DatabaseError { get; set; } = new();
 }

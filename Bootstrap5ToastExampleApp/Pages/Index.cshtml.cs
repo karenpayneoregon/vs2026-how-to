@@ -27,9 +27,10 @@ public class IndexModel(ReadToastConfiguration readToast) : PageModel
     /// Handles the POST request to display a Bootstrap 5 toast notification.
     /// </summary>
     /// <remarks>
-    /// This method retrieves toast options such as title, message, and delay from the 
-    /// <see cref="ReadToast"/> service and assigns them to the corresponding TempData properties.
-    /// It then redirects the user back to the current page to display the toast.
+    /// This method retrieves toast options, including the title, message, and delay, 
+    /// from the <see cref="ReadToastConfiguration"/> service. It assigns these values 
+    /// to the corresponding TempData properties and redirects the user back to the 
+    /// current page to trigger the display of the toast notification.
     /// </remarks>
     /// <returns>
     /// An <see cref="IActionResult"/> that redirects to the current page.
@@ -38,9 +39,9 @@ public class IndexModel(ReadToastConfiguration readToast) : PageModel
     {
         var options = readToast.GetToastOptions();
         
-        ToastTitle = options.ToastTitle;
-        ToastMessage = options.ToastMessage;
-        ToastDelay = options.ToastDelay;
+        ToastTitle = options.DatabaseError.ToastTitle;
+        ToastMessage = options.DatabaseError.ToastMessage;
+        ToastDelay = options.DatabaseError.ToastDelay;
 
         return RedirectToPage();
         
