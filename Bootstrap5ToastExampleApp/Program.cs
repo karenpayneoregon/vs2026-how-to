@@ -12,18 +12,18 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
 
+        // Configure ToastOptions using the appsettings.json configuration section  
         builder.Services.Configure<ToastOptions>(
             builder.Configuration.GetSection(nameof(ToastOptions)));
 
-        builder.Services.AddScoped<ReadToast>();
+        // Register the ReadToast service for dependency injection
+        builder.Services.AddScoped<ReadToastConfiguration>();
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 

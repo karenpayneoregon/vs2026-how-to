@@ -2,6 +2,8 @@
 
 A demonstration of a Bootstrap toast that reads settings from `appsettings.json` using dependency injection.
 
+:bulb: Setting are read using the `IOptions<T>` pattern while other options are hard coded in a page.
+
 ## Settings model
 
 ```csharp

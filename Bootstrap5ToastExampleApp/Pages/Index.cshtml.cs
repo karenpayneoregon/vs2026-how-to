@@ -8,7 +8,7 @@ namespace Bootstrap5ToastExampleApp.Pages;
 /// on the Index page. It uses dependency injection to retrieve toast options and manages
 /// TempData properties for toast message, title, and delay.
 /// </summary>
-public class IndexModel(ReadToast readToast) : PageModel
+public class IndexModel(ReadToastConfiguration readToast) : PageModel
 {
     [TempData]
     public string? ToastMessage { get; set; }
