@@ -44,6 +44,26 @@ public static class DbContextExtensions
             return entityType?.GetDeclaredQueryFilters();
         }
 
+        /// <summary>
+        /// Attempts to retrieve the collection of query filters applied to the specified entity type in the current <see cref="DbContext"/>.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity for which the query filters are retrieved.</typeparam>
+        /// <returns>
+        /// A read-only collection of <see cref="IQueryFilter"/> instances representing the query filters applied to the entity type.
+        /// If no query filters are defined, an empty collection is returned.
+        /// </returns>
+        /// <remarks>
+        /// This method inspects the model metadata of the provided <see cref="DbContext"/> to retrieve any query filters
+        /// defined for the specified entity type. Unlike <see cref="GetQueryFilters{TEntity}"/>, this method guarantees
+        /// a non-null result by returning an empty collection when no filters are found.
+        /// </remarks>
+        public IReadOnlyCollection<IQueryFilter> TryGetQueryFilters<TEntity>() where TEntity : class
+        {
+            var entityType = context.Model.FindEntityType(typeof(TEntity));
+            var filters = entityType?.GetDeclaredQueryFilters();
+            return filters ?? [];
+        }
+
     }
 }
 

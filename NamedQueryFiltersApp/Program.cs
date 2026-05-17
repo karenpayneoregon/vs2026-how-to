@@ -11,11 +11,11 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        DisplayEmployeeQueryFilters();
-
+        Normal();
         //IgnoreIsManagerFilters();
         //IgnoreSoftDeleteFilters();
         //IgnoreBothFilters();
+        //DisplayEmployeeQueryFilters();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
@@ -27,14 +27,14 @@ internal partial class Program
         if (context.HasQueryFilter<Employee>())
         {
             var filters = context.GetQueryFilters<Employee>();
-            if (filters is not null)
+            
+            if (filters is null) return;
+            
+            foreach (var (index, filter) in filters.Index())
             {
-                foreach (var (index, filter) in filters.Index())
-                {
-                    AnsiConsole.MarkupLine($"{index, -4}" +
-                                           $"[cyan]Name[/] {filter.Key} " +
-                                           $"[cyan]Expression[/] {filter.Expression}");
-                }
+                AnsiConsole.MarkupLine($"{index, -4}" +
+                                       $"[cyan]Name[/] {filter.Key} " +
+                                       $"[cyan]Expression[/] {filter.Expression}");
             }
         }
         else
@@ -128,6 +128,30 @@ internal partial class Program
         var employees = context.Employees
             .IgnoreQueryFilters(["IsManager"])
             .TagWithDebugInfo("Running IgnoreQueryFilters([\"IsManager\"]")
+            .ToList();
+
+        AnsiConsole.WriteLine();
+
+        var table = CreateTable();
+
+        foreach (var employee in employees)
+        {
+            table.AddRow(employee.Id.ToString(), $"{employee.FirstName} {employee.LastName}",
+                employee.IsManager ? "Yes" : "No", employee.IsDeleted ? "Yes" : "No");
+        }
+
+        AnsiConsole.Write(table);
+        AnsiConsole.WriteLine();
+
+    }
+
+    private static void Normal()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+
+        using var context = new Context();
+        var employees = context.Employees
             .ToList();
 
         AnsiConsole.WriteLine();
