@@ -64,5 +64,43 @@ public partial class Context : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
+    /// <summary>
+    /// Asynchronously saves all changes made in this context to the database.
+    /// </summary>
+    /// <param name="cancellationToken">
+    /// A <see cref="CancellationToken"/> that can be used to cancel the asynchronous operation.
+    /// </param>
+    /// <returns>
+    /// A task that represents the asynchronous save operation. The task result contains the number of state entries 
+    /// written to the database.
+    /// </returns>
+    /// <remarks>
+    /// This method overrides the base implementation to detect changes in the tracked entities and apply a soft delete 
+    /// mechanism. Entities marked as deleted are instead updated with a flag indicating they are deleted, 
+    /// without being physically removed from the database.
+    /// </remarks>
+    /// <exception cref="DbUpdateException">
+    /// An error is encountered while saving to the database.
+    /// </exception>
+    /// <exception cref="OperationCanceledException">
+    /// The operation is canceled if the provided <paramref name="cancellationToken"/> is triggered.
+    /// </exception>
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        ChangeTracker.DetectChanges();
+
+        foreach (var entry in ChangeTracker.Entries())
+        {
+            if (entry.State == EntityState.Deleted)
+            {
+                // Change state to modified and set delete flag
+                entry.State = EntityState.Modified;
+                entry.Property("IsDeleted").CurrentValue = true;
+            }
+        }
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

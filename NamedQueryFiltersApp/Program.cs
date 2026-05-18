@@ -4,18 +4,22 @@ using NamedQueryFiltersApp.Data;
 using NamedQueryFiltersApp.Models;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
-
 namespace NamedQueryFiltersApp;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
-        BothFiltersEnabled();
+
+        await Task.Delay(0);
+        
+        //await PerformDelete();
+        
+        //BothFiltersEnabled();
         //IgnoreIsManagerFilters();
         //IgnoreSoftDeleteFilters();
         //IgnoreBothFilters();
-        DisplayEmployeeQueryFilters();
+        //DisplayEmployeeQueryFilters();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
@@ -184,6 +188,41 @@ internal partial class Program
         AnsiConsole.Write(table);
         AnsiConsole.WriteLine();
 
+    }
+
+    /// <summary>
+    /// Deletes an employee record from the database based on a predefined ID.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves an employee with a specific ID from the database. If the employee exists, 
+    /// it removes the employee and saves the changes to the database. The method provides feedback 
+    /// on the operation's success or failure using Spectre.Console for console output.
+    /// </remarks>
+    /// <returns>
+    /// A <see cref="Task"/> representing the asynchronous operation.
+    /// </returns>
+    private static async Task PerformDelete()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+
+        int id = 2;
+
+        await using var context = new Context();
+        var emp = await context.Employees.FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (emp is not null)
+        {
+            context.Employees.Remove(emp).State = EntityState.Deleted;
+            var affected = await context.SaveChangesAsync();
+            AnsiConsole.MarkupLine(affected > 0
+                ? $"[green]Successfully deleted employee with ID {id}.[/]"
+                : $"[red]Failed to delete employee with ID {id}. Affected rows: {affected}[/]");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"[yellow]Employee with ID 4 not found.[/]");
+        }
     }
 
     /// <summary>
