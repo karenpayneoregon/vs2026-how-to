@@ -202,10 +202,10 @@ internal partial class Program
     /// If the employee does not exist, a warning message is displayed in the console. 
     /// The method provides feedback on whether the deletion was successful or not.
     ///
-    /// See <see cref="Context.SaveChangesAsync()"/> for more details on saving changes.
+    /// See <see cref="NamedQueryFiltersApp.Data.Context.SaveChangesAsync(CancellationToken)"/> for more details on saving changes.
     /// </remarks>
     /// <returns>
-    /// A <see cref="Task"/> representing the asynchronous operation. The task completes 
+    /// A <see cref="System.Threading.Tasks.Task"/> representing the asynchronous operation. The task completes 
     /// when the database operation is finalized.
     /// </returns>
     private static async Task PerformDelete()
