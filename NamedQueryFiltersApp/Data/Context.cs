@@ -100,6 +100,26 @@ public partial class Context : DbContext
         }
 
         return await base.SaveChangesAsync(cancellationToken);
+        
+    }
+
+    public override int SaveChanges()
+    {
+        
+        ChangeTracker.DetectChanges();
+
+        foreach (var entry in ChangeTracker.Entries())
+        {
+            if (entry.State == EntityState.Deleted)
+            {
+                // Change state to modified and set delete flag
+                entry.State = EntityState.Modified;
+                entry.Property("IsDeleted").CurrentValue = true;
+            }
+        }
+
+        return base.SaveChanges();
+        
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
