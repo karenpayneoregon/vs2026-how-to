@@ -45,7 +45,7 @@ public partial class Context : DbContext
                 .IsRequired()
                 .HasMaxLength(50);
             
-            entity.HasQueryFilter("SoftDelete", e => e.IsDeleted);
+            entity.HasQueryFilter("SoftDelete", e => !e.IsDeleted);
             entity.HasQueryFilter("IsManager", e => e.IsManager);
             
         });

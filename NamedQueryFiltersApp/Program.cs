@@ -11,16 +11,25 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        Normal();
+        BothFiltersEnabled();
         //IgnoreIsManagerFilters();
         //IgnoreSoftDeleteFilters();
         //IgnoreBothFilters();
-        //DisplayEmployeeQueryFilters();
+        DisplayEmployeeQueryFilters();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Displays the query filters applied to the <see cref="Employee"/> entity.
+    /// </summary>
+    /// <remarks>
+    /// This method checks if the <see cref="Employee"/> entity has any query filters applied 
+    /// in the current <see cref="DbContext"/>. If filters are found, it retrieves and displays 
+    /// their names and expressions in a formatted output using Spectre.Console. If no filters 
+    /// are applied, a message indicating the absence of filters is displayed.
+    /// </remarks>
     private static void DisplayEmployeeQueryFilters()
     {
         using var context = new Context();
@@ -145,7 +154,15 @@ internal partial class Program
 
     }
 
-    private static void Normal()
+    /// <summary>
+    /// Displays a list of employees in a formatted table, including their ID, name, 
+    /// manager status, and deletion status.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves all employees from the database, formats their details 
+    /// into a table, and outputs the table to the console using Spectre.Console.
+    /// </remarks>
+    private static void BothFiltersEnabled()
     {
 
         SpectreConsoleHelpers.PrintPink();
