@@ -23,6 +23,7 @@ internal partial class Program
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+        
     }
 
     /// <summary>
@@ -209,11 +210,11 @@ internal partial class Program
         int id = 2;
 
         await using var context = new Context();
-        var emp = await context.Employees.FirstOrDefaultAsync(x => x.Id == id);
+        var employee = await context.Employees.FirstOrDefaultAsync(x => x.Id == id);
         
-        if (emp is not null)
+        if (employee is not null)
         {
-            context.Employees.Remove(emp).State = EntityState.Deleted;
+            context.Employees.Remove(employee).State = EntityState.Deleted;
             var affected = await context.SaveChangesAsync();
             AnsiConsole.MarkupLine(affected > 0
                 ? $"[green]Successfully deleted employee with ID {id}.[/]"
@@ -221,7 +222,7 @@ internal partial class Program
         }
         else
         {
-            AnsiConsole.MarkupLine($"[yellow]Employee with ID 4 not found.[/]");
+            AnsiConsole.MarkupLine($"[yellow]Employee with ID {id} not found.[/]");
         }
     }
 
