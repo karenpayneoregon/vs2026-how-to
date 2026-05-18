@@ -34,6 +34,17 @@ public partial class Context : DbContext
                 LogLevel.Information); ;
     }
 
+    /// <summary>
+    /// Configures the model for the database context by defining entity configurations and query filters.
+    /// </summary>
+    /// <param name="modelBuilder">
+    /// An instance of <see cref="ModelBuilder"/> used to configure the shape of entities, relationships, and database mappings.
+    /// </param>
+    /// <remarks>
+    /// This method is overridden to apply specific configurations for the <see cref="Employee"/> entity, 
+    /// such as property constraints and query filters. It also invokes the <c>OnModelCreatingPartial</c> method 
+    /// to allow further customization in partial classes.
+    /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Employee>(entity =>
