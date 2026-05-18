@@ -191,16 +191,22 @@ internal partial class Program
 
     }
 
+
+
     /// <summary>
-    /// Deletes an employee record from the database based on a predefined ID.
+    /// Asynchronously soft deletes an employee with a predefined ID from the database.
     /// </summary>
     /// <remarks>
-    /// This method retrieves an employee with a specific ID from the database. If the employee exists, 
-    /// it removes the employee and saves the changes to the database. The method provides feedback 
-    /// on the operation's success or failure using Spectre.Console for console output.
+    /// This method attempts to locate an employee in the database using a hardcoded ID value. 
+    /// If the employee is found, it is marked for deletion but is not hard deleted, and the changes are saved to the database. 
+    /// If the employee does not exist, a warning message is displayed in the console. 
+    /// The method provides feedback on whether the deletion was successful or not.
+    ///
+    /// See <see cref="Context.SaveChangesAsync()"/> for more details on saving changes.
     /// </remarks>
     /// <returns>
-    /// A <see cref="Task"/> representing the asynchronous operation.
+    /// A <see cref="Task"/> representing the asynchronous operation. The task completes 
+    /// when the database operation is finalized.
     /// </returns>
     private static async Task PerformDelete()
     {
