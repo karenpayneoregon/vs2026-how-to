@@ -17,6 +17,4 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 
 ## Additional Context
 
-Each commit message should end with
-
-By Karen Payne
+Add footer that says by Karen
