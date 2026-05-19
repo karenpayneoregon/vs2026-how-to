@@ -9,4 +9,4 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 
 ## commit messages
 
-Add footer that says by Karen Payne
+Add footer that says by Karen Payne for GitHub commit messages.
