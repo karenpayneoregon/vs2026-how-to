@@ -6,15 +6,7 @@ These instructions are automatically included in Copilot chat conversations.
 Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-instructions
 -->
 
-## Project Overview
 
+## commit messages
 
-## Architecture Guidelines
-
-
-## Testing Requirements
-
-
-## Additional Context
-
-Add footer that says by Karen
+Add footer that says by Karen Payne
