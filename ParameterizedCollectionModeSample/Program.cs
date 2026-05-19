@@ -1,5 +1,6 @@
 ﻿using ConsoleConfigurationLibrary.Classes;
 using Microsoft.EntityFrameworkCore;
+using ParameterizedCollectionModeSample.Classes;
 using ParameterizedCollectionModeSample.Data;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
@@ -89,12 +90,18 @@ internal partial class Program
 
         AnsiConsole.WriteLine();
 
-        var table = CreateTable();
+        var table = CreateTableFixDeleted();
 
-        foreach (var employee in employees)
+        foreach ((var row, var employee)  in employees.Index())
         {
-            table.AddRow(employee.Id.ToString(), $"{employee.FirstName} {employee.LastName}",
+            
+            table.AddRow(row.ToString(),
+                employee.Id.ToString(),
+                row.IsEven()
+                    ? $"[HotPink]{employee.FirstName} {employee.LastName}[/]"
+                    : $"{employee.FirstName} {employee.LastName}",
                 employee.IsManager ? "Yes" : "No", employee.IsDeleted ? "Yes" : "No");
+            
         }
 
         AnsiConsole.Write(table);
@@ -115,6 +122,21 @@ internal partial class Program
 
         table.Title("[HotPink]Employees[/]");
 
+        table.AddColumn("[bold HotPink]Id[/]");
+        table.AddColumn("[bold HotPink]Name[/]");
+        table.AddColumn("[bold HotPink]Is Manager[/]");
+        table.AddColumn("[bold HotPink]Is Deleted[/]");
+
+        return table;
+
+    }
+    private static Table CreateTableFixDeleted()
+    {
+        var table = new Table();
+
+        table.Title("[HotPink]Employees[/]");
+
+        table.AddColumn("[bold HotPink]Index[/]");
         table.AddColumn("[bold HotPink]Id[/]");
         table.AddColumn("[bold HotPink]Name[/]");
         table.AddColumn("[bold HotPink]Is Manager[/]");

@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Basic</Product>
+		<Product>UseParameterizedCollectionMode</Product>
 		<Description>A sample project demonstrating assembly metadata retrieval.</Description>
 		<Company>Payne services</Company>
 		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
