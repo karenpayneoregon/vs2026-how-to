@@ -23,8 +23,20 @@ public partial class Context : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
+    /// <summary>
+    /// Configures the database context options for the application.
+    /// </summary>
+    /// <param name="optionsBuilder">
+    /// An instance of <see cref="DbContextOptionsBuilder"/> used to configure the database context.
+    /// </param>
+    /// <remarks>
+    /// This method enables sensitive data logging (for demostration only), configures the SQL Server provider with a connection string, 
+    /// and sets the parameterized collection mode to <see cref="ParameterTranslationMode.Constant"/>.
+    /// Additionally, it logs database commands to a file using <see cref="DbContextToFileLogger"/>.
+    /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
+            .EnableSensitiveDataLogging()
             .UseSqlServer(AppConnections.Instance.MainConnection,
                 o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
             .LogTo(new DbContextToFileLogger().Log, new[]
@@ -32,6 +44,7 @@ public partial class Context : DbContext
                     DbLoggerCategory.Database.Command.Name
                 },
                 LogLevel.Information);
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,4 +1,5 @@
 ﻿using ConsoleConfigurationLibrary.Classes;
+using EntityFrameworkLibrary;
 using Microsoft.EntityFrameworkCore;
 using ParameterizedCollectionModeSample.Classes;
 using ParameterizedCollectionModeSample.Data;
@@ -77,9 +78,11 @@ internal partial class Program
 
 
         await using var context = new Context();
+        
         await context.Employees
-           .Where(b => ((IEnumerable<int>)EF.Constant(ids)).Contains(b.Id))
-           .ExecuteUpdateAsync(x => x
+            .TagWithDebugInfo("ExecuteUpdateAsync operation")
+            .Where(b => ((IEnumerable<int>)EF.Constant(ids)).Contains(b.Id))
+            .ExecuteUpdateAsync(x => x
                 .SetProperty(u => u.IsDeleted, false));
 
 
@@ -92,16 +95,16 @@ internal partial class Program
 
         var table = CreateTableFixDeleted();
 
-        foreach ((var row, var employee)  in employees.Index())
+        foreach (var (row, employee) in employees.Index())
         {
-            
+
             table.AddRow(row.ToString(),
                 employee.Id.ToString(),
                 row.IsEven()
                     ? $"[HotPink]{employee.FirstName} {employee.LastName}[/]"
                     : $"{employee.FirstName} {employee.LastName}",
                 employee.IsManager ? "Yes" : "No", employee.IsDeleted ? "Yes" : "No");
-            
+
         }
 
         AnsiConsole.Write(table);
