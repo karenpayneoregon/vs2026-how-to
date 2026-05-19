@@ -8,10 +8,10 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        SpectreConsoleHelpers.PinkPill(Justify.Left, 
-            "Null-conditional assignment");
+        SpectreConsoleHelpers.PinkPill(Justify.Left, "Null-conditional assignment");
 
         Customer customer = new();
+
         customer?.Order = GetCurrentOrder();
         Console.WriteLine(customer!.Order.Id);
 
