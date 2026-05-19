@@ -13,8 +13,8 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
-        //await FiltersIdentifiers();
-        await FixIsDeleted();
+        await FiltersIdentifiers();
+        //await FixIsDeleted();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
