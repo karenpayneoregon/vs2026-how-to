@@ -10,30 +10,33 @@ internal partial class Program
 {
     private static async Task Main(string[] args)
     {
-        DisplayBooksTable();
+        DisplayBooksTable(10);
 
-        await UpdaterAsync(10, true);
+        await PromotionUpdaterAsync(10, true);
 
-        DisplayBooksTable();
+        DisplayBooksTable(10);
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
     /// <summary>
-    /// Displays the books table in the console using Spectre.Console.
+    /// Displays a table of books filtered by the specified rating in the console.
     /// </summary>
+    /// <param name="rating">
+    /// The rating used to filter the books displayed in the table.
+    /// </param>
     /// <remarks>
-    /// This method retrieves a list of books from the database context, creates a Spectre.Console table,
-    /// and populates it with book details such as Id, Book Name, Price, and Rating. The table is then
-    /// rendered in the console.
+    /// This method retrieves books from the database with the specified rating, creates a formatted table
+    /// using Spectre.Console, and displays the table in the console. The table includes columns for
+    /// book ID, name, price, and rating.
     /// </remarks>
-    private static void DisplayBooksTable()
+    private static void DisplayBooksTable(int rating)
     {
 
         SpectreConsoleHelpers.PrintPink();
 
         using var context = new Context();
-        var books = context.Books.Where(x => x.Rating == 10).ToList();
+        var books = context.Books.Where(x => x.Rating == rating).ToList();
 
         var table = CreateBooksTable();
 
@@ -63,7 +66,7 @@ internal partial class Program
     /// This method uses Entity Framework Core's <c>ExecuteUpdateAsync</c> to perform bulk updates
     /// on the database. If an exception occurs during the operation, it is logged using Serilog.
     /// </remarks>
-    private static async Task UpdaterAsync(int rating, bool applyPromotion)
+    private static async Task PromotionUpdaterAsync(int rating, bool applyPromotion)
     {
 
         SpectreConsoleHelpers.PrintPink();
@@ -86,7 +89,7 @@ internal partial class Program
         }
         catch (Exception exception)
         {
-            Log.Error(exception, nameof(UpdaterAsync));
+            Log.Error(exception, nameof(PromotionUpdaterAsync));
         }
     }   
 
