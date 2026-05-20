@@ -8,7 +8,9 @@
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
-  <Folder Name="/Console projects/" />
+  <Folder Name="/Console projects/">
+    <Project Path="ReadMockJsonUsingDapperApp/ReadMockJsonUsingDapperApp.csproj" Id="6b0b760b-7a8e-46b3-8ba2-d9f5093287c7" />
+  </Folder>
   <Folder Name="/Console projects/EF Core/">
     <Project Path="enum-has-conversion/EnumHasConversion.csproj" />
     <Project Path="ExecuteUpdateCodeSamples/ExecuteUpdateCodeSamples.csproj" Id="dfaa6fc7-f252-4ffa-bdda-f91985e04f1e" />

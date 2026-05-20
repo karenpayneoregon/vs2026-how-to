@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Spectre.Console;
 using UseIdentityColumnSample.Data;
@@ -57,20 +55,35 @@ internal partial class Program
 
         try
         {
-            
-            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer ON");
-            await context.SaveChangesAsync();
-            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer OFF");
-        
-            SuccessPill(Justify.Left, "Customers added successfully.");
-            
+            // Ensure SET IDENTITY_INSERT and SaveChanges run in the same transaction/connection
+            await using var transaction = await context.Database.BeginTransactionAsync();
+            try
+            {
+                await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer ON");
+                await context.SaveChangesAsync();
+                await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer OFF");
+
+                await transaction.CommitAsync();
+
+                SuccessPill(Justify.Left, "Customers added successfully.");
+            }
+            catch
+            {
+                try
+                {
+                    await transaction.RollbackAsync();
+                }
+                catch
+                {
+                    // ignore rollback failures - original exception will be rethrown
+                }
+                throw;
+            }
         }
         catch (Exception e)
         {
-            
-            Log.Error(e,nameof(AddCustomers));
-            ErrorPill(Justify.Left,"Save failed, see log");
-            
+            Log.Error(e, nameof(AddCustomers));
+            ErrorPill(Justify.Left, "Save failed, see log");
         }
         
     }
