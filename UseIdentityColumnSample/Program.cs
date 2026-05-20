@@ -1,10 +1,11 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using Spectre.Console;
-using SpectreConsoleLibrary.Core;
 using UseIdentityColumnSample.Data;
 using UseIdentityColumnSample.Models;
+using static SpectreConsoleLibrary.Core.SpectreConsoleHelpers;
 
 namespace UseIdentityColumnSample;
 
@@ -16,7 +17,7 @@ internal partial class Program
         await AddCustomers();
         await PrintCustomers();
 
-        SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+        ExitPrompt(Justify.Left);
     }
 
     /// <summary>
@@ -34,7 +35,7 @@ internal partial class Program
     /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     private static async Task AddCustomers()
     {
-        SpectreConsoleHelpers.PrintPink();
+        PrintPink();
 
         List<Customer> customers =
         [
@@ -53,11 +54,24 @@ internal partial class Program
 
 
         context.Customers.AddRange(customers);
-        await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer ON");
-        await context.SaveChangesAsync();
-        await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer OFF");
+
+        try
+        {
+            
+            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer ON");
+            await context.SaveChangesAsync();
+            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer OFF");
         
-        SpectreConsoleHelpers.SuccessPill(Justify.Left, "Customers added successfully.");
+            SuccessPill(Justify.Left, "Customers added successfully.");
+            
+        }
+        catch (Exception e)
+        {
+            
+            Log.Error(e,nameof(AddCustomers));
+            ErrorPill(Justify.Left,"Save failed, see log");
+            
+        }
         
     }
     
@@ -72,16 +86,18 @@ internal partial class Program
     private static async Task PrintCustomers()
     {
 
-        SpectreConsoleHelpers.PrintPink();
+        PrintPink();
 
         await using var context = new Context();
         
         var customers = await context.Customers.ToListAsync();
         
         AnsiConsole.MarkupLine("[cyan]Customers:[/]");
+        
         foreach (var customer in customers)
         {
             AnsiConsole.MarkupLine($"[green]{customer.CustomerId}[/]: {customer.FirstName} {customer.LastName}");
         }
+        
     }
 }

@@ -6,6 +6,14 @@ namespace EnumHasConversion.Classes;
 
 public class WineOperations
 {
+    /// <summary>
+    /// Retrieves a list of wines filtered by the specified wine type.
+    /// </summary>
+    /// <param name="wineType">The type of wine to filter by. See <see cref="WineType"/> for available options.</param>
+    /// <returns>A list of <see cref="Wine"/> objects that match the specified wine type.</returns>
+    /// <remarks>
+    /// This method uses the <see cref="WineContext"/> to query the database for wines of the specified type.
+    /// </remarks>
     public static List<Wine> GetWinesByType(WineType wineType)
     {
         using var context = new WineContext();
@@ -13,6 +21,17 @@ public class WineOperations
             .Where(wine => wine.WineType == wineType)
             .ToList();
     }
+    
+    
+    /// <summary>
+    /// Demonstrates various examples of grouping and filtering operations on wine data.
+    /// </summary>
+    /// <remarks>
+    /// This method performs the following operations:
+    /// - Groups wines by their type and displays the grouped results.
+    /// - Filters wines by specific types (e.g., Rose, Red) and displays the filtered results.
+    /// - Displays all wines in the database.
+    /// </remarks>
     public static void RunExamples()
     {
 
