@@ -9,4 +9,5 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 
 ## GitHub commit message
 
-Add footer that says by Karen Payne
+Append the following line
+by Karen Payne
