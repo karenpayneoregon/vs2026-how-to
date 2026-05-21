@@ -9,4 +9,4 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 
 ## Commit messages
 
-Append the following line to the end of the commit message: by Karen Payne
+Add the following line to the end of the commit message: by Karen Payne
