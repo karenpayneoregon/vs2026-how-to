@@ -1,3 +1,3 @@
 # About
 
-A collection of extensions using C# 14 features.
+A collection of extensions using C# 14 feature extension blocks.
