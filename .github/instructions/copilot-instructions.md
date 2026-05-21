@@ -7,7 +7,6 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 -->
 
 
-## GitHub commit message
+## Commit messages
 
-Append the following line to the end of the commit message when I make a commit:
-by Karen Payne
+Append the following line to the end of the commit message: by Karen Payne
