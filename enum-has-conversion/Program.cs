@@ -1,4 +1,5 @@
-﻿using EnumHasConversion.Classes;
+﻿using EntityFrameworkLibrary;
+using EnumHasConversion.Classes;
 using EnumHasConversion.Data;
 using EnumHasConversion.Extensions;
 using EnumHasConversion.Models;
@@ -12,6 +13,8 @@ internal partial class Program
     static void Main(string[] args)
     {
         using var context = new WineContext();
+
+        Console.WriteLine(context.DatabaseExists() ? "Exist" : "Does not exist");
 
         CancellationTokenSource cancellationTokenSource = new(TimeSpan.FromSeconds(2));
 
