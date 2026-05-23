@@ -15,7 +15,7 @@ internal class Samples
         
         const string text = "   This   is   an example   string with      extra spaces.   ";
         AnsiConsole.MarkupLine($"[yellow]Original:[/] '{text}'");
-        AnsiConsole.MarkupLine($"[yellow]Trimmed End:[/] '{text.RemoveExtraSpaces()}'");
+        AnsiConsole.MarkupLine($"[yellow]Trimmed End:[/] '{text.RemoveExtraSpaces(false,true)}'");
         AnsiConsole.MarkupLine($"[yellow]Not Trimmed Start:[/] '{text.RemoveExtraSpaces(false)}'");
         AnsiConsole.MarkupLine($"[yellow]Not Trimmed End:[/] '{text.RemoveExtraSpaces()}'");
         
