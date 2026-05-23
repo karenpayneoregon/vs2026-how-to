@@ -6,8 +6,20 @@ public static class IntExtensions
 {
     extension(int number)
     {
+        /// <summary>
+        /// Increments the value of the current <see cref="int"/> instance by one.
+        /// </summary>
+        /// <remarks>
+        /// This method modifies the value of the integer it is called on.
+        /// </remarks>
         public void Increment()
             => number++;
+        /// <summary>
+        /// Decrements the value of the current <see cref="int"/> instance by one.
+        /// </summary>
+        /// <remarks>
+        /// This method modifies the value of the integer it is called on.
+        /// </remarks>
         public void Decrement() => number--;
     }
 
