@@ -7,7 +7,6 @@ Use the contextual keyword `field`, introduced in C# 14, in a property accessor 
 - See Micorosoft's [documentation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field) for more information.
 - The [value](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value) implicit parameter. The `set` accessor in [property](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) and [indexer](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/) declarations uses the implicit parameter `value`. This parameter acts as an input for the method. The word `value` refers to the value that client code tries to assign to the property or indexer.
 
-
 ## Example 1
 
 Uppercase first letter
@@ -38,4 +37,3 @@ public required string State
     }
 }
 ```
-

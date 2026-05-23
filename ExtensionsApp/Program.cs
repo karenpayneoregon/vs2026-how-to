@@ -15,6 +15,7 @@ internal partial class Program
         Samples.IncrementAndPrintValues();
         Samples.DateOnlyExamples();
         Samples.BetweenExamples();
+        Samples.RemoveExtraSpaces();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);

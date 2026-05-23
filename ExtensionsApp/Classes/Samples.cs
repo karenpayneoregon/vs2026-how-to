@@ -9,6 +9,20 @@ namespace ExtensionsApp.Classes;
 
 internal class Samples
 {
+    public static void RemoveExtraSpaces()
+    {
+        SpectreConsoleHelpers.PrintPink();
+        
+        const string text = "   This   is   an example   string with      extra spaces.   ";
+        AnsiConsole.MarkupLine($"[yellow]Original:[/] '{text}'");
+        AnsiConsole.MarkupLine($"[yellow]Trimmed End:[/] '{text.RemoveExtraSpaces()}'");
+        AnsiConsole.MarkupLine($"[yellow]Not Trimmed Start:[/] '{text.RemoveExtraSpaces(false)}'");
+        AnsiConsole.MarkupLine($"[yellow]Not Trimmed End:[/] '{text.RemoveExtraSpaces()}'");
+        
+        Console.WriteLine();
+        
+        
+    }
     /// <summary>
     /// Demonstrates the usage of the <see cref="ComparerExtensions.IsBetween{T}(T,T,T)"/> method
     /// to check whether a value or date falls within a specified range.

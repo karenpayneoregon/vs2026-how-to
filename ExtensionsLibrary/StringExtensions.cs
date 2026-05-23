@@ -72,13 +72,18 @@ public static partial class StringExtensions
                 sender[..^1];
 
         /// <summary>
-        /// Removes extra spaces from the given string, optionally trimming the end.
+        /// Removes extra spaces from the current string instance.
         /// </summary>
-        /// <param name="trimEnd">If set to <c>true</c>, trims the end of the resulting string.</param>
+        /// <param name="trimStart">If set to <c>true</c>, trims leading spaces from the resulting string.</param>
+        /// <param name="trimEnd">If set to <c>true</c>, trims trailing spaces from the resulting string.</param>
         /// <returns>A new string with extra spaces removed.</returns>
-        public string RemoveExtraSpaces(bool trimEnd = false)
+        public string RemoveExtraSpaces(bool trimStart = true,bool trimEnd = false)
         {
             var result = ExtraSpacesRegex().Replace(sender, " ");
+            if (trimStart)
+            {
+                result = result.TrimStart();
+            }
             return trimEnd ? result.TrimEnd() : result;
         }
     }
