@@ -16,6 +16,7 @@ internal partial class Program
         Samples.DateOnlyExamples();
         Samples.BetweenExamples();
         Samples.RemoveExtraSpaces();
+        Samples.GetCurrentProjectFramework();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);

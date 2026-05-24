@@ -4,11 +4,37 @@ using DateTimeExtensions.WorkingDays;
 using ExtensionsLibrary;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
+using System.Reflection;
 
 namespace ExtensionsApp.Classes;
 
 internal class Samples
 {
+
+    /// <summary>
+    /// Retrieves and displays the target framework version of the current project.
+    /// </summary>
+    /// <remarks>
+    /// This method uses the entry assembly to determine the target framework version.
+    /// If the framework version is successfully retrieved, it is displayed in the console.
+    /// Otherwise, an error message is displayed indicating that the framework version could not be determined.
+    /// </remarks>
+    public static void GetCurrentProjectFramework()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+
+        Version? frameworkVersion = Assembly.GetEntryAssembly()?.GetTargetFrameworkVersion();
+        // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+        if (frameworkVersion is not null)
+        {
+            AnsiConsole.MarkupLine($"[green bold]Project framework is[/][yellow] {frameworkVersion.Major}.{frameworkVersion.Minor}[/]");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[red]Could not determine the target framework version.[/]");
+        }
+    }
     public static void RemoveExtraSpaces()
     {
         SpectreConsoleHelpers.PrintPink();
@@ -47,6 +73,13 @@ internal class Samples
         DateOnly startDate = new DateOnly(2026, 5, 1);
         DateOnly endDate = new DateOnly(2026, 5, 20);
         DateOnly dateToCheck = new DateOnly(2026, 5, 22);
+
+        AnsiConsole.MarkupLine(dateToCheck.IsBetween(startDate, endDate)
+            ? $"[green bold]{dateToCheck} is between {startDate} and {endDate}[/]"
+            : $"[red]{dateToCheck} is NOT between {startDate} and {endDate}[/]");
+
+
+        dateToCheck = new DateOnly(2026, 5, 18);
 
         AnsiConsole.MarkupLine(dateToCheck.IsBetween(startDate, endDate)
             ? $"[green bold]{dateToCheck} is between {startDate} and {endDate}[/]"
