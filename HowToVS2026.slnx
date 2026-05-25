@@ -34,6 +34,9 @@
     <File Path=".editorconfig" />
     <File Path="readme.md" />
   </Folder>
+  <Folder Name="/Tools/">
+    <Project Path="FrameworkLifeCycle/FrameworkLifeCycle.csproj" Id="1de30548-f54a-4d32-ad76-b0c81b9d2a4e" />
+  </Folder>
   <Folder Name="/Validation/">
     <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
   </Folder>
