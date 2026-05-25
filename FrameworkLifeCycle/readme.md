@@ -1,6 +1,8 @@
 ﻿# About
 
-A `dotnet tool` to show the life cycle for .NET Core frameworks.
+A `dotnet tool` to show the life cycle for .NET Core frameworks. 
+
+See [dotnet Framework life cycle tool](https://dev.to/karenpayneoregon/dotnet-framework-life-cycle-tool-103d) article
 
 
 ![Screenshot](images/screenshot.png)
