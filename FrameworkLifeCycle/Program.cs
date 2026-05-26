@@ -16,12 +16,7 @@ internal partial class Program
         SpectreConsoleHelpers.InfoPill(Justify.Left, $"Found {releases.Count} releases.");
         Console.WriteLine();
 
-        var table = new Table().Title("[bold blue] .NET Release Information [/]");
-        table.AddColumn(new TableColumn("[bold yellow]Channel[/]"));
-        table.AddColumn(new TableColumn("[bold yellow]Latest[/]"));
-        table.AddColumn(new TableColumn("[bold yellow]ReleaseType[/]"));
-        table.AddColumn(new TableColumn("[bold yellow]End Of Life Date[/]"));
-        table.AddColumn(new TableColumn("[bold yellow]Support[/]"));
+        var table = CreateReleaseInfoTable();
 
         foreach (var item in releases)
         {
@@ -47,6 +42,25 @@ internal partial class Program
         AnsiConsole.Write(table);
         Console.WriteLine();
 
+    }
+
+    /// <summary>
+    /// Creates and configures a table to display .NET release information.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="Spectre.Console.Table"/> instance with predefined columns for 
+    /// displaying .NET release details such as channel, latest release, release type, 
+    /// end-of-life date, and support phase.
+    /// </returns>
+    private static Table CreateReleaseInfoTable()
+    {
+        var table = new Table().Title("[bold blue] .NET Release Information [/]");
+        table.AddColumn(new TableColumn("[bold yellow]Channel[/]"));
+        table.AddColumn(new TableColumn("[bold yellow]Latest[/]"));
+        table.AddColumn(new TableColumn("[bold yellow]ReleaseType[/]"));
+        table.AddColumn(new TableColumn("[bold yellow]End Of Life Date[/]"));
+        table.AddColumn(new TableColumn("[bold yellow]Support[/]"));
+        return table;
     }
 
     /// <summary>
