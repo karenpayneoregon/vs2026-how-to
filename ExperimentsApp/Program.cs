@@ -12,8 +12,10 @@ internal partial class Program
     {
         //DisplayItemDetails();
 
-        DisplayCommaDelimitedMonths();
+        //DisplayCommaDelimitedMonths();
 
+        var birthDate = Prompts.GetBirthDate1(2000);
+        Console.WriteLine(birthDate);
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

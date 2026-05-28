@@ -4,7 +4,7 @@ namespace SpectreConsoleLibrary.Core;
 /// <summary>
 /// Examples of various prompts using Spectre.Console to capture user input with validation and styling.
 /// </summary>
-internal class Prompts
+public static class Prompts
 {
 
     private static readonly Style Style = new(Color.Fuchsia, Color.Black, Decoration.None);
@@ -90,6 +90,20 @@ internal class Prompts
 
         return result;
     }
+
+    public static DateOnly? GetBirthDate1(int year)
+    {
+        DateOnly? result = AnsiConsole.Prompt(
+            new TextPrompt<DateOnly>("What is your [white]birth date[/]?")
+                .PromptStyle("yellow")
+                .ValidationErrorMessage("[red]Please enter a valid date or press ENTER to not enter a date[/]")
+                .Validate(date => PromptValidations.ValidateDate(date, year))
+                .AllowEmpty());
+
+        return result;
+    }
+
+
 
     public static List<string> QuestionOptions => ["Y", "N"];
 
