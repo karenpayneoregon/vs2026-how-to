@@ -37,6 +37,10 @@
   </Folder>
   <Folder Name="/Tools/">
     <Project Path="FrameworkLifeCycle/FrameworkLifeCycle.csproj" Id="1de30548-f54a-4d32-ad76-b0c81b9d2a4e" />
+    <Project Path="UpdateFrameworkApp/UpdateFrameworkApp.csproj" />
+  </Folder>
+  <Folder Name="/Tools/Experiments projects/">
+    <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />
   </Folder>
   <Folder Name="/Validation/">
     <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
