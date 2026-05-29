@@ -16,7 +16,10 @@ internal class DataOperations
     /// </remarks>
     public static void GetSettings()
     {
+        
         Console.WriteLine(AppConnections.Instance.MainConnection);
         Console.WriteLine(EntitySettings.Instance.CreateNew); 
+        
     }
+    
 }
