@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
 
 // ReSharper disable once CheckNamespace
 namespace UpdateFrameworkApp;
@@ -12,8 +7,7 @@ internal partial class Program
     [ModuleInitializer]
     public static void Init()
     {
-        AnsiConsole.MarkupLine("");
-        Console.Title = "Code sample";
+        Console.Title = "NET9 to NET10";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
 }

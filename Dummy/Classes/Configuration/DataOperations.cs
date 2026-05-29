@@ -6,7 +6,14 @@ namespace Dummy.Classes.Configuration;
 /// </summary>
 internal class DataOperations
 {
-    // here for demonstration purposes
+    
+    /// <summary>
+    /// Retrieves and displays application settings, such as connection details and entity creation settings.
+    /// </summary>
+    /// <remarks>
+    /// This method accesses singleton instances of <see cref="AppConnections"/> and <see cref="EntitySettings"/> 
+    /// to retrieve and output their respective properties.
+    /// </remarks>
     public static void GetSettings()
     {
         Console.WriteLine(AppConnections.Instance.MainConnection);

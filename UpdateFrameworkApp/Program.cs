@@ -6,8 +6,11 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+
         var msg = ProjectUpdater.UpdateTargetFramework(args[0]);
         AnsiConsole.MarkupLine(msg);
+        AnsiConsole.MarkupLine("[cyan]Press a key to close[/]");
+        
         Console.ReadLine();
     }
 }
