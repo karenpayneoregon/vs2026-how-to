@@ -9,6 +9,9 @@
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
   <Folder Name="/Console projects/" />
+  <Folder Name="/Console projects/Dapper SQL Server/">
+    <Project Path="DeleteDuplicateRowsSqlServerTable/DeleteDuplicateRowsSqlServerTable.csproj" />
+  </Folder>
   <Folder Name="/Console projects/EF Core/">
     <Project Path="EF_Core_MaskingSample/EF_Core_MaskingSample.csproj" />
     <Project Path="enum-has-conversion/EnumHasConversion.csproj" />
