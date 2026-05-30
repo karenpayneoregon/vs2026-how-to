@@ -1,33 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 using BootstrapComponentsApp.Classes;
-using BootstrapComponentsApp.Models;
-using static System.IO.File;
 
-namespace BootstrapComponentsApp.Pages
+namespace BootstrapComponentsApp.Pages;
+
+public class BadgeDemoModel : PageModel
 {
-    public class BadgeDemoModel : PageModel
+    public int BadgeCount { get; set; }
+
+    public string BadgeDisplay => BadgeCount > 99 ? "99+" : BadgeCount.ToString();
+
+    public void OnGet()
     {
-        public int BadgeCount { get; set; }
+        BadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
+    }
 
-        public string BadgeDisplay => BadgeCount > 99 ? "99+" : BadgeCount.ToString();
+    public IActionResult OnPostIncrement()
+    {
+        int currentBadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
 
-        public void OnGet()
-        {
-            BadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
-        }
+        currentBadgeCount++;
 
-        public IActionResult OnPostIncrement()
-        {
-            int currentBadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
+        BadgeOperations.SaveBadgeCountToAppSettings(currentBadgeCount);
 
-            currentBadgeCount++;
-
-            BadgeOperations.SaveBadgeCountToAppSettings(currentBadgeCount);
-
-            return RedirectToPage();
-        }
+        return RedirectToPage();
     }
 }

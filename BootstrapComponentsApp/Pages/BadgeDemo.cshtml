@@ -1,16 +1,9 @@
 ﻿@page
 @model BootstrapComponentsApp.Pages.BadgeDemoModel
-@{
-}
-
-<style>
-    .btnw {
-        width: 200px;
-    }
-</style>
+@{}
 
 <form method="post">
-    <div class="mt-4 d-flex gap-3">
+    <div class="mt-4 mb-2 d-flex gap-3">
 
         <button type="button" class="btn btn-primary position-relative">
             Inbox
@@ -20,9 +13,7 @@
             </span>
         </button>
 
-        <button type="submit"
-                asp-page-handler="Increment"
-                class="btn btn-success">
+        <button type="submit" asp-page-handler="Increment" class="btn btn-success">
             Increment Badge
         </button>
 
