@@ -1,0 +1,36 @@
+﻿@page
+@model BootstrapComponentsApp.Pages.BadgeDemoModel
+@{
+}
+
+<style>
+    .btnw {
+        width: 200px;
+    }
+</style>
+
+<div class="container">
+    
+    <h1 class="text-center">Badge demo</h1>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="BadgeCount" />
+
+        <div class="row">
+            <button type="button" class="btn btn-primary btnw mb-2 position-relative">
+                Tokens used
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    @Model.BadgeDisplay
+                    <span class="visually-hidden">tokens count used</span>
+                </span>
+            </button>
+        </div>
+        <div class="row">
+            <button type="submit" asp-page-handler="Increment" class="btn btn-success btnw">
+                Increment Tokens
+            </button>
+        </div>
+
+    </form>
+</div>
