@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Bootstrap projects/">
     <Project Path="Bootstrap5ToastExampleApp/Bootstrap5ToastExampleApp.csproj" />
+    <Project Path="BootstrapComponentsApp/BootstrapComponentsApp.csproj" Id="0158b0aa-c496-449a-8b9b-f979397a5922" />
   </Folder>
   <Folder Name="/Class projects/">
     <Project Path="CommonLibrary/CommonLibrary.csproj" />
