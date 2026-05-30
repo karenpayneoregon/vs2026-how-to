@@ -1,5 +1,6 @@
 ﻿using Spectre.Console;
 using SpectreConsoleLibrary.Core;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 #pragma warning disable IDE0017
 
 namespace NullConditionalAssignment;
@@ -22,10 +23,8 @@ internal partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
     
-    private static Order GetCurrentOrder()
-    {
-        return new Order { Id = 111 };
-    }
+    private static Order GetCurrentOrder() 
+        => new() { Id = 111 };
 }
 
 public class Customer
