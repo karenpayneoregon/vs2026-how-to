@@ -85,7 +85,6 @@ public class BadgeOperations
     /// </remarks>
     private static string AppSettingsPath()
     {
-        string appSettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
-        return appSettingsPath;
+        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json"); 
     }
 }
