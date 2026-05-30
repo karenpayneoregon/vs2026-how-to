@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Googl translate fix</title>
+
+    <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Lib/styles/headers.css" rel="stylesheet" />
+    <script src="lib/debugHelper.js"></script>
+    <link href="Lib/styles/index.css" rel="stylesheet" />
+    <!--suppress no favicon-->
+    <link rel="shortcut icon" href="#">
+
+    <!-- styles are here temp and once okay move to a .css file(s) -->
+    <style>
+    </style>
+
+</head>
+<body>
+    <div class="nine mt-3">
+        <h1>Google <span> Translate fix</span></h1>
+    </div>
+
+    <main>
+
+        <div class="container">
+            <input id="goog-gt-votingInputSrcText" type="text" style="display: none" />
+            <input id="goog-gt-votingInputSrcLang" type="text" style="display: none" />
+
+            <!--
+            Missing three inputs with ids to demonstrate the fix for Google Translate's voting controls
+            and Optional chaining (?.) for setAttribute access.
+            -->
+
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.addEventListener('keydown', function (event) {
+
+                if (event.key === '1' && event.altKey && event.ctrlKey) {
+                    $debugHelper.toggle(true);
+                }
+
+            });
+
+        });
+
+        //-----------------------------------------------------------------------------------
+        // Google Translate's voting controls are missing aria-labels,
+        // which makes them inaccessible to screen readers.This function adds a 
+        // hidden div and associates it with the voting controls to improve accessibility.
+        //-----------------------------------------------------------------------------------
+        function applyGoogleTranslateVotingLabels() {
+            const labelId = 'google_x_1000';
+
+            let dummy = document.getElementById(labelId);
+
+            if (!dummy) {
+                dummy = document.createElement('span');
+                dummy.id = labelId;
+                dummy.textContent = 'voting control';
+                dummy.style.display = 'none';
+                document.body?.appendChild(dummy);
+            }
+
+            [
+                'goog-gt-votingInputSrcLang',
+                'goog-gt-votingInputTrgLang',
+                'goog-gt-votingInputSrcText',
+                'goog-gt-votingInputTrgText',
+                'goog-gt-votingInputVote'
+            ].forEach(id => {
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+                document.getElementById(id)?.setAttribute('aria-labelledby', labelId);
+            });
+        }
+
+        setTimeout(applyGoogleTranslateVotingLabels, 2000);
+
+    </script>
+
+</body>
+</html>
