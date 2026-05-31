@@ -37,11 +37,11 @@ internal partial class Program
 
         List<Customer> customers =
         [
-            new Customer { FirstName = "John", LastName = "Doe" },
-            new Customer { FirstName = "Mary", LastName = "Smith" },
-            new Customer { FirstName = "Mark", LastName = "Lebow" },
-            new Customer { FirstName = "Amy", LastName = "Gallagher" },
-            new Customer { FirstName = "Peter", LastName = "Jones" }
+            new Customer { CustomerId = 1, FirstName = "John", LastName = "Doe" },
+            new Customer { CustomerId = 2, FirstName = "Mary", LastName = "Smith" },
+            new Customer { CustomerId = 3, FirstName = "Mark", LastName = "Lebow" },
+            new Customer { CustomerId = 4, FirstName = "Amy", LastName = "Gallagher" },
+            new Customer { CustomerId = 5, FirstName = "Peter", LastName = "Jones" }
         ];
 
 
