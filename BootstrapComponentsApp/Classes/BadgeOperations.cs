@@ -64,12 +64,8 @@ public class BadgeOperations
 
         root[nameof(BadgeSettings)] = JsonSerializer.SerializeToNode(badgeSettings);
 
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
 
-        WriteAllText(appSettingsPath, root.ToJsonString(options));
+        WriteAllText(appSettingsPath, root.ToJsonString(Indented));
     }
 
     /// <summary>
@@ -87,4 +83,6 @@ public class BadgeOperations
     {
         return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json"); 
     }
+
+    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 }
