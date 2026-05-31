@@ -12,16 +12,16 @@ public class BadgeDemoModel : PageModel
 
     public void OnGet()
     {
-        BadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
+        BadgeCount = BadgeOperations.BadgeCount();
     }
 
     public IActionResult OnPostIncrement()
     {
-        int currentBadgeCount = BadgeOperations.ReadBadgeCountFromAppSettings();
+        int currentBadgeCount = BadgeOperations.BadgeCount();
 
         currentBadgeCount++;
 
-        BadgeOperations.SaveBadgeCountToAppSettings(currentBadgeCount);
+        BadgeOperations.Save(currentBadgeCount);
 
         return RedirectToPage();
     }

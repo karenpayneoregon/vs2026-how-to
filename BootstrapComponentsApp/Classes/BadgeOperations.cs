@@ -24,7 +24,7 @@ public class BadgeOperations
     /// This method retrieves the badge count from the "BadgeSettings" section of the appsettings.json file.
     /// If the file or the specific settings are missing, it defaults to a badge count of 1.
     /// </remarks>
-    public static int ReadBadgeCountFromAppSettings()
+    public static int BadgeCount()
     {
         var appSettingsPath = AppSettingsPath();
 
@@ -49,7 +49,7 @@ public class BadgeOperations
     /// If the file or the specific settings section does not exist, it creates them.
     /// The updated settings are written back to the file in an indented JSON format.
     /// </remarks>
-    public static void SaveBadgeCountToAppSettings(int badgeCount)
+    public static void Save(int badgeCount)
     {
         var appSettingsPath = AppSettingsPath();
 
