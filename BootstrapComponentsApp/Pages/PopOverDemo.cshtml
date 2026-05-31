@@ -28,13 +28,20 @@
         <h1 class="fs-5 text-center">Popover examples</h1>
     </div>
 
-    <div style="height: 2em"></div>
 
     
 
     <div id="main-content">
         @{
-            <div class="row mb-lg-5"></div>
+
+            <div class="row mb-lg-5">
+                <div class="col-12 text-center">
+                    <div class="mb-5">
+                        Documentation for popover component can be found <a href="https://getbootstrap.com/docs/5.3/components/popovers/" target="_blank">here</a>.
+                    </div>
+                </div>
+            </div>
+
             foreach (var (index, item) in Model.PopContainer.Index())
             {
                 string value = $"button{index +1}";
@@ -73,6 +80,7 @@
                         data-toggle="popover">
                     Styled
                 </button>
+
             </div>
         </div>
 
@@ -80,13 +88,15 @@
             <div class="col-5">
             </div>
             <div class="col-md-2">
-                <input id="userName" 
+
+                <input id="userName"
                        class="form-control border border-danger"
-                       data-bs-toggle="popover" 
-                       data-bs-placement="Right" 
-                       data-bs-trigger="focus" 
-                       title="Instructions" 
-                       data-bs-content="Enter your first and last name" />
+                       data-bs-toggle="popover"
+                       data-bs-placement="Right"
+                       data-bs-trigger="focus"
+                       title="Instructions"
+                       data-bs-content="Enter your first and last name"/>
+
             </div>
         </div>
     </div>
@@ -106,7 +116,7 @@
 
             $("#specialPopOver").popover({
                 title: '<h4 class="custom-title"><i class="bi-info-circle-fill"></i> Popover info</h4>',
-                content: '<p>..This is a <em>simple example</em> demonstrating how to insert HTML code inside <strong>Bootstrap</strong> 5 popover.</p>',
+                content: '<p>This is a <em>simple example</em> demonstrating how to insert HTML code inside <strong>Bootstrap</strong> 5 popover.</p>',
                 html: true
             });
 
