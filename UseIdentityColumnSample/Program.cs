@@ -48,6 +48,8 @@ internal partial class Program
 
         await context.Database.EnsureDeletedAsync();
         await context.Database.EnsureCreatedAsync();
+        
+        AnsiConsole.MarkupLine("[yellow]Database recreated[/] :check_mark:");
 
         context.Customers.AddRange(customers);
 
