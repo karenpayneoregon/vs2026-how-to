@@ -2,8 +2,17 @@
   "version": 2,
   "items": [
     {
-      "name": "index.html",
-      "path": "GoogleTranslateFix\\index.html"
+      "name": "web",
+      "children": [
+        {
+          "name": "debugHelper.js",
+          "path": "BootstrapToolTips\\Lib\\debugHelper.js"
+        },
+        {
+          "name": "index.html",
+          "path": "GoogleTranslateFix\\index.html"
+        }
+      ]
     },
     {
       "name": "QueryExtensions.cs",

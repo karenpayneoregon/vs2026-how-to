@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 5.3 Tooltips Demo</title>
+        <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="Lib/styles/headers.css" rel="stylesheet" />
+        <script src="Lib/debugHelper.js"></script>
+        <link href="Lib/styles/index.css" rel="stylesheet" />
+
+        <script src="Lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            /* center content center page */
+            .main-center {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        
+            /* Bootstrap 5 tooltip colors */
+            .tooltip {
+                --bs-tooltip-bg: green;
+                --bs-tooltip-color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="container py-5">
+            <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+                <h1 class="display-6">Bootstrap 5.3 Tooltips</h1>
+                <p class="lead mb-0">
+                    Tooltips are small popups that appear when users hover over, focus on, or tap an element.
+                </p>
+            </div>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Basic tooltip</h2>
+                <p>
+                    Hover or focus this
+                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-title="This is a basic Bootstrap tooltip.">
+                        button
+                    </button>
+                    to see a tooltip.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip placements</h2>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+                        Top
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+                        Right
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+                        Bottom
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+                        Left
+                    </button>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip on a link</h2>
+                <p>
+                    You can also add a tooltip to
+                    <a href="#" data-bs-toggle="tooltip" data-bs-title="This tooltip is attached to a link.">
+                        a regular hyperlink
+                    </a>.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">HTML tooltip</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<strong>HTML</strong> content is allowed here.">
+                    HTML tooltip
+                </button>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Disabled button tooltip</h2>
+                <p class="text-body-secondary">
+                    Disabled elements do not fire mouse events, so wrap the disabled button in a focusable element.
+                </p>
+
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="This action is currently unavailable.">
+                    <button class="btn btn-danger" type="button" disabled>
+                        Disabled button
+                    </button>
+                </span>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip with custom trigger</h2>
+                <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-title="This tooltip opens on click instead of hover.">
+                    Click me
+                </button>
+            </section>
+
+            <section class="border rounded p-4 bg-body-tertiary">
+                <h2 class="h4">How it works</h2>
+                <ol class="mb-0">
+                    <li>Add <code>data-bs-toggle="tooltip"</code> to the element.</li>
+                    <li>Add tooltip text with <code>data-bs-title="..."</code>.</li>
+                    <li>Load Bootstrap's JavaScript bundle.</li>
+                    <li>Initialize tooltips with JavaScript.</li>
+                </ol>
+            </section>
+        </main>
+
+        <!-- Bootstrap 5.3 JavaScript bundle, includes Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 5.3 Tooltips Demo</title>
+        <link href="./Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- Bootstrap 5.3 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+R4h7WnU5I5R6tK96zYlL8xTc5r8y8Xr6sW3fHqE" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <main class="container py-5">
+            <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+                <h1 class="display-6">Bootstrap 5.3 Tooltips</h1>
+                <p class="lead mb-0">
+                    Tooltips are small popups that appear when users hover over, focus on, or tap an element.
+                </p>
+            </div>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Basic tooltip</h2>
+                <p>
+                    Hover or focus this
+                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-title="This is a basic Bootstrap tooltip.">
+                        button
+                    </button>
+                    to see a tooltip.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip placements</h2>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+                        Top
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+                        Right
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+                        Bottom
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+                        Left
+                    </button>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip on a link</h2>
+                <p>
+                    You can also add a tooltip to
+                    <a href="#" data-bs-toggle="tooltip" data-bs-title="This tooltip is attached to a link.">
+                        a regular hyperlink
+                    </a>.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">HTML tooltip</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<strong>HTML</strong> content is allowed here.">
+                    HTML tooltip
+                </button>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Disabled button tooltip</h2>
+                <p class="text-body-secondary">
+                    Disabled elements do not fire mouse events, so wrap the disabled button in a focusable element.
+                </p>
+
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="This action is currently unavailable.">
+                    <button class="btn btn-danger" type="button" disabled>
+                        Disabled button
+                    </button>
+                </span>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 mb-3">Tooltip with custom trigger</h2>
+                <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" 
+                        data-bs-trigger="click" 
+                        data-bs-title="This tooltip opens on click instead of hover.">
+                    Click me
+                </button>
+            </section>
+
+            <section class="border rounded p-4 bg-body-tertiary">
+                <h2 class="h4">How it works</h2>
+                <ol class="mb-0">
+                    <li>Add <code>data-bs-toggle="tooltip"</code> to the element.</li>
+                    <li>Add tooltip text with <code>data-bs-title="..."</code>.</li>
+                    <li>Load Bootstrap's JavaScript bundle.</li>
+                    <li>Initialize tooltips with JavaScript.</li>
+                </ol>
+            </section>
+        </main>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === '1' && event.altKey && event.ctrlKey) {
+                        if (!document.getElementById("debugger-inline-style")) {
+                            $debugHelper.addCss();
+                        } else {
+                            $debugHelper.removeCss();
+                        }
+                    }
+                });
+            });
+
+            // Bootstrap tooltips must be initialized manually.
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+            const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+        </script>
+    </body>
+
+</html>

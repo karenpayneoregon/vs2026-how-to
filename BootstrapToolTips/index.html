@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>bootstrap tool-tips</title>
+
+    <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Lib/styles/headers.css" rel="stylesheet" />
+    <script src="lib/debugHelper.js"></script>
+    <link href="Lib/styles/index.css" rel="stylesheet" />
+
+    <script src="Lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--suppress no favicon-->
+    <link rel="shortcut icon" href="#">
+
+    <!-- styles are here temp and once okay move to a .css file(s) -->
+    <style>
+        /* center content center page */
+        .main-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        /* Bootstrap 5 tooltip colors */
+        .tooltip {
+            --bs-tooltip-bg: green;
+            --bs-tooltip-color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="nine mt-3">
+        <h1>bootstrap <span> tool-tips</span></h1>
+    </div>
+
+    <main>
+
+        <div class="container">
+
+            <div class="main-center">
+
+                <div class="row w-25 mt-lg-5">
+
+                    <div class="col-6">
+
+                        <button type="button"
+                                class="btn btn-primary mb-2"
+                                style="width: 200px;"
+                                data-color="primary" data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title="Tooltip on top">
+                            Tooltip on top
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="row w-25">
+
+                    <div class="col-6">
+
+                        <button type="button"
+                                class="btn btn-secondary mb-2"
+                                style="width: 200px;"
+                                data-color="secondary"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="right"
+                                title="Tooltip on right">
+                            Tooltip on right
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="row w-25">
+
+                    <div class="col-6">
+
+                        <button type="button"
+                                class="btn btn-success mb-2"
+                                style="width: 200px;"
+                                data-color="success"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Tooltip on bottom">
+                            Tooltip on bottom
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="row w-25">
+
+                    <div class="col-6">
+
+                        <button type="button"
+                                class="btn btn-warning"
+                                style="width: 200px;"
+                                data-color="warning"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="left"
+                                title="Tooltip on left">
+                            Tooltip on left
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="row w-75 mt-2 mb-3" style="width: 500px;">
+
+                    <label for="targetInput" class="form-label" data-bs-toggle="tooltip" data-bs-placement="left" title="Enter your full name">Enter Name</label>
+
+                    <div class="col-5">
+
+                        <input class="form-control bg-success text-white"
+                               style="width: 200px"
+                               id="targetInput"
+                               type="text"
+                               data-color="primary"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="left"
+                               value="Karen Payne"
+                               title="Enter first and last name (tooltip-left)" />
+
+                    </div>
+
+                </div>
+                
+                <!-- Here we define an SVG inline than use it in the alert below. -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-none" width="16" height="16">
+
+                    <symbol id="info-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 
+                              .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3
+                              .468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                    </symbol>
+
+                </svg>
+
+                <div class="row w-75 mt-2" style="width: 500px;">
+
+                    <div class="alert alert-info d-flex align-items-center ms-2 alert-dismissible" role="alert" style="height: 52px">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <!-- Size must match size in SVG definition above. -->
+                        <svg class="bi flex-shrink-0 me-2" role="img" width="16" height="16" aria-label="Info:">
+                            <!-- See SVG definition above. -->
+                            <use xlink:href="#info-fill" />
+                        </svg>
+
+                        <div>
+                            Tooltips for links
+                        </div>
+
+                    </div>
+
+                    <p class="shadow border border-dark-subtle ms-2 pb-2 pt-2">
+                        Placeholder text to demonstrate some
+                        <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">inline links</a> with tooltips.
+                        This is now just filler, no killer. Content placed here just to mimic the presence of
+                        <a href="#" data-bs-toggle="tooltip" data-bs-title="Another tooltip">real text</a>.
+                        And all that just to give you an idea of how tooltips would look when used in real-world situations.
+                        So hopefully you've now seen how
+                        <a href="#" data-bs-toggle="tooltip" data-bs-title="Another one here too">these tooltips on links</a>
+                        can work in practice, once you use them on
+                        <a href="#" data-bs-toggle="tooltip" data-bs-title="The last tip!">your own</a> site or project.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.addEventListener('keydown', function (event) {
+                if (event.key === '1' && event.altKey && event.ctrlKey) {
+                    if (!document.getElementById("debugger-inline-style")) {
+                        $debugHelper.addCss();
+                    } else {
+                        $debugHelper.removeCss();
+                    }
+                }
+            });
+        });
+
+        var tooltip;
+
+        (function (window, document) {
+
+            /*
+             * This code initializes all tooltips on the page and adds event listeners to buttons and inputs to change the
+             * tooltip background color on hover.
+             *
+             * It uses Bootstrap's Tooltip component to create and manage tooltips.
+             *
+             * Color is defined in style section of this page
+             *
+             */
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            const hoverElements = document.querySelectorAll("button, input");
+
+            hoverElements.forEach(function (el) {
+
+                el.addEventListener('mouseover',
+                    function () {
+
+                        const color = this.getAttribute('data-color');
+                        const tooltipInner = document.querySelector('.tooltip-inner');
+                    });
+
+                el.addEventListener('mouseout',
+                    function () {
+                        const tooltipInner = document.querySelector('.tooltip-inner');
+                        if (tooltipInner) {
+                            tooltipInner.style.backgroundColor = '';
+                        }
+                    });
+
+            });
+
+            tooltip = new bootstrap.Tooltip(document.getElementById('targetInput'));
+
+        })(window, document);
+
+
+    </script>
+
+</body>
+</html>
