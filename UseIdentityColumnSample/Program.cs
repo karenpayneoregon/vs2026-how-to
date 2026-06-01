@@ -37,57 +37,34 @@ internal partial class Program
 
         List<Customer> customers =
         [
-            new Customer { CustomerId = 1, FirstName = "John", LastName = "Doe" },
-            new Customer { CustomerId = 2, FirstName = "Mary", LastName = "Smith" },
-            new Customer { CustomerId = 3, FirstName = "Mark", LastName = "Lebow" },
-            new Customer { CustomerId = 4, FirstName = "Amy", LastName = "Gallagher" },
-            new Customer { CustomerId = 5, FirstName = "Peter", LastName = "Jones" }
+            new Customer { FirstName = "John", LastName = "Doe" },
+            new Customer { FirstName = "Mary", LastName = "Smith" },
+            new Customer { FirstName = "Mark", LastName = "Lebow" },
+            new Customer { FirstName = "Amy", LastName = "Gallagher" },
+            new Customer { FirstName = "Peter", LastName = "Jones" }
         ];
 
-
         await using var context = new Context();
-        
+
         await context.Database.EnsureDeletedAsync();
         await context.Database.EnsureCreatedAsync();
-
 
         context.Customers.AddRange(customers);
 
         try
         {
-            // Ensure SET IDENTITY_INSERT and SaveChanges run in the same transaction/connection
-            await using var transaction = await context.Database.BeginTransactionAsync();
-            try
-            {
-                await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer ON");
-                await context.SaveChangesAsync();
-                await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Customer OFF");
+            await context.SaveChangesAsync();
 
-                await transaction.CommitAsync();
-
-                SuccessPill(Justify.Left, "Customers added successfully.");
-            }
-            catch
-            {
-                try
-                {
-                    await transaction.RollbackAsync();
-                }
-                catch
-                {
-                    // ignore rollback failures - original exception will be rethrown
-                }
-                throw;
-            }
+            SuccessPill(Justify.Left, "Customers added successfully.");
+            Log.Information("Save changes successful in {X}", nameof(AddCustomers));
         }
         catch (Exception e)
         {
             Log.Error(e, nameof(AddCustomers));
             ErrorPill(Justify.Left, "Save failed, see log");
         }
-        
     }
-    
+
     /// <summary>
     /// Asynchronously retrieves and prints a list of customers from the database.
     /// </summary>
