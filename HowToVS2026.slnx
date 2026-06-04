@@ -35,6 +35,9 @@
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
     <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
+  <Folder Name="/Console projects/JSON examples/">
+    <Project Path="RemovePropertyApp/RemovePropertyApp.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path="readme.md" />

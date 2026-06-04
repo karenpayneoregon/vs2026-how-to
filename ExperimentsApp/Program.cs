@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using ExperimentsApp.Models;
+using Spectre.Console;
 using SpectreConsoleLibrary.Core;
 using System.Configuration;
 using System.Globalization;
@@ -14,12 +15,7 @@ internal partial class Program
 
         //DisplayCommaDelimitedMonths();
 
-        var birthDate = Prompts.GetBirthDate1(2000);
-        if (birthDate.HasValue)
-        {
-            Console.WriteLine(birthDate);
-        }
-        
+   
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
