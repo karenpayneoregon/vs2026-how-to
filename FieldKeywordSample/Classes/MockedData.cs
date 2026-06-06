@@ -29,19 +29,19 @@ internal class MockedData
                     new Address
                     {
                         CustomerId = 2,
-                        Street = "123 Main St",
+                        Street = " 123 Main St  ",
                         City = "Any town",
-                        State = "Ca",
+                        State = "Ca  ",
                         ZipCode = "12345",
                         Country = "USA",
-                        Phone = "555-555-5555"
+                        Phone = "  555-555-5555"
                     },
                     new Address
                     {
                         CustomerId = 2,
                         Street = "456 Main St",
                         City = "Some town",
-                        State = "Ca",
+                        State = Helpers.GetRandomStateAbbreviation(),
                         ZipCode = "12345",
                         Country = "USA",
                         Phone = "555-555-5566"

@@ -1,5 +1,7 @@
 ﻿using FieldKeywordSample.Classes;
 using FieldKeywordSample.Models;
+using FieldKeywordSample.Validators;
+using SpectreConsoleLibrary.Core;
 
 namespace FieldKeywordSample;
 
@@ -45,8 +47,42 @@ internal partial class Program
             Console.WriteLine();
         }
 
+
+        ValidatePerson();
+
+
         AnsiConsole.MarkupLine(":right_arrow:  [yellow]Exit[/]");
         Console.ReadLine();
     }
 
+    private static void ValidatePerson()
+    {
+        SpectreConsoleHelpers.PrintPink();
+        
+        var person = new Validators.Person
+        {
+            Id = 1,
+            FirstName = "john",
+            LastName = "doe",
+            BirthDate = new DateOnly(1998, 1, 7)
+        };
+        
+        var validator = new PersonValidator();
+        var validationResult = validator.Validate(person);
+
+        if (!validationResult.IsValid)
+        {
+            AnsiConsole.MarkupLine("[red]Validation Failed:[/]");
+            foreach (var error in validationResult.Errors)
+            {
+                AnsiConsole.MarkupLine($"  - [yellow]{error.PropertyName}[/]: {error.ErrorMessage}");
+            }
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[green]Validation Successful![/]");
+        }
+
+        Console.WriteLine();
+    }
 }

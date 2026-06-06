@@ -28,6 +28,7 @@
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.13" />
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
 	</ItemGroup>
 
 

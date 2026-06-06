@@ -15,4 +15,17 @@ internal class Helpers
         "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
         "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
     ];
+
+    /// <summary>
+    /// Retrieves a random valid U.S. state abbreviation.
+    /// </summary>
+    /// <returns>
+    /// A two-letter U.S. state abbreviation.
+    /// </returns>
+    public static string GetRandomStateAbbreviation()
+    {
+        var states = GetStateAbbreviations();
+
+        return states[Random.Shared.Next(states.Count)];
+    }
 }
