@@ -3,20 +3,21 @@
 namespace FieldKeywordSample.Classes;
 public static partial class StringExtensions
 {
+
     /// <param name="input">The string to capitalize.</param>
     extension(string input)
     {
+
         /// <summary>
-        /// Capitalizes the first letter of the given string.
+        /// Capitalizes the first letter of the given string while converting the rest to lowercase.
         /// </summary>
-        /// <returns>A new string with the first letter capitalized. If the input is null or empty, the original string is returned.</returns>
+        /// <returns>
+        /// A new string with the first letter capitalized and the remaining characters in lowercase,
+        /// or the original string if it is null, empty, or consists only of whitespace.
+        /// </returns>
         public string CapitalizeFirstLetter()
-        {
-            if (string.IsNullOrWhiteSpace(input)) return input;
-
-            return char.ToUpper(input[0]) + input.AsSpan(1).ToString();
-        }
-
+            => string.IsNullOrWhiteSpace(input) ?
+                input : char.ToUpper(input[0]) + input.AsSpan(1).ToString().ToLower();
         /// <summary>
         /// Trims the last character from the given string.
         /// </summary>

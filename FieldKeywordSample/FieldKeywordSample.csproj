@@ -8,6 +8,14 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Product>field example</Product>
+		<Description>A sample project</Description>
+		<Company>Payne services</Company>
+		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
+	</PropertyGroup>
+
+
 	<ItemGroup>
 		<None Remove="readme.md" />
 	</ItemGroup>
@@ -17,15 +25,23 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.13" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
-	</ItemGroup>
+
 
 	<ItemGroup>
-		<PackageReference Include="Spectre.Console" Version="0.46.0" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.8" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<NuGetAuditMode>direct</NuGetAuditMode>
+	</PropertyGroup>	
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="appsettings.json">
