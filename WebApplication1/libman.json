@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+  
+    {
+      "library": "jsuites@5.0.24",
+      "destination": "wwwroot/lib/jsuites/",
+      "files": [
+        "jsuites.js",
+        "jsuites.css"
+      ]
+    }
+
+  ]
+}

@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@* <link rel="stylesheet" href="css/debugger.css" /> *@
+
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.AspNetCore.Routing
+@using WebApplication1.Classes
+
+@inject EndpointDataSource EndpointsDataSource
+
+<div class="alert alert-primary" role="alert">
+    <h1 class="fs-5">All pages</h1>
+</div>
+
+<div class="container" id="mainContainer">
+    
+    @{
+        HashSet<string> pages = new();
+        foreach (var endpoint in EndpointsDataSource.Endpoints)
+        {
+            foreach(var metadata in endpoint.Metadata)
+            {
+                if(metadata is PageActionDescriptor descriptor)
+                {
+                    pages.Add(descriptor.RelativePath);
+                }
+            }
+        }
+
+        var list = pages.ToList();
+    }
+    <ul class="list-group">
+
+        @for (int index = 0; index < list.Count; index++)
+        {
+            if (index.IsEven())
+            {
+                <li class="fw-bold text-primary list-group-item">@list[index]</li>
+            }
+            else
+            {
+                <li class="fw-bold list-group-item">@list[index]</li>
+            }
+        }
+
+    </ul>
+    
+
+</div>
+
+
+
+
+
+
+
+

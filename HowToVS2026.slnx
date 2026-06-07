@@ -115,6 +115,9 @@
       </Properties>
     </Project>
   </Folder>
+  <Folder Name="/Web/Unusual/">
+    <Project Path="WebApplication1/WebApplication1.csproj" />
+  </Folder>
   <Folder Name="/Web/Validation/">
     <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
   </Folder>
