@@ -12,8 +12,12 @@ internal partial class Program
     static async Task Main(string[] args)
     {
 
+        // add first records
         await AddCustomers();
+
+        // add another record to show identity column is working
         await AddCustomer();
+        
         await PrintCustomers();
 
         ExitPrompt(Justify.Left);
