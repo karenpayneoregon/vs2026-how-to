@@ -13,9 +13,45 @@ internal partial class Program
     {
 
         await AddCustomers();
+        await AddCustomer();
         await PrintCustomers();
 
         ExitPrompt(Justify.Left);
+    }
+
+    /// <summary>
+    /// Adds a single predefined customer to the database.
+    /// </summary>
+    /// <remarks>
+    /// This method performs the following steps:
+    /// 1. Creates a new instance of the database context.
+    /// 2. Adds a customer with predefined details to the database.
+    /// 3. Attempts to save the changes asynchronously.
+    /// 4. Logs success or failure messages and displays corresponding console output.
+    /// </remarks>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    private static async Task AddCustomer()
+    {
+        PrintPink();
+        
+        
+        await using var context = new Context();
+        
+        Customer customer = new Customer { FirstName = "Anne", LastName = "Adams" };
+        context.Customers.Add(customer);
+
+        try
+        {
+            await context.SaveChangesAsync();
+
+            SuccessPill(Justify.Left, "Customers added successfully.");
+            Log.Information("Save changes successful in {X}", nameof(AddCustomer));
+        }
+        catch (Exception e)
+        {
+            Log.Error(e, nameof(AddCustomer));
+            ErrorPill(Justify.Left, "Save failed, see log");
+        }
     }
 
     /// <summary>
@@ -66,6 +102,8 @@ internal partial class Program
             ErrorPill(Justify.Left, "Save failed, see log");
         }
     }
+    
+    
 
     /// <summary>
     /// Asynchronously retrieves and prints a list of customers from the database.
