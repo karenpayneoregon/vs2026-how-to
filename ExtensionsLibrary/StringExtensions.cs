@@ -86,6 +86,38 @@ public static partial class StringExtensions
             }
             return trimEnd ? result.TrimEnd() : result;
         }
+
+        /// <summary>
+        /// Splits a string into separate words based on uppercase letters.
+        /// </summary>
+        /// <returns>
+        /// A new string where words are separated by spaces at each uppercase letter.
+        /// </returns>
+        /// <example>
+        /// For example, calling <c>"HelloWorld".SplitOnUpperCase()</c> will return <c>"Hello World"</c>.
+        /// </example>
+        public string SplitOnUpperCase()
+        {
+            if (string.IsNullOrEmpty(sender))
+                return sender;
+
+            Span<char> result = stackalloc char[sender.Length * 2];
+            var resultIndex = 0;
+
+            for (var index = 0; index < sender.Length; index++)
+            {
+                var currentChar = sender[index];
+
+                if (index > 0 && char.IsUpper(currentChar))
+                {
+                    result[resultIndex++] = ' ';
+                }
+
+                result[resultIndex++] = currentChar;
+            }
+
+            return result[..resultIndex].ToString();
+        }
     }
 
 
