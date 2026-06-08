@@ -1,8 +1,9 @@
-﻿using ExperimentsApp.Models;
-using Spectre.Console;
+﻿using Spectre.Console;
 using SpectreConsoleLibrary.Core;
 using System.Configuration;
 using System.Globalization;
+using ExperimentsApp.Classes;
+using ExtensionsLibrary;
 using PartialExamples = ExperimentsApp.Classes.PartialExamples;
 
 namespace ExperimentsApp;
@@ -15,7 +16,16 @@ internal partial class Program
 
         //DisplayCommaDelimitedMonths();
 
-   
+
+        var words = "Karen Payne posted this";
+        AnsiConsole.MarkupLine($"[yellow]{words}[/]\n");
+        var results = words.Occurrences();
+        foreach (var item in results)
+        {
+            Console.WriteLine($"'{item.Character}' {item.Occurrences}");
+        }
+
+
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

@@ -28,7 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LibreHardwareMonitorLibCore" Version="1.0.3" />
+		<!--<PackageReference Include="LibreHardwareMonitorLibCore" Version="1.0.3" />-->
 		<PackageReference Include="Serilog" Version="4.3.0" />
 		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
@@ -59,6 +59,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\ExtensionsLibrary\ExtensionsLibrary.csproj" />
 	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>
 

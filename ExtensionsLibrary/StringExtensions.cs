@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using ExtensionsLibrary.Models;
 
 namespace ExtensionsLibrary;
 public static partial class StringExtensions
@@ -118,6 +119,25 @@ public static partial class StringExtensions
 
             return result[..resultIndex].ToString();
         }
+
+        /// <summary>
+        /// Analyzes the characters in the string and returns an ordered collection of their occurrences.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IOrderedEnumerable{T}"/> of <see cref="OccurrencesItem"/> objects, 
+        /// where each object represents a character, its occurrence count, and its Unicode code.
+        /// </returns>
+        public IOrderedEnumerable<OccurrencesItem> Occurrences() =>
+            (sender.ToCharArray()
+                .GroupBy(chr => chr)
+                .Select(grp => new OccurrencesItem
+                {
+                    Character = grp.Key,
+                    Occurrences = grp.Count(),
+                    Code = Convert.ToInt32((int)grp.Key)
+                }))
+            .ToList()
+            .OrderBy(item => item.Character.ToString());
     }
 
 
