@@ -110,6 +110,7 @@ internal partial class Program
         
         var uri = new Uri(webAddress);
 
+        // requires NuGet package Microsoft.AspNetCore.WebUtilities
         Dictionary<string, StringValues> queryParams = QueryHelpers.ParseQuery(uri.Query);
         
         foreach (var (key, value) in queryParams)
