@@ -14,7 +14,11 @@ public static class EnumerableExtensions
         public static IEnumerable<TSource> Combine(IEnumerable<TSource> first, IEnumerable<TSource> second)
             => first.Concat(second);
 
-        // static extension property:
+        /// <summary>
+        /// Gets an empty sequence of the specified type.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+        /// <returns>An empty <see cref="IEnumerable{T}"/> of the specified type.</returns>
         public static IEnumerable<TSource> Identity
             => Enumerable.Empty<TSource>();
 

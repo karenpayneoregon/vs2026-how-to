@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Globalization;
 using ExperimentsApp.Classes;
 using ExtensionsLibrary;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Primitives;
 using PartialExamples = ExperimentsApp.Classes.PartialExamples;
 
 namespace ExperimentsApp;
@@ -15,8 +17,19 @@ internal partial class Program
         //DisplayItemDetails();
 
         //DisplayCommaDelimitedMonths();
+        DecodeAllParameters();
+
+        DisplayCharacterOccurrences();
 
 
+        SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    private static void DisplayCharacterOccurrences()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         var words = "Karen Payne posted this";
         AnsiConsole.MarkupLine($"[yellow]{words}[/]\n");
         var results = words.Occurrences();
@@ -24,10 +37,6 @@ internal partial class Program
         {
             Console.WriteLine($"'{item.Character}' {item.Occurrences}");
         }
-
-
-
-        SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
     /// <summary>
@@ -40,6 +49,9 @@ internal partial class Program
     /// </remarks>
     private static void DisplayCommaDelimitedMonths()
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         AnsiConsole.MarkupLine("[yellow]Comma delimited full month names[/]");
         CommaDelimitedStringCollection months = [];
 
@@ -54,6 +66,9 @@ internal partial class Program
     /// <remarks>
     /// This method demonstrates the usage of various Spectre.Console helpers to display formatted 
     /// information, including capacity, indexed items, and attempts to retrieve items at specific indices.
+    ///
+    /// Requires NuGet package Microsoft.AspNetCore.WebUtilities
+    /// 
     /// </remarks>
     private static void DisplayItemDetails()
     {
@@ -77,5 +92,33 @@ internal partial class Program
         Console.WriteLine();
         
     }
-    
+
+    /// <summary>
+    /// Decodes and displays all query parameters from a predefined web address.
+    /// </summary>
+    /// <remarks>
+    /// This method parses the query string of a specified URI and outputs each parameter
+    /// and its corresponding value(s) to the console using Spectre.Console for formatting.
+    /// </remarks>
+    public static void DecodeAllParameters()
+    {
+        
+        SpectreConsoleHelpers.PrintPink();
+        
+        
+        const string webAddress = "https://someapp?u=F20184418231.37&lang=EN&topic=whatever";
+        
+        var uri = new Uri(webAddress);
+
+        Dictionary<string, StringValues> queryParams = QueryHelpers.ParseQuery(uri.Query);
+        
+        foreach (var (key, value) in queryParams)
+        {
+            AnsiConsole.MarkupLine($"[yellow]Parameter:[/][b]{key}[/] [cyan]Value:[/]{string.Join(",", value)}");
+        }
+
+        Console.WriteLine();
+
+    }
+
 }
