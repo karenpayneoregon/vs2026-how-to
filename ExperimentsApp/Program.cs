@@ -19,12 +19,21 @@ internal partial class Program
         //DisplayCommaDelimitedMonths();
         DecodeAllParameters();
 
-        DisplayCharacterOccurrences();
+        //DisplayCharacterOccurrences();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Displays the occurrences of each character in a predefined string.
+    /// </summary>
+    /// <remarks>
+    /// This method analyzes a hardcoded string to determine the frequency of each character.
+    /// It utilizes the <see cref="ExtensionsLibrary.StringExtensions.Occurrences"/> extension method to calculate
+    /// the occurrences and outputs the results to the console. Additionally, it uses
+    /// <see cref="SpectreConsoleHelpers.PrintPink"/> to format the output.
+    /// </remarks>
     private static void DisplayCharacterOccurrences()
     {
 
