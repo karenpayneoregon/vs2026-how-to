@@ -10,20 +10,33 @@ using PartialExamples = ExperimentsApp.Classes.PartialExamples;
 
 namespace ExperimentsApp;
 
-internal partial class Program
+internal static partial class Program
 {
     static void Main(string[] args)
     {
         //DisplayItemDetails();
 
         //DisplayCommaDelimitedMonths();
-        DecodeAllParameters();
+        //DecodeAllParameters();
 
         //DisplayCharacterOccurrences();
 
-
+        var msg = 3.14f.AsString();
+        Console.WriteLine(msg);
+        
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
+
+    // caution: this is just an example of pattern matching and extension methods,
+    // not a recommended way to convert floats/doubles to strings
+    private static string AsString(this object input) => input switch
+        {
+            float f => $"It's a float: {f}",
+            double d => $"It's a double: {d}",
+            _ => "Not a float or double"
+        };
+
+   
 
     /// <summary>
     /// Displays the occurrences of each character in a predefined string.

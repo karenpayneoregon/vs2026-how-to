@@ -10,7 +10,7 @@ using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 // ReSharper disable once CheckNamespace
 namespace ExperimentsApp;
 
-internal partial class Program
+internal static partial class Program
 {
     [ModuleInitializer]
     public static void Init()
