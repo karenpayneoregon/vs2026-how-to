@@ -21,10 +21,30 @@ internal static partial class Program
 
         //DisplayCharacterOccurrences();
 
-        var msg = 3.14f.AsString();
-        Console.WriteLine(msg);
+        //var msg = 3.14f.AsString();
+        //Console.WriteLine(msg);
+        
+        BetweenSamples();
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    private static void BetweenSamples()
+    {
+        {
+            int start = 10;
+            int end = 20;
+            Console.WriteLine(15.IsBetween(start, end) ? 
+                "Is between" : "Is not between");
+        }
+
+        {
+            var start = new DateOnly(2026, 6, 2);
+            var end = new DateOnly(2026, 6, 30);
+
+            Console.WriteLine(new DateOnly(2026, 6, 14).IsBetween(start, end) ? 
+                "Is between" : "Is not between");
+        }
     }
 
     // caution: this is just an example of pattern matching and extension methods,
