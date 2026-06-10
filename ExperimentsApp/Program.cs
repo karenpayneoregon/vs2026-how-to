@@ -34,6 +34,15 @@ internal static partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Demonstrates the use of declaration and type patterns in C#.
+    /// </summary>
+    /// <remarks>
+    /// This method iterates through a list of <see cref="IPerson"/> objects, displaying their details.
+    /// It uses pattern matching with the <c>is</c> operator to determine if an object is of type <see cref="Employee"/>.
+    /// If the object is an <see cref="Employee"/>, additional information such as the badge is displayed.
+    /// The method also showcases type pattern matching and property access.
+    /// </remarks>
     private static void DeclarationAndTypePatterns()
     {
         
