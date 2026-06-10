@@ -1,15 +1,12 @@
 ﻿using ExperimentsApp.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ExperimentsApp.Models;
 
-
-public class Person : IPerson
+public class Employee : IPerson
 {
     public int Id { get; set; }
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public DateOnly BirthDate { get; set; }
+    public string Badge { get; set; }
 }

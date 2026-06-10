@@ -3,6 +3,8 @@ using SpectreConsoleLibrary.Core;
 using System.Configuration;
 using System.Globalization;
 using ExperimentsApp.Classes;
+using ExperimentsApp.Interfaces;
+using ExperimentsApp.Models;
 using ExtensionsLibrary;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
@@ -23,10 +25,37 @@ internal static partial class Program
 
         //var msg = 3.14f.AsString();
         //Console.WriteLine(msg);
-        
-        BetweenSamples();
-        
+
+        //BetweenSamples();
+
+        DeclarationAndTypePatterns();
+
+
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    private static void DeclarationAndTypePatterns()
+    {
+        
+        List<IPerson> list = MockData.PeopleList();
+        
+        foreach (var person in list)
+        {
+            AnsiConsole.MarkupLine($"[yellow]Person:[/][bold]{person.FirstName} {person.LastName}[/]");
+            // Demonstrates the 'is' pattern matching
+            if (person is Employee employee)
+            {
+                AnsiConsole.MarkupLine($"  [green]Is an Employee.[/]");
+                AnsiConsole.MarkupLine($"  [green]Badge:[/]{employee.Badge}");
+            }
+            else
+            {
+                AnsiConsole.MarkupLine($"  [grey]Not an Employee.[/]");
+            }
+
+            // Demonstrates type pattern matching and property access
+            AnsiConsole.MarkupLine($"  [cyan]Birth Date:[/]{person.BirthDate}");
+        }
     }
 
     /// <summary>
