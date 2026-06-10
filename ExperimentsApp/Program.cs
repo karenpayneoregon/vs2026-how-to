@@ -53,8 +53,7 @@ internal static partial class Program
 
         SpectreConsoleHelpers.PrintPink();
         
-        var person = (Person)MockData.PeopleList().FirstOrDefault()!;
-
+        if (MockData.PeopleList().FirstOrDefault() is not Person person) return;
         if (person is { Age: >= 18, Address.State: "OR" })
         {
             Console.WriteLine($"{person.FirstName} is an adult living in Oregon.");
@@ -70,6 +69,7 @@ internal static partial class Program
         };
 
         Console.WriteLine($"{category} - Age {person.Age}");
+
     }
 
     /// <summary>
