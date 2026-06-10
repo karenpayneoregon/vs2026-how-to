@@ -29,6 +29,16 @@ internal static partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Demonstrates the usage of the <see cref="ExtensionsLibrary.ComparerExtensions.IsBetween{T}(T, T)"/> extension method
+    /// with different data types, such as integers and dates.
+    /// </summary>
+    /// <remarks>
+    /// This method performs two examples:
+    /// 1. Checks if an integer value is within a specified range.
+    /// 2. Checks if a date is within a specified range of dates.
+    /// The results are displayed in the console.
+    /// </remarks>
     private static void BetweenSamples()
     {
         {
