@@ -50,6 +50,17 @@ public static partial class DateOnlyExtensions
             var workingDayCultureInfo = new WorkingDayCultureInfo();
             return workingDayCultureInfo.IsWorkingDay(date);
         }
+
+        public int GetAge()
+        {
+            var (nYear, nMonth, nDay) = DateTime.Today;
+
+            var a = (nYear * 100 + nMonth) * 100 + nDay;
+            var (bYear, bMonth, bDay) = day;
+            var b = (bYear * 100 + bMonth) * 100 + bDay;
+
+            return (a - b) / 10000;
+        }
     }
 
     /// <summary>

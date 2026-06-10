@@ -28,10 +28,48 @@ internal static partial class Program
 
         //BetweenSamples();
 
-        DeclarationAndTypePatterns();
+        //DeclarationAndTypePatterns();
+
+        PropertyPatternSample();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+    }
+
+    /// <summary>
+    /// Demonstrates the use of property patterns and switch expressions for evaluating 
+    /// and categorizing a <see cref="Person"/> object based on its properties.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves the first person from a mock data list and evaluates their 
+    /// properties using property patterns. It checks if the person is an adult living in Oregon 
+    /// and categorizes them into specific age groups or states using a switch expression.
+    /// </remarks>
+    /// <example>
+    /// A person with an age of 25 and living in Oregon will be categorized as "Adult in Oregon".
+    /// </example>
+    private static void PropertyPatternSample()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+        
+        var person = (Person)MockData.PeopleList().FirstOrDefault()!;
+
+        if (person is { Age: >= 18, Address.State: "OR" })
+        {
+            Console.WriteLine($"{person.FirstName} is an adult living in Oregon.");
+        }
+
+        string category = person switch
+        {
+            { Age: < 13 } => "Child",
+            { Age: >= 13 and < 18 } => "Teenager",
+            { Age: >= 18, Address.State: "OR" } => "Adult in Oregon",
+            { Age: >= 18 } => "Adult",
+            _ => "Unknown"
+        };
+
+        Console.WriteLine($"{category} - Age {person.Age}");
     }
 
     /// <summary>
@@ -45,7 +83,9 @@ internal static partial class Program
     /// </remarks>
     private static void DeclarationAndTypePatterns()
     {
-        
+
+        SpectreConsoleHelpers.PrintPink();
+
         List<IPerson> list = MockData.PeopleList();
         
         foreach (var person in list)
@@ -79,6 +119,9 @@ internal static partial class Program
     /// </remarks>
     private static void BetweenSamples()
     {
+
+        SpectreConsoleHelpers.PrintPink();
+
         {
             int start = 10;
             int end = 20;

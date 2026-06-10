@@ -4,6 +4,8 @@ using System.Text;
 
 namespace ExperimentsApp.Models;
 
-internal class Address
+public class Address
 {
+    public string State { get; set; } = "";
+    public string City { get; set; } = "";
 }
