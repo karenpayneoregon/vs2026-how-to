@@ -30,7 +30,9 @@ internal static partial class Program
 
         //DeclarationAndTypePatterns();
 
-        PropertyPatternSample();
+        //PropertyPatternSample();
+
+        Console.WriteLine(TimeOfDay(13));
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
@@ -254,5 +256,52 @@ internal static partial class Program
         Console.WriteLine();
 
     }
+
+    public static string TimeOfDay(int hour) => hour switch
+    {
+        <= 12 => "Good Morning",
+        <= 16 => "Good Afternoon",
+        <= 20 => "Good Evening",
+        _ => "Good Night"
+    };
+
+    public static string TimeOfDay() => DateTime.Now.Hour switch
+    {
+        <= 12 => "Good Morning",
+        <= 16 => "Good Afternoon",
+        <= 20 => "Good Evening",
+        _ => "Good Night"
+    };
+
+
+    private static string GetSeasonSouthernHemisphere(DateTime date) => date.Month switch
+    {
+        >= 9 and <= 11 => "Spring",
+        >= 6 and <= 8 => "Summer",
+        >= 3 and <= 5 => "Autumn",
+        12 or 1 or 2 => "Winter",
+        _ => "Not a valid month"
+    };
+
+    private static string GetSeasonNorthernHemisphere(DateTime date) => date.Month switch
+    {
+        >= 3 and <= 5 => "Spring",
+        >= 6 and <= 8 => "Summer",
+        >= 9 and <= 11 => "Autumn",
+        12 or 1 or 2 => "Winter",
+        _ => "Not a valid month"
+    };
+
+    // is current culture in Northern Hemisphere
+    private static bool IsNorthernHemisphere() => CultureInfo.CurrentCulture switch
+    {
+        { Name: "en-AU" } => true,
+        { Name: "en-CA" } => true,
+        { Name: "en-GB" } => true,
+        { Name: "en-NZ" } => true,
+        { Name: "en-US" } => true,
+        _ => false
+    };
+
 
 }
