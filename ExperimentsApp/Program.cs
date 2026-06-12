@@ -32,12 +32,56 @@ internal static partial class Program
 
         //PropertyPatternSample();
 
-        Console.WriteLine(TimeOfDay(13));
+        //Console.WriteLine(TimeOfDay(13));
 
+        PositionalPatternSample();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Demonstrates the use of positional patterns to identify and categorize monetary values.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of monetary values, iterates through them, and identifies each value
+    /// based on its amount and currency code using pattern matching.
+    /// </remarks>
+    private static void PositionalPatternSample()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        var list = MockData.MoneyList();
+
+        foreach (var money in list)
+        {
+            Console.WriteLine($"{money.Amount,-5}{money.CurrencyCode}: {Identify(money)}");
+        }
+    }
+
+    /// <summary>
+    /// Identifies and categorizes a monetary value based on its amount and currency code.
+    /// </summary>
+    /// <param name="money">The monetary value to be identified, represented by an instance of the <see cref="Money"/> class.</param>
+    /// <returns>
+    /// A string describing the category of the monetary value, such as "No US dollars", 
+    /// "Small US dollar amount", "Large US dollar amount", "Positive euro amount", 
+    /// "Negative amount", or "Some other amount".
+    /// </returns>
+    /// <remarks>
+    /// This method uses C# positional patterns to match the <paramref name="money"/> parameter
+    /// against predefined conditions based on its amount and currency code.
+    /// </remarks>
+    private static string Identify(Money money) => money switch
+    {
+        (0m, "USD") => "No US dollars",
+        ( > 0m and < 100m, "USD") => "Small US dollar amount",
+        ( >= 100m, "USD") => "Large US dollar amount",
+        ( > 0m, "EUR") => "Positive euro amount",
+        ( < 0m, _) => "Negative amount",
+        (_, _) => "Some other amount"
+    };
+    
+    
     /// <summary>
     /// Demonstrates the use of property patterns and switch expressions for evaluating 
     /// and categorizing a <see cref="Person"/> object based on its properties.

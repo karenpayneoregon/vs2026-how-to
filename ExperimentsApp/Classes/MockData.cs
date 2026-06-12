@@ -18,5 +18,14 @@ internal class MockData
         new Person { Id = 4, FirstName = "Charlie", LastName = "Williams", BirthDate = new DateOnly(2001, 1, 1)
         }
     ];
+    
+    public static List<Money> MoneyList() =>
+    [
+        new(0m, "USD"),
+        new(25m, "USD"),
+        new(125m, "USD"),
+        new(50m, "EUR"),
+        new(-10m, "USD")
+    ];
 }
 
