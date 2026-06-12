@@ -17,6 +17,14 @@ internal partial class Program
 
 internal class MainOperation
 {
+    /// <summary>
+    /// Displays detailed system memory usage information in the console.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves memory usage statistics using the <see cref="SystemMemory.GetMemoryUsage"/> method
+    /// and outputs the total, available, and used memory, as well as the percentage of memory used.
+    /// It utilizes the Spectre.Console library to format the output with styled markup.
+    /// </remarks>
     public static void Display()
     {
         SpectreConsoleHelpers.InfoPill(Justify.Left, "Memory");
