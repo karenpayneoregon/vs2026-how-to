@@ -14,9 +14,20 @@ namespace ExtensionsLibrary;
 /// </remarks>
 public static partial class DateOnlyExtensions
 {
-    /// <param name="day">The date to check.</param>
-    extension(DateOnly day)
+    /// <param name="dateOnly">The date to check.</param>
+    extension(DateOnly dateOnly)
     {
+        public int GetAge()
+        {
+            var (nYear, nMonth, nDay) = DateTime.Today;
+
+            var a = (nYear * 100 + nMonth) * 100 + nDay;
+            var (bYear, bMonth, bDay) = dateOnly;
+            var b = (bYear * 100 + bMonth) * 100 + bDay;
+
+            return (a - b) / 10000;
+        }
+
         /// <summary>
         /// Determines whether the specified date is a holiday.
         /// </summary>
@@ -29,7 +40,7 @@ public static partial class DateOnlyExtensions
         /// </remarks>
         public bool IsHoliday()
         {
-            var date = DateTimeFromDateOnly(day);
+            var date = DateTimeFromDateOnly(dateOnly);
             var workingDayCultureInfo = new WorkingDayCultureInfo();
             return workingDayCultureInfo.IsHoliday(date);
         }
@@ -46,20 +57,9 @@ public static partial class DateOnlyExtensions
         /// </remarks>
         public bool IsWorkingDay()
         {
-            var date = DateTimeFromDateOnly(day);
+            var date = DateTimeFromDateOnly(dateOnly);
             var workingDayCultureInfo = new WorkingDayCultureInfo();
             return workingDayCultureInfo.IsWorkingDay(date);
-        }
-
-        public int GetAge()
-        {
-            var (nYear, nMonth, nDay) = DateTime.Today;
-
-            var a = (nYear * 100 + nMonth) * 100 + nDay;
-            var (bYear, bMonth, bDay) = day;
-            var b = (bYear * 100 + bMonth) * 100 + bDay;
-
-            return (a - b) / 10000;
         }
     }
 

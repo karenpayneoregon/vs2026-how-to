@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ExperimentsApp.Interfaces;
+﻿using ExperimentsApp.Interfaces;
 using ExperimentsApp.Models;
 
 namespace ExperimentsApp.Classes;
 
 internal class MockData
 {
+    /// <summary>
+    /// Retrieves a list of mock people data.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="List{T}"/> of <see cref="IPerson"/> objects, representing mock data for people.
+    /// </returns>
+    /// <remarks>
+    /// The returned list includes instances of <see cref="Person"/> and <see cref="Employee"/> 
+    /// with predefined properties such as ID, name, birthdate, and address.
+    /// </remarks>
     public static List<IPerson> PeopleList() =>
     [
         new Person { Id = 1, FirstName = "Alice", LastName = "Smith", BirthDate = new DateOnly(1990, 5, 15) ,
@@ -19,6 +26,16 @@ internal class MockData
         }
     ];
     
+    /// <summary>
+    /// Retrieves a list of mock monetary values.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="List{T}"/> of <see cref="Money"/> objects, representing mock data for monetary values.
+    /// </returns>
+    /// <remarks>
+    /// The returned list includes instances of <see cref="Money"/> with predefined amounts and currency codes.
+    /// It can be used for testing or demonstration purposes, such as pattern matching scenarios.
+    /// </remarks>
     public static List<Money> MoneyList() =>
     [
         new(0m, "USD"),
