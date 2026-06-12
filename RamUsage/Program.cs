@@ -61,8 +61,8 @@ internal class MainOperation
 
         Console.WriteLine($"    Total: {memory.TotalGB:N2} GB");
         Console.WriteLine($"Available: {memory.AvailableGB:N2} GB");
-        Console.WriteLine($"     Used: {memory.UsedGB:N2} GB");
-        Console.WriteLine($"   Used %: {memory.PercentUsed:N1}%");
+        AnsiConsole.MarkupLine($"     Used: [cyan]{memory.UsedGB:N2} GB[/]");
+        AnsiConsole.MarkupLine($"   Used %: [yellow]{memory.PercentUsed:N1}%[/]");
         Console.WriteLine();
     }
 }
