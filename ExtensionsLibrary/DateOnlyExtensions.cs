@@ -8,7 +8,7 @@ namespace ExtensionsLibrary;
 /// and other date-related operations.
 /// </summary>
 /// <remarks>
-/// This class includes methods to determine whether a date is a holiday or a working day, 
+/// 💡This class includes methods to determine whether a date is a holiday or a working day, 
 /// to add a specified number of working days to a date, and to retrieve holidays for an entire year.
 /// It leverages culture-specific rules for holidays and working days through the <see cref="WorkingDayCultureInfo"/> class.
 /// </remarks>
@@ -17,6 +17,16 @@ public static partial class DateOnlyExtensions
     /// <param name="dateOnly">The date to check.</param>
     extension(DateOnly dateOnly)
     {
+        /// <summary>
+        /// Calculates the age based on the current date and the specified <see cref="DateOnly"/> instance.
+        /// </summary>
+        /// <returns>
+        /// The age in years as an <see cref="int"/>.
+        /// </returns>
+        /// <remarks>
+        /// This method computes the age by comparing the current date with the provided date.
+        /// It accounts for the year, month, and day to ensure accurate age calculation.
+        /// </remarks>
         public int GetAge()
         {
             var (nYear, nMonth, nDay) = DateTime.Today;
