@@ -7,8 +7,9 @@ See [dotnet Framework life cycle tool](https://dev.to/karenpayneoregon/dotnet-fr
 
 ![Screenshot](images/screenshot.png)
 
-## Required projects
+## Required
 
+- System.CommandLine (NuGet package))
 - CommonLibrary
 - SpectreConsoleLibrary
 
