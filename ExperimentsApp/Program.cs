@@ -32,10 +32,13 @@ internal static partial class Program
         //Console.WriteLine(TimeOfDay(13));
         //Samples.PositionalPatternSample();
         //Samples.CombineIEnumerableInt();
-        Samples.CombineIEnumerableString();
-        Samples.CombineStringList();
-        Samples.CombineIEnumerableStringSimple();
-        
+        //Samples.CombineIEnumerableString();
+        //Samples.CombineStringList();
+        //Samples.CombineIEnumerableStringSimple();
+
+        Samples.CombineIEnumerableInt();
+
+
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 

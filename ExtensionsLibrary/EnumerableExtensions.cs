@@ -15,7 +15,7 @@ public static class EnumerableExtensions
         /// <returns>An <see cref="IEnumerable{T}"/> that contains the elements of the first sequence followed by the elements of the second sequence.</returns>
         [DebuggerStepThrough]
         public static IEnumerable<TSource> Combine(IEnumerable<TSource> first, IEnumerable<TSource> second)
-            => first.Concat(second);
+            => [.. first, .. second];
 
         /// <summary>
         /// Combines three sequences into a single sequence by concatenating them.
@@ -30,7 +30,7 @@ public static class EnumerableExtensions
             IEnumerable<TSource> first,
             IEnumerable<TSource> second,
             IEnumerable<TSource> third)
-            => first.Concat(second).Concat(third);
+            => [.. first, .. second, .. third];
 
         /// <summary>
         /// Combines four sequences into a single sequence by concatenating them.
@@ -47,7 +47,7 @@ public static class EnumerableExtensions
             IEnumerable<TSource> second,
             IEnumerable<TSource> third,
             IEnumerable<TSource> fourth)
-            => first.Concat(second).Concat(third).Concat(fourth);
+            => [.. first, .. second, .. third, .. fourth];
 
         /// <summary>
         /// Combines five sequences into a single sequence by concatenating them.
@@ -65,14 +65,7 @@ public static class EnumerableExtensions
             IEnumerable<TSource> second,
             IEnumerable<TSource> third,
             IEnumerable<TSource> fourth,
-            IEnumerable<TSource> fifth)
-        {
-            return first
-                .Concat(second)
-                .Concat(third)
-                .Concat(fourth)
-                .Concat(fifth);
-        }
+            IEnumerable<TSource> fifth) => [..first, .. second, .. third, .. fourth, .. fifth];
 
 
         /// <summary>
