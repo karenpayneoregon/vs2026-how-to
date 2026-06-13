@@ -5,14 +5,45 @@ using System.CommandLine;
 
 
 namespace RamUsage;
+
 internal partial class Program
 {
     static void Main(string[] args)
     {
         RootCommand rootCommand = new("Memory details");
+
+        if (IsHelpRequested(args))
+        {
+            DisplayHelp(rootCommand);
+            return;
+        }
+
         MainOperation.Display();
     }
 
+    private static bool IsHelpRequested(string[] args)
+    {
+        return args.Any(arg =>
+            string.Equals(arg, "-help", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "--help", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "-h", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "/?", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static void DisplayHelp(RootCommand rootCommand)
+    {
+        AnsiConsole.MarkupLine($"[bold]{rootCommand.Description}[/]");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Usage:[/]");
+        AnsiConsole.MarkupLine("  RamUsage");
+        AnsiConsole.MarkupLine("  RamUsage -help");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Options:[/]");
+        AnsiConsole.MarkupLine("  -help, --help, -h, /?    Show help information.");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Description:[/]");
+        AnsiConsole.MarkupLine("  Displays total, available, used, and percentage used system memory.");
+    }
 }
 
 internal class MainOperation
