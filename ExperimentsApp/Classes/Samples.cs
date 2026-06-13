@@ -125,6 +125,15 @@ internal class Samples
         }
     }
 
+    public static void LogicalPattern()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        List<IPerson> list = MockData.PeopleList();
+
+        Console.WriteLine(list.FirstOrDefault() is not Employee ? "Not an employee" : "Is an employee");
+    }
+
     /// <summary>
     /// Demonstrates the usage of the <see cref="ExtensionsLibrary.ComparerExtensions.IsBetween{T}(T, T)"/> extension method
     /// with different data types, such as integers and dates.

@@ -30,29 +30,19 @@ internal static partial class Program
         //Samples.DeclarationAndTypePatterns();
         //Samples.PropertyPatternSample();
         //Console.WriteLine(TimeOfDay(13));
-        Samples.PositionalPatternSample();
+        //Samples.PositionalPatternSample();
         //Samples.CombineIEnumerableInt();
         //Samples.CombineIEnumerableString();
         //Samples.CombineStringList();
         //Samples.CombineIEnumerableStringSimple();
-
         //Samples.CombineIEnumerableInt();
+        //Samples.LogicalPattern();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
-
-
-
     
-    
-
-
-
-
-   
-
     // caution: this is just an example of pattern matching and extension methods,
     // not a recommended way to convert floats/doubles to strings
     private static string AsString(this object input) => input switch
