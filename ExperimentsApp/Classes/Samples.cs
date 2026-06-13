@@ -270,7 +270,7 @@ internal class Samples
         _ => "Not a valid month"
     };
 
-    private static bool IsNorthernHemisphere() => CultureInfo.CurrentCulture switch
+    public static bool IsNorthernHemisphere() => CultureInfo.CurrentCulture switch
     {
         { Name: "en-AU" } => true,
         { Name: "en-CA" } => true,
@@ -280,4 +280,94 @@ internal class Samples
         _ => false
     };
 
+    public static void CombineIEnumerableInt()
+    {
+
+        SpectreConsoleHelpers.PrintPink();
+        
+        IEnumerable<int> first = [1, 2];
+        IEnumerable<int> second = [3, 4];
+        IEnumerable<int> third = [5, 6];
+        IEnumerable<int> fourth = [7, 8];
+        IEnumerable<int> fifth = [9, 10];
+
+        IEnumerable<int> combined = IEnumerable<int>.Combine(first, second, third, fourth, fifth);
+
+        foreach (int number in combined)
+        {
+            Console.WriteLine(number);
+        }
+    }
+
+    public static void CombineIEnumerableString()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        IEnumerable<string> maleFirstNames = ["James", "John", "Robert"];
+        IEnumerable<string> femaleFirstNames = ["Mary", "Patricia", "Jennifer"];
+
+        IEnumerable<string> combinedFirstNames = IEnumerable<string>.Combine(maleFirstNames, femaleFirstNames);
+
+        foreach (string firstName in combinedFirstNames)
+        {
+            Console.WriteLine(firstName);
+        }
+    }
+
+    public static void CombineStringList()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        var list1 = List1(out var list2, out var list3);
+
+        // Create a collection of sequences
+        IEnumerable<IEnumerable<string>> allLists = [list1, list2, list3];
+
+        // Flatten into one sequence: Apple, Banana, Cherry, Date, Elderberry
+        IEnumerable<string> combined = allLists.SelectMany(x => x);
+        
+        foreach (var item in combined)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine();
+        
+    }
+
+    public static void CombineIEnumerableStringSimple()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        var list1 = List1(out var list2, out var list3);
+
+        // Combine using the generic Combine method
+        var combined = IEnumerable<string>.Combine(list1, list2, list3);
+
+        foreach (var item in combined)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine();
+        
+    }
+
+    /// <summary>
+    /// Creates and returns a list of strings while also initializing two additional lists as out parameters.
+    /// </summary>
+    /// <param name="list2">An output parameter that will be initialized with a list of strings.</param>
+    /// <param name="list3">An output parameter that will be initialized with another list of strings.</param>
+    /// <returns>A list of strings containing the initial set of values.</returns>
+    /// <remarks>
+    /// This method initializes three lists of strings. The first list is returned as the result, 
+    /// while the other two lists are provided as out parameters.
+    /// </remarks>
+    private static List<string> List1(out List<string> list2, out List<string> list3)
+    {
+        List<string> list1 = ["Apple", "Banana"];
+        list2 = ["Cherry", "Date"];
+        list3 = ["Elderberry"];
+        return list1;
+    }
 }

@@ -66,14 +66,16 @@ public static class EnumerableExtensions
             IEnumerable<TSource> third,
             IEnumerable<TSource> fourth,
             IEnumerable<TSource> fifth)
-            => first
+        {
+            return first
                 .Concat(second)
                 .Concat(third)
                 .Concat(fourth)
                 .Concat(fifth);
-   
+        }
 
-    /// <summary>
+
+        /// <summary>
     /// Gets an empty sequence of the specified type.
     /// </summary>
     /// <typeparam name="TSource">The type of the elements in the sequence.</typeparam>

@@ -26,16 +26,16 @@ internal static partial class Program
         //var msg = 3.14f.AsString();
         //Console.WriteLine(msg);
 
-        Samples.BetweenSamples();
-
+        //Samples.BetweenSamples();
         //Samples.DeclarationAndTypePatterns();
-
         //Samples.PropertyPatternSample();
-
         //Console.WriteLine(TimeOfDay(13));
-
         //Samples.PositionalPatternSample();
-
+        //Samples.CombineIEnumerableInt();
+        Samples.CombineIEnumerableString();
+        Samples.CombineStringList();
+        Samples.CombineIEnumerableStringSimple();
+        
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
