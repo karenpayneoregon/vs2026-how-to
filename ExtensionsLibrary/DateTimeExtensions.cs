@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace ExtensionsLibrary
@@ -21,6 +22,7 @@ namespace ExtensionsLibrary
             /// </summary>
             /// <returns>A string representing the short date pattern followed by the long time pattern, separated by a space.</returns>
             /// <exception cref="ArgumentNullException">Thrown if the format information is null.</exception>
+            [DebuggerStepThrough]
             public string ShortDateLongTimeFormat()
             {
                 return formatInfo is null ? 

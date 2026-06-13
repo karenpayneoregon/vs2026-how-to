@@ -1,6 +1,7 @@
 ﻿
 
 using ExtensionsLibrary.Models;
+using System.Diagnostics;
 
 namespace ExtensionsLibrary;
 
@@ -19,6 +20,7 @@ internal static class PersonExtensions
         /// <param name="id">The unique identifier of the person.</param>
         /// <param name="fullName">The full name of the person, combining first and last names.</param>
         /// <param name="birthDate">The birthdate of the person.</param>
+        [DebuggerStepThrough]
         public void Deconstruct(out int id, out string fullName, out DateOnly birthDate)
             => (id, fullName, birthDate) = (p.Id, p.FullName, p.BirthDate);
     }

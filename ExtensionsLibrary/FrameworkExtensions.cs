@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.Versioning;
 
 namespace ExtensionsLibrary;
@@ -20,6 +21,7 @@ public static class FrameworkExtensions
         /// This method attempts to extract the framework version from the <see cref="System.Runtime.Versioning.TargetFrameworkAttribute"/> 
         /// applied to the assembly. If the framework version cannot be determined, it returns <c>null</c>.
         /// </remarks>
+        [DebuggerStepThrough]
         public Version? GetTargetFrameworkVersion()
         {
 

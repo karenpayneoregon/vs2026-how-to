@@ -1,6 +1,7 @@
 ﻿
 using DateTimeExtensions;
 using DateTimeExtensions.WorkingDays;
+using System.Diagnostics;
 
 namespace ExtensionsLibrary;
 /// <summary>
@@ -27,6 +28,7 @@ public static partial class DateOnlyExtensions
         /// This method computes the age by comparing the current date with the provided date.
         /// It accounts for the year, month, and day to ensure accurate age calculation.
         /// </remarks>
+        [DebuggerStepThrough]
         public int GetAge()
         {
             var (nYear, nMonth, nDay) = DateTime.Today;
@@ -48,6 +50,7 @@ public static partial class DateOnlyExtensions
         /// This method uses the <see cref="WorkingDayCultureInfo"/> class to determine holidays.
         /// It considers culture-specific holiday rules to identify whether the given date is a holiday.
         /// </remarks>
+        [DebuggerStepThrough]
         public bool IsHoliday()
         {
             var date = DateTimeFromDateOnly(dateOnly);
@@ -65,6 +68,7 @@ public static partial class DateOnlyExtensions
         /// This method uses the <see cref="WorkingDayCultureInfo"/> class to determine working days.
         /// It considers weekends and holidays as defined by the culture-specific working day rules.
         /// </remarks>
+        [DebuggerStepThrough]
         public bool IsWorkingDay()
         {
             var date = DateTimeFromDateOnly(dateOnly);
@@ -85,6 +89,7 @@ public static partial class DateOnlyExtensions
     /// This method uses the <see cref="WorkingDayCultureInfo"/> class to determine working days.
     /// It skips holidays and weekends as defined by the culture-specific working day rules.
     /// </remarks>
+    [DebuggerStepThrough]
     public static DateOnly AddWorkingDays(DateOnly day, int workingDays)
     {
         var date = DateTimeFromDateOnly(day);
@@ -103,6 +108,7 @@ public static partial class DateOnlyExtensions
     /// This method uses the <see cref="WorkingDayCultureInfo"/> class to determine working days.
     /// It skips holidays and weekends as defined by the culture-specific working day rules.
     /// </remarks>
+    [DebuggerStepThrough]
     public static DateOnly AddBusinessWeekDay(this DateOnly day)
     {
         var date = DateTimeFromDateOnly(day);
@@ -121,6 +127,7 @@ public static partial class DateOnlyExtensions
     /// This method uses the <see cref="WorkingDayCultureInfo"/> class to determine holidays.
     /// The returned dictionary includes all holidays for the year of the provided date.
     /// </remarks>
+    [DebuggerStepThrough]
     public static IDictionary<DateOnly, Holiday> AllYearHolidays(this DateOnly day)
     {
         IDictionary<DateTime, Holiday>? x = day
@@ -139,6 +146,7 @@ public static partial class DateOnlyExtensions
     /// This method is used internally by other methods in the <see cref="DateOnlyExtensions"/> class
     /// to facilitate operations requiring a <see cref="DateTime"/> representation of a <see cref="DateOnly"/> value.
     /// </remarks>
+    [DebuggerStepThrough]
     private static DateTime DateTimeFromDateOnly(DateOnly day) 
         => day.ToDateTime(new TimeOnly(0, 0));
 
@@ -155,6 +163,7 @@ public static partial class DateOnlyExtensions
     /// This method combines the date from the <paramref name="day"/> parameter with the time specified by the
     /// <paramref name="hour"/> and <paramref name="minute"/> parameters to create a <see cref="DateTime"/> instance.
     /// </remarks>
+    [DebuggerStepThrough]
     public static DateTime DateTimeFromDateOnly(DateOnly day, int hour, int minute)
         => day.ToDateTime(new TimeOnly(hour, minute));
 }

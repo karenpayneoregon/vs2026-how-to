@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ExtensionsLibrary;
 
@@ -14,6 +15,7 @@ public static class EnumExtensions
     /// type.</remarks>
     /// <typeparam name="T">The enumeration type from which to select a random value. Must be a value type that is an enum.</typeparam>
     /// <returns>A randomly chosen value of type <typeparamref name="T"/> from the set of defined enumeration values.</returns>
+    [DebuggerStepThrough]
     public static T Random<T>() where T : struct, Enum
     {
         var values = Enum.GetValues<T>();

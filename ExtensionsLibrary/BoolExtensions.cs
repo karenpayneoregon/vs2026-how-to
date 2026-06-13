@@ -1,4 +1,6 @@
-﻿namespace ExtensionsLibrary;
+﻿using System.Diagnostics;
+
+namespace ExtensionsLibrary;
 
 public static class BoolExtensions
 {
@@ -8,6 +10,7 @@ public static class BoolExtensions
         /// Converts the current boolean value to its equivalent "Yes" or "No" string representation.
         /// </summary>
         /// <returns>A string that is "Yes" if the value is <see langword="true"/>; otherwise, "No".</returns>
+        [DebuggerStepThrough]
         public string ToYesNo() => value ? "Yes" : "No";
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace ExperimentsApp.Classes;
 
@@ -19,6 +20,7 @@ internal static partial class StringExtensions
     /// // result: "Karen Payne"
     /// </code>
     /// </example>
+    [DebuggerStepThrough]
     public static string SplitOnUpperCase(this string input) 
         => string.IsNullOrEmpty(input) ? input : SplitCamelCaseRegex().Replace(input, " $1");
 

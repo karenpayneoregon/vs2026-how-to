@@ -1,4 +1,6 @@
-﻿namespace ExtensionsLibrary;
+﻿using System.Diagnostics;
+
+namespace ExtensionsLibrary;
 
 /// <summary>
 /// Provides a set of extension methods for working with comparers.
@@ -17,6 +19,7 @@ public static class ComparerExtensions
         /// <returns>
         /// <c>true</c> if the value is between the lower and upper bounds, inclusive; otherwise, <c>false</c>.
         /// </returns>
+        [DebuggerStepThrough]
         public bool Between(T lowerValue, T upperValue) => Comparer<T>.Default.Compare(value, lowerValue) >= 0 &&
                                                            Comparer<T>.Default.Compare(value, upperValue) <= 0;
 
@@ -28,6 +31,7 @@ public static class ComparerExtensions
         /// <returns>
         /// <c>true</c> if the value is between the lower and upper bounds, inclusive; otherwise, <c>false</c>.
         /// </returns>
+        [DebuggerStepThrough]
         public bool IsBetween(T lowerValue, T upperValue) => value.Between(lowerValue, upperValue);
     }
 
@@ -43,6 +47,7 @@ public static class ComparerExtensions
         /// <returns>
         /// <c>true</c> if the value is strictly between the lower and upper bounds; otherwise, <c>false</c>.
         /// </returns>
+        [DebuggerStepThrough]
         public bool BetweenExclusive(T minimumValue, T maximumValue)
             => sender.CompareTo(minimumValue) > 0 &&
                sender.CompareTo(maximumValue) < 0;
@@ -55,6 +60,7 @@ public static class ComparerExtensions
         /// <returns>
         /// <c>true</c> if the value is strictly between the lower and upper bounds; otherwise, <c>false</c>.
         /// </returns>
+        [DebuggerStepThrough]
         public bool IsBetweenExclusive(T minimumValue, T maximumValue)
             => sender.BetweenExclusive(minimumValue, maximumValue);
     }
