@@ -1,10 +1,11 @@
 ﻿using ConsoleConfigurationLibrary.Classes;
 using ConsoleHelperLibrary.Classes;
+using ExperimentsApp.Classes;
 using ExperimentsApp.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SpectreConsoleLibrary.Core;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using SpectreConsoleLibrary.Core;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 // ReSharper disable once CheckNamespace
@@ -37,5 +38,7 @@ internal static partial class Program
         setup.GetEntitySettings();
 
         SpectreConsoleHelpers.SetEncoding();
+
+        //ScreenSaver.DisableScreensaver();
     }
 }
