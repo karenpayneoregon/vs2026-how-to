@@ -7,6 +7,6 @@ using System.Text;
 
 namespace ExperimentsApp.Classes;
 
-internal class CodeSamples
+internal class Samples
 {
 }
