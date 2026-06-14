@@ -2,11 +2,13 @@ using FluentValidation;
 using FluentWebApplication.Classes;
 using FluentWebApplication.Data;
 using FluentWebApplication.Models;
+using FluentWebApplication.Models.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Serilog.Events;
+using static System.DateTime;
 using Serilog.Sinks.SystemConsole.Themes;
 using System.Diagnostics;
-using FluentWebApplication.Models.Configuration;
 
 namespace FluentWebApplication;
 
@@ -27,10 +29,21 @@ public class Program
 
         if (builder.Environment.IsDevelopment())
         {
-            // colorize output
-            builder.Host.UseSerilog((_, configuration) =>
-                configuration.WriteTo.Console(theme: AnsiConsoleTheme.Code));
-            
+            builder.Host.UseSerilog((context, configuration) =>
+            {
+
+                configuration.WriteTo.File(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LogFiles"), $"{Now.Year}-{Now.Month:D2}-{Now.Day:D2}", "Log.txt"),
+                    rollingInterval: RollingInterval.Infinite,
+                    outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}");
+
+                configuration.MinimumLevel.Information();
+                configuration.MinimumLevel.Override("Microsoft", LogEventLevel.Warning);
+                configuration.MinimumLevel.Override("System", LogEventLevel.Warning);
+
+            });
+
+
+
             builder.Services.AddDbContextPool<Context>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
                     .EnableSensitiveDataLogging()

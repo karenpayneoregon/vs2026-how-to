@@ -1,18 +1,16 @@
 ﻿using FluentWebApplication.Data;
-using FluentWebApplication.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FluentWebApplication.Pages;
-public class IndexModel(Context context) : PageModel
+public class IndexModel(Context context, IWebHostEnvironment env) : PageModel
 {
-
-
-
 
     public void OnGet()
     {
-
+        if (env.IsDevelopment())
+        {
+            Console.WriteLine("Running in dev environment"); 
+        }
     }
 
     private void UpdateEmailAddresses()
