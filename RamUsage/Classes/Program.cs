@@ -1,10 +1,5 @@
-﻿using ConsoleConfigurationLibrary.Classes;
-using ConsoleHelperLibrary.Classes;
-using Microsoft.Extensions.DependencyInjection;
-using RamUsage.Classes.Core;
-using System.Reflection;
+﻿using RamUsage.Classes.Core;
 using System.Runtime.CompilerServices;
-using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 // ReSharper disable once CheckNamespace
 namespace RamUsage;
