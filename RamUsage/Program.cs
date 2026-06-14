@@ -2,6 +2,7 @@
 using RamUsage.Classes.Core;
 using Spectre.Console;
 using System.CommandLine;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace RamUsage;
@@ -19,6 +20,7 @@ internal partial class Program
         }
 
         MainOperation.Display();
+        Console.ReadLine();
     }
 
     private static bool IsHelpRequested(string[] args)
@@ -68,5 +70,29 @@ internal class MainOperation
         AnsiConsole.MarkupLine($"     Used: [cyan]{memory.UsedGB:N2} GB[/]");
         AnsiConsole.MarkupLine($"   Used %: [yellow]{memory.PercentUsed:N1}%[/]");
         Console.WriteLine();
+
+        var service = new RamUsageService();
+        var applications = service.GetTopFiveApplicationsByRam();
+
+        var table = new Table()
+            .Border(TableBorder.Rounded)
+            .AddColumn("[bold]PID[/]")
+            .AddColumn("[bold]Process[/]")
+            .AddColumn("[bold]Window Title[/]")
+            .AddColumn("[bold]RAM Used[/]");
+
+        foreach (var app in applications)
+        {
+            table.AddRow(
+                app.ProcessId.ToString(),
+                Markup.Escape(app.ProcessName),
+                Markup.Escape(app.WindowTitle ?? "(no window)"),
+                $"[green]{app.WorkingSetMegabytes:N2} MB[/]"
+            );
+        }
+
+        AnsiConsole.MarkupLine("[bold yellow]Top 5 Applications by RAM Usage[/]");
+
+        AnsiConsole.Write(table);
     }
 }
