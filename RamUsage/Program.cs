@@ -20,9 +20,21 @@ internal partial class Program
         }
 
         MainOperation.Display();
-        Console.ReadLine();
     }
 
+    /// <summary>
+    /// Determines whether the help information is requested based on the provided command-line arguments.
+    /// </summary>
+    /// <param name="args">
+    /// An array of command-line arguments passed to the application.
+    /// </param>
+    /// <returns>
+    /// <see langword="true"/> if any of the arguments match the help request options 
+    /// ("-help", "--help", "-h", or "/?"); otherwise, <see langword="false"/>.
+    /// </returns>
+    /// <remarks>
+    /// This method checks for common help request arguments in a case-insensitive manner.
+    /// </remarks>
     private static bool IsHelpRequested(string[] args)
     {
         return args.Any(arg =>
@@ -32,6 +44,16 @@ internal partial class Program
             string.Equals(arg, "/?", StringComparison.OrdinalIgnoreCase));
     }
 
+    /// <summary>
+    /// Displays help information for the application.
+    /// </summary>
+    /// <param name="rootCommand">
+    /// The <see cref="RootCommand"/> instance containing the description and options for the application.
+    /// </param>
+    /// <remarks>
+    /// This method outputs the application's description, usage instructions, and available options
+    /// in a formatted manner using the Spectre.Console library.
+    /// </remarks>
     private static void DisplayHelp(RootCommand rootCommand)
     {
         AnsiConsole.MarkupLine($"[bold]{rootCommand.Description}[/]");
@@ -51,12 +73,13 @@ internal partial class Program
 internal class MainOperation
 {
     /// <summary>
-    /// Displays detailed system memory usage information in the console.
+    /// Displays detailed system memory usage information and the top five applications by RAM usage.
     /// </summary>
     /// <remarks>
     /// This method retrieves memory usage statistics using the <see cref="SystemMemory.GetMemoryUsage"/> method
     /// and outputs the total, available, and used memory, as well as the percentage of memory used.
-    /// It utilizes the Spectre.Console library to format the output with styled markup.
+    /// It also retrieves the top five applications consuming the most RAM using the <see cref="RamUsageService.GetTopFiveApplicationsByRam"/> method.
+    /// The output is formatted using the Spectre.Console library for enhanced readability.
     /// </remarks>
     public static void Display()
     {
@@ -86,13 +109,16 @@ internal class MainOperation
             table.AddRow(
                 app.ProcessId.ToString(),
                 Markup.Escape(app.ProcessName),
-                Markup.Escape(app.WindowTitle ?? "(no window)"),
+                Markup.Escape(app.WindowTitle ?? "(no visible window title)"),
                 $"[green]{app.WorkingSetMegabytes:N2} MB[/]"
             );
         }
 
+        Console.WriteLine("\n\n");
         AnsiConsole.MarkupLine("[bold yellow]Top 5 Applications by RAM Usage[/]");
 
         AnsiConsole.Write(table);
+
+        Console.WriteLine("\n\n");
     }
 }
