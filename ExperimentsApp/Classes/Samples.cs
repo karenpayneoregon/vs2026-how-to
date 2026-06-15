@@ -379,4 +379,28 @@ internal class Samples
         list3 = ["Elderberry"];
         return list1;
     }
+
+    /// <summary>
+    /// Demonstrates the formatting of a <see cref="TimeSpan"/> object using the 
+    /// <see cref="ExtensionsLibrary.TimeSpanExtensions.Format"/> extension method.
+    /// </summary>
+    /// <remarks>
+    /// This method creates a <see cref="TimeSpan"/> instance and formats it using the 
+    /// <see cref="ExtensionsLibrary.TimeSpanExtensions.Format"/> method, which provides 
+    /// a detailed or compact representation of the time span.
+    /// </remarks>
+    /// <example>
+    /// The output for a <see cref="TimeSpan"/> of 13 hours, 30 minutes, and 15 seconds 
+    /// might look like:
+    /// <code>
+    /// Hours: 13 Minutes: 810 Seconds:15 Milliseconds:00
+    /// </code>
+    /// when the debug parameter is set to <c>true</c>.
+    /// </example>
+    public static void FormatTimespanDemo()
+    {
+        var timeSpan = new TimeSpan(13, 30, 15);
+        Console.WriteLine(timeSpan.Format());
+
+    }
 }

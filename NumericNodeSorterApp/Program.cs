@@ -21,7 +21,7 @@ internal partial class Program
         
         Console.WriteLine("\n");
         
-        string[] files = ["file10.txt", "file2.txt", "file1.txt", "fileA.txt"];
+        string[] files = ["file10.txt", "file2.txt", "Pets.json", "file1.txt", "fileA.txt"];
 
         Array.Sort(files, new NumericStringComparer(CultureInfo.CurrentCulture));
 
