@@ -180,26 +180,22 @@ internal class Samples
     /// This method generates a set of random values from the <see cref="Country"/> enumeration, 
     /// orders them, and displays each value with its index using Spectre.Console for styled output.
     /// </remarks>
-    public static async Task EnumRandomizeExample()
+    public static void EnumRandomizeExample()
     {
         
         SpectreConsoleHelpers.PrintPink();
-        Country country = default;
 
-        var countries = new HashSet<Country>();
 
-        for (var index = 0; index < 20; index++)
+
+        var country = Country.Usa;
+
+        IOrderedEnumerable<Country> randomCountries = country.Randomize(10).Order();
+
+        foreach (var (index, item)  in randomCountries.Index())
         {
-            Country randomStatus = country.Randomize();
-            countries.Add(randomStatus);
-            await Task.Delay(200);
+            Console.WriteLine($"{index, -4}{item}");
         }
-
-        foreach (var (index, item) in countries.Order().Index())
-        {
-            AnsiConsole.MarkupLine($"{index +1, -4}[yellow]{item}[/]");
-        }
-
+        
         Console.WriteLine();
     }
 }

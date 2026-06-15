@@ -7,7 +7,7 @@ namespace ExtensionsApp;
 
 internal partial class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
         SpectreConsoleHelpers.PinkPill(Justify.Left, "Extensions");
         Console.WriteLine("\n");
@@ -19,7 +19,7 @@ internal partial class Program
         //Samples.GetCurrentProjectFramework();
 
 
-        await Samples.EnumRandomizeExample();
+         Samples.EnumRandomizeExample();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
