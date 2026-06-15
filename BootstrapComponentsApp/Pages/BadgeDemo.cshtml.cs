@@ -15,6 +15,19 @@ public class BadgeDemoModel : PageModel
         BadgeCount = BadgeOperations.BadgeCount();
     }
 
+    public IActionResult OnPostDecrement()
+    {
+        int currentBadgeCount = BadgeOperations.BadgeCount();
+
+        currentBadgeCount--;
+
+        if (currentBadgeCount < 0)
+            currentBadgeCount = 0;
+        
+        BadgeOperations.Save(currentBadgeCount);
+
+        return RedirectToPage();
+    }
     public IActionResult OnPostIncrement()
     {
         int currentBadgeCount = BadgeOperations.BadgeCount();
@@ -24,5 +37,6 @@ public class BadgeDemoModel : PageModel
         BadgeOperations.Save(currentBadgeCount);
 
         return RedirectToPage();
+        
     }
 }
