@@ -1,6 +1,7 @@
 ﻿using DateTimeExtensions;
 using DateTimeExtensions.TimeOfDay;
 using DateTimeExtensions.WorkingDays;
+using ExtensionsApp.Models;
 using ExtensionsLibrary;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
@@ -168,5 +169,37 @@ internal class Samples
 
         Console.WriteLine();
         
+    }
+    
+    
+
+    /// <summary>
+    /// Demonstrates the randomization of an enumeration and displays the results in a formatted manner.
+    /// </summary>
+    /// <remarks>
+    /// This method generates a set of random values from the <see cref="Country"/> enumeration, 
+    /// orders them, and displays each value with its index using Spectre.Console for styled output.
+    /// </remarks>
+    public static async Task EnumRandomizeExample()
+    {
+        
+        SpectreConsoleHelpers.PrintPink();
+        Country country = default;
+
+        var countries = new HashSet<Country>();
+
+        for (var index = 0; index < 20; index++)
+        {
+            Country randomStatus = country.Randomize();
+            countries.Add(randomStatus);
+            await Task.Delay(200);
+        }
+
+        foreach (var (index, item) in countries.Order().Index())
+        {
+            AnsiConsole.MarkupLine($"{index +1, -4}[yellow]{item}[/]");
+        }
+
+        Console.WriteLine();
     }
 }
