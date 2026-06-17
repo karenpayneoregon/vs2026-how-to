@@ -73,7 +73,7 @@ internal class FileOperations
     {
         if (!File.Exists(path)) throw new FileNotFoundException("vs.json not found.", path);
         
-        var list = JsonSerializer.Deserialize<List<Installation>>(File.ReadAllText(path), Options) ?? [];
+        List<Installation> list = JsonSerializer.Deserialize<List<Installation>>(File.ReadAllText(path), Options) ?? [];
         
         File.Delete(path);
         
@@ -100,15 +100,16 @@ internal class FileOperations
         string pf86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
         var candidates = new[]
         {
-            Path.Combine(pf86, "Microsoft Visual Studio", "Installer", "vswhere.exe"),
-            "vswhere.exe" // rely on PATH
+            Path.Combine(pf86, "Microsoft Visual Studio", "Installer", "vswhere.exe"), "vswhere.exe" // rely on PATH
         };
 
         foreach (var candidate in candidates)
         {
             try
             {
+                
                 string full = candidate;
+                
                 if (!Path.IsPathRooted(candidate))
                 {
                     // try to resolve from PATH
@@ -139,6 +140,7 @@ internal class FileOperations
         }
         
         return candidates[0]; // return default; caller will verify existence
+        
     }
 
     public static JsonSerializerOptions Options => new()

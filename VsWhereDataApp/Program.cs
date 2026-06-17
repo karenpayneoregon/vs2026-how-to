@@ -1,29 +1,26 @@
 ﻿using Spectre.Console;
-using System.CommandLine;
-using System.CommandLine.Builder;
-using System.CommandLine.Parsing;
 using System.Diagnostics;
 using VsWhereDataApp.Classes;
-
+using System.CommandLine;
 namespace VsWhereDataApp;
+
 internal partial class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
-        
+
         try
         {
             RootCommand rootCommand = new("Visual Studio details");
-            rootCommand.SetHandler(MainOperation.Display);
 
-            var commandLineBuilder = new CommandLineBuilder(rootCommand);
 
-            commandLineBuilder.AddMiddleware(async (context, next) => { await next(context); });
-
-            commandLineBuilder.UseDefaults();
-            var parser = commandLineBuilder.Build();
-
-            await parser.InvokeAsync(args);
+            if (IsHelpRequested(args))
+            {
+                DisplayHelp(rootCommand);
+                return;
+            }
+            
+            MainOperation.Display();
 
             if (Debugger.IsAttached)
             {
@@ -51,4 +48,30 @@ internal partial class Program
         }
 
     }
+
+    private static bool IsHelpRequested(string[] args)
+    {
+        return args.Any(arg =>
+            string.Equals(arg, "-help", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "--help", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "-h", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(arg, "/?", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static void DisplayHelp(RootCommand rootCommand)
+    {
+        AnsiConsole.MarkupLine($"[bold]{rootCommand.Description}[/]");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Usage:[/]");
+        AnsiConsole.MarkupLine("  RamUsage");
+        AnsiConsole.MarkupLine("  RamUsage -help");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Options:[/]");
+        AnsiConsole.MarkupLine("  -help, --help, -h, /?    Show help information.");
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold]Description:[/]");
+        AnsiConsole.MarkupLine("  Provides details for Microsoft Visual Studio");
+    }
+
 }
+
