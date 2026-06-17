@@ -9,6 +9,10 @@
           "path": "BootstrapToolTips\\Lib\\debugHelper.js"
         },
         {
+          "name": "EnvironmentLabelTagHelper.cs",
+          "path": "FluentWebApplication\\TagHelpers\\EnvironmentLabelTagHelper.cs"
+        },
+        {
           "name": "index.html",
           "path": "GoogleTranslateFix\\index.html"
         }

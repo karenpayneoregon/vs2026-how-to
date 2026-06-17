@@ -3,20 +3,13 @@
 namespace FluentWebApplication.TagHelpers;
 
 [HtmlTargetElement("environment-label")]
-public class EnvironmentLabelTagHelper : TagHelper
+public class EnvironmentLabelTagHelper(IWebHostEnvironment environment) : TagHelper
 {
-    private readonly IWebHostEnvironment _environment;
-
-    public EnvironmentLabelTagHelper(IWebHostEnvironment environment)
-    {
-        _environment = environment;
-    }
-
     public string? Class { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        var environmentName = _environment.EnvironmentName;
+        var environmentName = environment.EnvironmentName;
 
         output.TagName = "span";
         output.TagMode = TagMode.StartTagAndEndTag;
