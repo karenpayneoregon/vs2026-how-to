@@ -39,6 +39,9 @@
   <Folder Name="/Console projects/JSON examples/">
     <Project Path="RemovePropertyApp/RemovePropertyApp.csproj" />
   </Folder>
+  <Folder Name="/Console projects/Serilog/">
+    <Project Path="Logging/DestructuringSamples/DestructuringSamples.csproj" />
+  </Folder>
   <Folder Name="/Experiments projects/">
     <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />
   </Folder>
