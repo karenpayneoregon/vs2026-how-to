@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace ExtensionsLibrary;
+namespace FluenyValidationLibrary;
 
 #pragma warning disable CS8618
 public static class FluentValidationExtensions
