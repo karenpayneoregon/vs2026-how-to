@@ -35,7 +35,7 @@
 	  <PackageReference Include="Spectre.Console.Json" Version="0.55.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
+    <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

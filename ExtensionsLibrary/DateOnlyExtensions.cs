@@ -75,6 +75,37 @@ public static partial class DateOnlyExtensions
             var workingDayCultureInfo = new WorkingDayCultureInfo();
             return workingDayCultureInfo.IsWorkingDay(date);
         }
+
+        /// <summary>
+        /// Adds the specified number of business days to the given <see cref="DateOnly"/> instance.
+        /// </summary>
+        /// <param name="days">The number of business days to add. Can be positive or negative.</param>
+        /// <returns>A new <see cref="DateOnly"/> instance that is the result of adding the specified number of business days to the original date.</returns>
+        /// <remarks>
+        /// Business days are considered as Monday through Friday. Weekends (Saturday and Sunday) are skipped.
+        /// </remarks>
+        public DateOnly AddBusinessDays(int days)
+        {
+
+            //TODO add holiday exclusions
+
+            int fullWeeks = days / 5;
+            dateOnly = dateOnly.AddDays(fullWeeks * 7);
+
+            int remainingDays = days % 5;
+
+            for (int index = 0; index < remainingDays; index++)
+            {
+                dateOnly = dateOnly.DayOfWeek switch
+                {
+                    DayOfWeek.Friday => dateOnly.AddDays(3),
+                    DayOfWeek.Saturday => dateOnly.AddDays(2),
+                    _ => dateOnly.AddDays(1)
+                };
+            }
+
+            return dateOnly;
+        }
     }
 
     /// <summary>
