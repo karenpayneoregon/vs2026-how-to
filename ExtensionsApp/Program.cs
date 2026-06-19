@@ -9,17 +9,22 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        SpectreConsoleHelpers.PinkPill(Justify.Left, "Extensions");
-        Console.WriteLine("\n");
+        //SpectreConsoleHelpers.PinkPill(Justify.Left, "Extensions");
+        //Console.WriteLine("\n");
 
         //Samples.IncrementAndPrintValues();
         //Samples.DateOnlyExamples();
         //Samples.BetweenExamples();
         //Samples.RemoveExtraSpaces();
         //Samples.GetCurrentProjectFramework();
+        //Samples.EnumRandomizeExample();
 
 
-         Samples.EnumRandomizeExample();
+        DateOnlySamples.PriorWeek();
+        DateOnlySamples.ThisWeek();
+        DateOnlySamples.NextWeek();
+        DateOnlySamples.GetMonthDays(DateTime.Now.Month);
+
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

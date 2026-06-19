@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj" />
 	  <ProjectReference Include="..\ExtensionsLibrary\ExtensionsLibrary.csproj" />
 	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>

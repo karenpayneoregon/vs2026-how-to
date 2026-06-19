@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
+using CommonLibrary.Models;
+using static System.Globalization.DateTimeFormatInfo;
 
 namespace CommonLibrary;
 
@@ -9,7 +10,7 @@ namespace CommonLibrary;
 /// Provides a collection of helper methods for working with dates, including operations
 /// such as retrieving dates for the next week, dividing a month into weeks, and more.
 /// </summary>
-public static class DateTimeHelpers
+public static class DateOnlyHelpers
 {
 
     /// <summary>
@@ -17,10 +18,18 @@ public static class DateTimeHelpers
     /// </summary>
     /// <returns>A list of <see cref="DateOnly"/> objects representing the dates of the prior week.</returns>
     public static List<DateOnly> PriorWeeksDates()
-        => Enumerable.Range(0, 7).Select(index =>
-                DateOnly.FromDateTime(DateTime.Now).Previous(DayOfWeek.Sunday).AddDays(index))
+        => GetPriorWeeksDates(DateOnly.FromDateTime(DateTime.Now));
+
+    public static List<DateOnly> GetPriorWeeksDates(DateOnly dateTime)
+    {
+        var currentWeekSunday = dateTime.AddDays(-(int)dateTime.DayOfWeek);
+        var priorWeekSunday = currentWeekSunday.AddDays(-7);
+
+        return Enumerable.Range(0, 7)
+            .Select(priorWeekSunday.AddDays)
             .ToList();
-    
+    }
+
     /// <summary>
     /// Retrieves the dates for the next week starting from the next occurrence of Sunday.
     /// </summary>
@@ -29,6 +38,29 @@ public static class DateTimeHelpers
         => Enumerable.Range(0, 7).Select(index =>
                 DateOnly.FromDateTime(DateTime.Now).Next(DayOfWeek.Sunday).AddDays(index))
             .ToList();
+
+    /// <summary>
+    /// Retrieves the dates for the current week, starting from the specified day of the week.
+    /// </summary>
+    /// <param name="weekStartsOn">
+    /// The day of the week that marks the start of the week. Defaults to <see cref="DayOfWeek.Monday"/>.
+    /// </param>
+    /// <returns>
+    /// A list of <see cref="DateOnly"/> objects representing the dates of the current week.
+    /// </returns>
+    public static List<DateOnly> GetCurrentWeekDates(DayOfWeek weekStartsOn = DayOfWeek.Monday)
+    {
+        DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+
+        int daysSinceStartOfWeek =
+            (7 + (today.DayOfWeek - weekStartsOn)) % 7;
+
+        DateOnly startOfWeek = today.AddDays(-daysSinceStartOfWeek);
+
+        return Enumerable.Range(0, 7)
+            .Select(startOfWeek.AddDays)
+            .ToList();
+    }
 
     /// <summary>
     /// Retrieves the dates for the next week starting from the next occurrence of Sunday
@@ -97,6 +129,23 @@ public static class DateTimeHelpers
     }
 
     /// <summary>
+    /// Gets a list of months in the current culture, where each month is represented
+    /// as a <see cref="CommonLibrary.Models.MonthItem"/> containing the month's index and name.
+    /// </summary>
+    /// <remarks>
+    /// The list excludes any empty month names that may be present in the culture's
+    /// month name definitions.
+    /// </remarks>
+    /// <value>
+    /// A list of <see cref="CommonLibrary.Models.MonthItem"/> objects, each representing
+    /// a month with its index (1-based) and name.
+    /// </value>
+    public static List<MonthItem> MonthList =>
+        CurrentInfo.MonthNames[..^1]
+            .Select((monthName, index) => new MonthItem(index + 1, monthName))
+            .ToList();
+    
+    /// <summary>
     /// Get Month name by month index
     /// </summary>
     public static string MonthName
@@ -122,21 +171,5 @@ public static class DateTimeHelpers
             return from.AddDays(target - start);
         }
 
-        /// <summary>
-        /// Calculates the previous occurrence of the specified day of the week, starting from the given date.
-        /// </summary>
-        /// <param name="dayOfWeek">The target day of the week to find.</param>
-        /// <returns>A <see cref="DateOnly"/> object representing the previous occurrence of the specified day of the week.</returns>
-        public DateOnly Previous(DayOfWeek dayOfWeek)
-        {
-            int start = (int)from.DayOfWeek;
-            int target = (int)dayOfWeek;
-            if (target >= start)
-            {
-                target -= 7;
-            }
-
-            return from.AddDays(target - start);
-        }
     }
 }
