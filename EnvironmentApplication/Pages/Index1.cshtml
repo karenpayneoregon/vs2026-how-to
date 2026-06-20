@@ -1,0 +1,35 @@
+﻿@page
+@model EnvironmentApplication.Pages.Index1Model
+@{
+}
+
+<div class="alert alert-primary" role="alert">
+    <h1 class="fs-4">Section defined</h1>
+</div>
+
+@section DemoSection
+{
+    <environment include="Development">
+        <div class="row">
+            <div class="col-auto badge bg-success ms-3">
+                Development
+            </div>
+        </div>
+    </environment>
+
+    <environment include="Staging">
+        <div class="row">
+            <div class="col-auto badge bg-warning  ms-4">
+                Staging
+            </div>
+        </div>
+    </environment>
+
+    <environment include="Production">
+        <div class="row">
+            <div class="col-auto badge bg-danger  ms-4">
+                Production
+            </div>
+        </div>
+    </environment>
+}

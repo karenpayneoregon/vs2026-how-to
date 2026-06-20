@@ -4,32 +4,10 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="container">
-    <h1 class="display-4">Welcome</h1>
-    
-    <environment include="Development">
-        <div class="row">
-            <div class="col-1">
-                Development
-            </div>
-        </div>
-    </environment>
-
-    <environment include="Staging">
-        <div class="row">
-            <div class="col-1">
-                Staging
-            </div>
-        </div>
-    </environment>
-
-    <environment include="Production">
-        <div class="row">
-            <div class="col-1">
-                Production
-            </div>
-        </div>
-    </environment>
-
+<div class="alert alert-primary" role="alert">
+    <h1 class="fs-4">Partial page</h1>
 </div>
 
+<div class="container">
+    <partial name="_EnvironmentBanner" />
+</div>

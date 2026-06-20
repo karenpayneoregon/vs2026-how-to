@@ -29,3 +29,18 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+
+/* for index2 */
+.env-label {
+    display: inline-block;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+    background-color: #6c757d;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}

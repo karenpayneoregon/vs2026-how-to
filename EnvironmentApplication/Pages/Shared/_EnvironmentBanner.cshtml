@@ -1,0 +1,25 @@
+﻿@* Partial view (removed @page and PageModel). Render with <partial name="_EnvironmentBanner" /> *@
+
+<environment include="Development">
+    <div class="row">
+        <div class="col-auto badge bg-success">
+            Development
+        </div>
+    </div>
+</environment>
+
+<environment include="Staging">
+    <div class="row">
+        <div class="col-auto badge bg-warning">
+            Staging
+        </div>
+    </div>
+</environment>
+
+<environment include="Production">
+    <div class="row">
+        <div class="col-auto badge bg-danger">
+            Production
+        </div>
+    </div>
+</environment>
