@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace FluentWebApplication.TagHelpers;
+namespace WebClassLibrary.TagHelpers;
 
 /// <summary>
 /// A custom <see cref="TagHelper"/> that renders a label indicating the current hosting environment.
@@ -46,6 +47,7 @@ public class EnvironmentLabelTagHelper(IWebHostEnvironment environment) : TagHel
         output.Attributes.SetAttribute("title", $"Current environment: {environmentName}");
 
         output.Content.SetContent(environmentName);
+        
     }
 
     /// <summary>

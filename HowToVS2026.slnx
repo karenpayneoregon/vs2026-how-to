@@ -77,6 +77,7 @@
         <Property Name="VWDPort" Value="&quot;57917&quot;" />
       </Properties>
     </Project>
+    <Project Path="EnvironmentApplication/EnvironmentApplication.csproj" Id="8fdd2b2e-684d-44c4-b173-36c0f7a4c277" />
     <Project Path="GoogleTranslateFix/" Type="Website" DisplayName="GoogleTranslateFix">
       <BuildType Project="Debug" />
       <Properties Name="WebsiteProperties">
@@ -120,6 +121,9 @@
         <Property Name="VWDPort" Value="&quot;63750&quot;" />
       </Properties>
     </Project>
+  </Folder>
+  <Folder Name="/Web/Class projects/">
+    <Project Path="WebClassLibrary/WebClassLibrary.csproj" Id="1c11524d-19f0-498c-97ea-eee1fb29da8f" />
   </Folder>
   <Folder Name="/Web/Unusual/">
     <Project Path="WebApplication1/WebApplication1.csproj" />
