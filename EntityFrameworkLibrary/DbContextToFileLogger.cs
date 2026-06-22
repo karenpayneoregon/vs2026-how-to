@@ -14,11 +14,31 @@ public class DbContextToFileLogger
     private readonly string _fileName;
     private static readonly SemaphoreSlim _gate = new(1, 1);
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DbContextToFileLogger"/> class with a specified log file name.
+    /// </summary>
+    /// <param name="fileName">
+    /// The full path of the file where log messages will be written. 
+    /// If the file does not exist, it will be created.
+    /// </param>
+    /// <remarks>
+    /// This constructor allows specifying a custom file name for logging purposes. 
+    /// Ensure the provided path is accessible and writable.
+    /// </remarks>
     public DbContextToFileLogger(string fileName)
     {
         _fileName = fileName;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DbContextToFileLogger"/> class 
+    /// with a default log file path based on the current date.
+    /// </summary>
+    /// <remarks>
+    /// The default log file is created in a "LogFiles" folder within the application's base directory. 
+    /// The file name is formatted as "EF_Log.txt" and is placed in a subfolder named after the current date (e.g., "YYYY-MM-DD").
+    /// This constructor is suitable for local development environments.
+    /// </remarks>
     public DbContextToFileLogger()
     {
         var baseDir = AppDomain.CurrentDomain.BaseDirectory; // OK for local dev
