@@ -1,18 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿
 document.addEventListener('DOMContentLoaded', () => {
+
+    const currentPath = location.pathname.toLowerCase();
 
     document.querySelectorAll('.nav-link').forEach(link => {
 
-        link.classList.remove('border-bottom');
-        link.classList.remove('border-top');
+        const href = link.getAttribute('href');
 
-        if (link.getAttribute('href').toLowerCase() === location.pathname.toLowerCase()) {
-            link.classList.add('border-dark');
-            link.classList.add('border-bottom');
-            link.classList.add('border-top');
+        link.classList.remove('border-bottom', 'border-top', 'fw-bold', 'active', 'text-dark');
+
+        link.removeAttribute('aria-current');
+
+        if (href && href.toLowerCase() === currentPath) {
+            link.classList.add('border-dark', 'border-bottom', 'border-top', 'fw-bold', 'active');
+            link.setAttribute('aria-current', 'page');
         } else {
             link.classList.add('text-dark');
         }
