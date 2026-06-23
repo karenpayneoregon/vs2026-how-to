@@ -20,9 +20,9 @@ public static partial class Extensions
     /// <summary>
     /// Capitalizes the first letter of the given string.
     /// </summary>
-    /// <param name="input">The string to capitalize.</param>
+    /// <param name="sender">The string to capitalize.</param>
     /// <returns>A new string with the first letter capitalized. If the input is null or empty, the original string is returned.</returns>
-    public static partial string CapitalizeFirstLetter(this string? input);
+    public static partial string CapitalizeFirstLetter(this string? sender);
     public static partial bool IsInteger(this string sender);
     public static partial bool IsNotInteger(this string sender);
 }

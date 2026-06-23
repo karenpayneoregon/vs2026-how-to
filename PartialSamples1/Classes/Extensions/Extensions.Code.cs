@@ -27,9 +27,10 @@ public partial class Extensions
     }
 
 
-    public static partial string? CapitalizeFirstLetter(this string? input)
-    => string.IsNullOrWhiteSpace(input) ?
-        input : char.ToUpper(input[0]) + input.AsSpan(1).ToString();
+    public static partial string? CapitalizeFirstLetter(this string? sender)
+        => string.IsNullOrEmpty(sender) ?
+            sender :
+            $"{char.ToUpper(sender[0])}{sender[1..].ToLower()}";
 
     public static partial bool IsInteger(this string sender)
     {
