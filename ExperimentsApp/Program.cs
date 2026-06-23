@@ -12,8 +12,18 @@ using PartialExamples = ExperimentsApp.Classes.PartialExamples;
 
 namespace ExperimentsApp;
 
+
 internal static partial class Program
 {
+    /// <summary>
+    /// The entry point of the application.
+    /// </summary>
+    /// <param name="args">An array of command-line arguments passed to the application.</param>
+    /// <remarks>
+    /// This method initializes and executes various sample demonstrations and utilities 
+    /// provided by the application, such as pattern matching, data processing, and console interactions.
+    /// It also includes a prompt for the user to exit the application.
+    /// </remarks>
     static void Main(string[] args)
     {
         //DisplayItemDetails();
@@ -26,7 +36,7 @@ internal static partial class Program
         //var msg = 3.14f.AsString();
         //Console.WriteLine(msg);
 
-        //Samples.BetweenSamples();
+        Samples.BetweenSamples();
         //Samples.DeclarationAndTypePatterns();
         //Samples.PropertyPatternSample();
         //Console.WriteLine(TimeOfDay(13));

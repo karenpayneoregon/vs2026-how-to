@@ -20,11 +20,14 @@ internal partial class Program
         customer = null;
         customer?.Order = GetCurrentOrder(); // Null-conditional assignment, no exception is thrown, and the assignment is skipped
         Console.WriteLine("No exceptions");
-
+        
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+
     }
-    
+
     private static Order GetCurrentOrder() => new() { Id = 111 };
+
+
 }
 
 public class Customer

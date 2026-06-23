@@ -19,7 +19,7 @@ namespace DeleteDuplicateRowsSqlServerTable.Classes;
 internal class Operations
 {
     // Usually in appsettings.json
-    private IDbConnection _cn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Examples;Integrated Security=True;Encrypt=False");
+    private readonly IDbConnection _cn = new SqlConnection(ConnectionStringProvider.GetMainConnection());
 
     /// <summary>
     /// Setup for Dapper to work with DateOnly

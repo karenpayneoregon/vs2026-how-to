@@ -403,4 +403,18 @@ internal class Samples
         Console.WriteLine(timeSpan.Format());
 
     }
+    
+    public static List<string> MonthNames 
+        => CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[..^1]
+            .ToList();
+
+    public static void MethodGroups()
+    {
+        // Using a Lambda Expression
+        var uppercase1 = MonthNames.Select(name => name.ToUpper());
+
+        // Using a Method Group (Cleaner syntax) C# 11
+        //var uppercase2 = MonthNames.Select(string.ToUpper);
+    }
+
 }
