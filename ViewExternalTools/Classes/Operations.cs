@@ -7,7 +7,7 @@ namespace ViewExternalTools.Classes;
 internal class Operations
 {
     /// <summary>
-    /// Gets or sets the file path to the current Visual Studio settings file.
+    /// Gets or sets the file path to the current Visual Studio settings file. ✔️
     /// </summary>
     /// <remarks>
     /// The default value points to the current settings file for Visual Studio, 

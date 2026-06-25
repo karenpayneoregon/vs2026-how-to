@@ -21,6 +21,16 @@ public partial class Context : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
+    /// <summary>
+    /// Configures the database context options, such as the database provider and connection string.
+    /// </summary>
+    /// <param name="optionsBuilder">
+    /// An instance of <see cref="DbContextOptionsBuilder"/> used to configure the context.
+    /// </param>
+    /// <remarks>
+    /// This method is called automatically by the framework when the context is being configured.
+    /// It sets up the SQL Server provider using the connection string provided by <see cref="AppConnections.Instance.MainConnection"/>.
+    /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
 
