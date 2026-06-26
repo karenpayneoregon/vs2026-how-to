@@ -24,8 +24,10 @@ internal static partial class Program
     /// provided by the application, such as pattern matching, data processing, and console interactions.
     /// It also includes a prompt for the user to exit the application.
     /// </remarks>
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
+        await Task.Delay(1);
+        
         //DisplayItemDetails();
 
         //DisplayCommaDelimitedMonths();
@@ -36,7 +38,7 @@ internal static partial class Program
         //var msg = 3.14f.AsString();
         //Console.WriteLine(msg);
 
-        Samples.BetweenSamples();
+        //Samples.BetweenSamples();
         //Samples.DeclarationAndTypePatterns();
         //Samples.PropertyPatternSample();
         //Console.WriteLine(TimeOfDay(13));
@@ -48,7 +50,7 @@ internal static partial class Program
         //Samples.CombineIEnumerableInt();
         //Samples.LogicalPattern();
 
-
+        await GlobbingCode.DemonstrateGlobbing();
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
