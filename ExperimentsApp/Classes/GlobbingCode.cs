@@ -3,6 +3,8 @@ using SpectreConsoleLibrary.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ExtensionsLibrary;
+using Spectre.Console;
 
 namespace ExperimentsApp.Classes;
 
@@ -15,6 +17,9 @@ internal class GlobbingCode
     /// <remarks>
     /// This method utilizes asynchronous operations to retrieve a list of files matching the specified
     /// include and exclude patterns. The results are then displayed in a formatted manner.
+    ///
+    /// excludePatterns skips restrictive folders hence no need for admin privileges.
+    ///  
     /// </remarks>
     /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     public static async Task DemonstrateGlobbing()
@@ -26,7 +31,8 @@ internal class GlobbingCode
         Console.WriteLine(parentFolder);
 
         string[] includePatterns = ["**/*.docx"];
-        string[] excludePatterns = [
+        string[] excludePatterns =
+        [
             "**/Recent/**",
             "**/Templates/**",
             "**/SendTo/**",
@@ -44,13 +50,21 @@ internal class GlobbingCode
             "**/My Pictures/**",
             "**/My Videos/**"
         ];
-        
+
         var files = await GlobbingOperations.FindAsync(parentFolder, includePatterns, excludePatterns);
 
         foreach (var (index, file) in files.OrderBy(x => x.FileName).Index())
         {
-            Console.WriteLine($"{index,-5}{file.Folder}\\{file.FileName}");
-        }
+            if (index.IsEven())
+            {
+                AnsiConsole.MarkupLine($"[cyan]{index,-5}{file.Folder}\\{file.FileName}[/]");
+            }
+            else
+            {
+                AnsiConsole.MarkupLine($"[green]{index,-5}{file.Folder}\\{file.FileName}[/]");
+            }
 
+        }
     }
 }
+
