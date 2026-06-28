@@ -22,6 +22,16 @@ internal partial class Program
         Setup();
     }
 
+    /// <summary>
+    /// Configures and initializes the application's services, logging, and console settings.
+    /// </summary>
+    /// <remarks>
+    /// This method performs the following actions:
+    /// - Sets up development logging using <see cref="ValueConversionsEncryptProperty.Classes.SetupLogging.Development"/>.
+    /// - Configures dependency injection services and retrieves required services.
+    /// - Initializes connection strings and entity settings using <see cref="SetupServices"/>.
+    /// - Configures the console's encoding using <see cref="SpectreConsoleLibrary.Core.SpectreConsoleHelpers.SetEncoding"/>.
+    /// </remarks>
     private static void Setup()
     {
 
