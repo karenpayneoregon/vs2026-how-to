@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Diagnostics;
 
 namespace EntityFrameworkLibrary;
 
@@ -26,6 +27,7 @@ public static class SqlServerContextHelpers
         /// <exception cref="InvalidOperationException">
         /// Thrown when the database creator service is not available in the provided context.
         /// </exception>
+        [DebuggerStepThrough]
         public bool DatabaseExists()
         {
             if (context is null)
@@ -50,6 +52,7 @@ public static class SqlServerContextHelpers
         /// <exception cref="InvalidOperationException">
         /// Thrown when the relational database creator service is not available in the provided context.
         /// </exception>
+        [DebuggerStepThrough]
         public bool HasTables() =>
             context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator ?
                 throw new InvalidOperationException("Database creator service is not available.") :
@@ -72,6 +75,7 @@ public static class SqlServerContextHelpers
         /// <exception cref="InvalidOperationException">
         /// Thrown when the model metadata in the provided context is not properly configured.
         /// </exception>
+        [DebuggerStepThrough]
         public bool TablesExist(params string[] tableNames)
         {
 
@@ -100,6 +104,7 @@ public static class SqlServerContextHelpers
     /// <exception cref="InvalidOperationException">
     /// Thrown when the required database services are not available in the provided context.
     /// </exception>
+    [DebuggerStepThrough]
     public static bool FullCheck<TContext>(this TContext context, params string[] tableNames) where TContext : DbContext
         => DatabaseExists(context) && HasTables(context) && TablesExist(context, tableNames);
 }

@@ -65,6 +65,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\EntityFrameworkLibrary\EntityFrameworkLibrary.csproj" />
+		<ProjectReference Include="..\ExtensionsLibrary\ExtensionsLibrary.csproj" />
 		<ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>
 
