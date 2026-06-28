@@ -115,7 +115,7 @@ internal class MainOperation
         }
 
         Console.WriteLine("\n\n");
-        AnsiConsole.MarkupLine("[bold yellow]Top 5 Applications by RAM Usage[/]");
+        AnsiConsole.MarkupLine("[bold yellow]Top 10 Applications by RAM Usage[/]");
 
         AnsiConsole.Write(table);
 

@@ -17,6 +17,7 @@
   <Folder Name="/Console projects/EF Core/">
     <Project Path="EF_Core_MaskingSample/EF_Core_MaskingSample.csproj" />
     <Project Path="ExecuteUpdateCodeSamples/ExecuteUpdateCodeSamples.csproj" Id="dfaa6fc7-f252-4ffa-bdda-f91985e04f1e" />
+    <Project Path="HasConversionDictionary/HasConversionDictionary.csproj" />
     <Project Path="NamedQueryFiltersApp/NamedQueryFiltersApp.csproj" Id="f4e09bc4-7702-43d4-b345-02e9eaee5672" />
     <Project Path="ParameterizedCollectionModeSample/ParameterizedCollectionModeSample.csproj" Id="3536f28b-254f-43bf-99f1-87a56c72a727" />
     <Project Path="QueryFiltersApp/QueryFiltersApp.csproj" Id="09e921f3-808f-4a0f-bab4-7f654026c4c0" />

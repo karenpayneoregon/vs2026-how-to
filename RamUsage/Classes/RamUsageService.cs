@@ -46,7 +46,7 @@ public sealed class RamUsageService
             .Select(process => TryGetProcessInfo(process, windowTitles))
             .Where(p => p != null)
             .OrderByDescending(p => p!.WorkingSetBytes)
-            .Take(5)
+            .Take(10)
             .Cast<ApplicationRamUsage>()
             .ToList();
     }
