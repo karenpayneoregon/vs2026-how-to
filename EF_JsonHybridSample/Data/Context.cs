@@ -22,6 +22,22 @@ public partial class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
 
+    /// <summary>
+    /// Configures the model for the database context by defining entity mappings, relationships, 
+    /// and additional configurations.
+    /// </summary>
+    /// <param name="modelBuilder">
+    /// An instance of <see cref="ModelBuilder"/> used to configure the shape of entities, 
+    /// relationships between them, and database-specific configurations.
+    /// </param>
+    /// <remarks>
+    /// This method is overridden to customize the EF Core model creation process. It includes:
+    /// - Defining primary keys and required properties for the <see cref="Applications"/> entity.
+    /// - Configuring owned types such as <see cref="MailSettings"/> and <see cref="GeneralSettings"/> 
+    ///   to be stored as JSON.
+    /// - Specifying column mappings for properties within owned types.
+    /// - Ensuring required navigation properties for owned types.
+    /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Applications>(entity =>
