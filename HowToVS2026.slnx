@@ -16,6 +16,7 @@
   </Folder>
   <Folder Name="/Console projects/EF Core/">
     <Project Path="EF_Core_MaskingSample/EF_Core_MaskingSample.csproj" />
+    <Project Path="EF_JsonHybridSample/EF_JsonHybridSample.csproj" Id="2e016b6d-c62f-4cee-b7e2-84ea0379fefa" />
     <Project Path="ExecuteUpdateCodeSamples/ExecuteUpdateCodeSamples.csproj" Id="dfaa6fc7-f252-4ffa-bdda-f91985e04f1e" />
     <Project Path="HasConversionDictionary/HasConversionDictionary.csproj" />
     <Project Path="NamedQueryFiltersApp/NamedQueryFiltersApp.csproj" Id="f4e09bc4-7702-43d4-b345-02e9eaee5672" />
