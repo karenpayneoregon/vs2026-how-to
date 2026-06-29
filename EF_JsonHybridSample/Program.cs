@@ -17,6 +17,7 @@ internal partial class Program
 
         if (aced is not null)
         {
+            AnsiConsole.MarkupLine("[yellow]ACED application [/]\n");
             AnsiConsole.MarkupLine($"[cyan]FromAddress[/]             {aced.MailSettings.FromAddress}");
             AnsiConsole.MarkupLine($"[cyan]Host[/]                    {aced.MailSettings.Host}");
             AnsiConsole.MarkupLine($"[cyan]Pickup folder[/]           {aced.MailSettings.PickupFolder}");
@@ -24,6 +25,10 @@ internal partial class Program
             AnsiConsole.MarkupLine($"[cyan]TimeOut[/]                 {aced.MailSettings.TimeOut}");
             AnsiConsole.MarkupLine($"[cyan]MainDatabaseConnection[/]  {aced.GeneralSettings.MainDatabaseConnection}");
             AnsiConsole.MarkupLine($"[cyan]ServicePath[/]             {aced.GeneralSettings.ServicePath}");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[red]ACED application not found.[/]");
         }
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);

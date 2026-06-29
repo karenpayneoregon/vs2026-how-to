@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Basic</Product>
+		<Product>EF Core OwnsOne JSON</Product>
 		<Description>A sample project demonstrating assembly metadata retrieval.</Description>
 		<Company>Payne services</Company>
 		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
@@ -36,10 +36,6 @@
 
 	<ItemGroup>
 		<AssemblyMetadata Include="BuildDate" Value="$(BuildDate)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Include="ChatGPT_Prompt.md" />
 	</ItemGroup>
 
 	<ItemGroup>
