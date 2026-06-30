@@ -8,6 +8,21 @@
 /// </summary>
 public static class ExceptionHelpers
 {
+    /// <summary>
+    /// Configures and displays the specified exception using custom styles and formatting.
+    /// </summary>
+    /// <param name="exception">
+    /// The exception to be displayed. This parameter cannot be <c>null</c>.
+    /// </param>
+    /// <remarks>
+    /// This method utilizes <c>AnsiConsole.WriteException</c> to present the exception details
+    /// with customized colors and styles for various exception components, such as the message,
+    /// method, and line number. It is intended to enhance the readability of exception outputs
+    /// in the console.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when the <paramref name="exception"/> parameter is <c>null</c>.
+    /// </exception>
     public static void ColorWithCyanFuchsia(this Exception exception)
     {
         AnsiConsole.WriteException(exception, new ExceptionSettings

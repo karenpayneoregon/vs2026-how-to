@@ -29,9 +29,12 @@ internal partial class Program
     private static async Task ReadPeopleWithNestedProperty()
     {
         SpectreConsoleHelpers.PrintPink();
+        
         ExcelMapper excel = new();
         var people = await excel.FetchAsync<Person>("Nested.xlsx");
+        
         AnsiConsole.MarkupLine(ObjectDumper.Dump(people).Colorize());
+        
     }
 
     /// <summary>
