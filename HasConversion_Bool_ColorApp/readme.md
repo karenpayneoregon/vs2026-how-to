@@ -3,12 +3,12 @@
 EF Core code sample for 
 
 - HasConversion
-    - BoolToStringConverter
-    - System.Drawing.Color to and from string
-    - DateTime local to Utc 
+  - BoolToStringConverter
+  - System.Drawing.Color to and from string
+  - DateTime local to Utc
 
 
-Originally written with NET5, updated to NET8
+Originally written with NET5, updated to NET8, now NET10
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
