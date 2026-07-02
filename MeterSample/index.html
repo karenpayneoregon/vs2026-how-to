@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>demo</title>
+
+    <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Lib/styles/headers.css" rel="stylesheet" />
+    <script src="lib/debugHelper.js"></script>
+    <link href="Lib/styles/index.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="#">
+
+</head>
+<body>
+    <div class="nine mt-3">
+        <h1>meter <span> demo</span></h1>
+    </div>
+
+    <main>
+
+        <div class="container">
+            <div class="row mb-2">
+                <label for="m1">Meter</label>
+                <meter id="m1" min="0" max="100" value="0" low="30" high="75" optimum="80" style="width: 50em"></meter>
+            </div>
+
+            <button id="b1" class="btn btn-outline-primary">Go</button>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.addEventListener('keydown', function (event) {
+
+                if (event.key === '1' && event.altKey && event.ctrlKey) {
+                    $debugHelper.toggle(true);
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
