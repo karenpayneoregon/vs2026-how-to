@@ -7,6 +7,8 @@ using SpectreConsoleLibrary.Core;
 using UseIdentityColumnSample.Classes.Configuration;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
+using static SpectreConsoleLibrary.Core.SpectreConsoleHelpers;
+
 // ReSharper disable once CheckNamespace
 namespace UseIdentityColumnSample;
 
@@ -15,6 +17,8 @@ internal partial class Program
     [ModuleInitializer]
     public static void Init()
     {
+        
+        
         var assembly = Assembly.GetEntryAssembly();
         var product = assembly?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 

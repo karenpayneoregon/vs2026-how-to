@@ -11,6 +11,10 @@
 		<SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<!-- for ConsoleConfigurationLibrary dependent package -->
+		<NuGetAuditMode>direct</NuGetAuditMode>
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<Product>Playground</Product>

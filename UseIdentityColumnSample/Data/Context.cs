@@ -32,7 +32,12 @@ public partial class Context : DbContext
     /// It sets up the SQL Server provider using the connection string provided by <see cref="AppConnections.Instance.MainConnection"/>.
     /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -41,11 +46,11 @@ public partial class Context : DbContext
             entity.ToTable("Customer");
 
             entity.Property(e => e.CustomerId).UseIdentityColumn(seed: 10, increment: 10);
-            
+
             entity.Property(e => e.LastName).IsRequired();
             entity.Property(e => e.LastName).IsRequired();
-            
-            
+
+
         });
 
         OnModelCreatingPartial(modelBuilder);

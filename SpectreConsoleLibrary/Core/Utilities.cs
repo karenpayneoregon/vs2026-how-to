@@ -18,6 +18,12 @@ public class Utilities
         // Look for .csproj in the current or parent directories
         while (directory != null)
         {
+            if (!Directory.Exists(directory)) // Check if the directory exists 7/3/2026 KP
+            {
+                directory = Directory.GetParent(directory)?.FullName;
+                continue;
+            }
+            
             var csprojFiles = Directory.GetFiles(directory, "*.csproj");
             if (csprojFiles.Length > 0)
                 return Path.GetFileNameWithoutExtension(csprojFiles[0]);
