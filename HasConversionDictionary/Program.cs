@@ -95,12 +95,12 @@ internal partial class Program
     private static void Prepare(DictionaryContext context)
     {
 
-        //if (context.DatabaseExists())
-        //{
-        //    AnsiConsole.MarkupLine("[cyan]Database already exists[/] :check_mark:");
-        //    Console.WriteLine("\n");
-        //    return;
-        //}
+        if (context.DatabaseExists())
+        {
+            AnsiConsole.MarkupLine("[cyan]Database already exists[/] :check_mark:");
+            Console.WriteLine("\n");
+            return;
+        }
 
         AnsiConsole.MarkupLine("[cyan]Creating database[/]");
 
