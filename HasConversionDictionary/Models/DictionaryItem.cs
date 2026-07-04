@@ -11,7 +11,7 @@ namespace HasConversionDictionary.Models;
 /// in conjunction with Entity Framework Core to map to a database table.
 /// The <see cref="Data"/> property is configured to be stored as JSON in the database.
 /// </remarks>
-public partial class Dictionary
+public partial class DictionaryItem
 {
     public int Id { get; set; }
 
@@ -22,7 +22,7 @@ public partial class Dictionary
 /// Represents a data entity with a key-value pair structure.
 /// </summary>
 /// <remarks>
-/// This class is used as part of the <see cref="Dictionary"/> entity in the 
+/// This class is used as part of the <see cref="DictionaryItem"/> entity in the 
 /// <c>HasConversionDictionary.Models</c> namespace. It is configured to be stored 
 /// as JSON in the database when used with Entity Framework Core.
 /// </remarks>

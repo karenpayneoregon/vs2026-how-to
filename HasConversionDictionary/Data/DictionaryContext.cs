@@ -13,7 +13,7 @@ public partial class DictionaryContext : DbContext
 
     public DictionaryContext(DbContextOptions<DictionaryContext> options) : base(options) { }
 
-    public virtual DbSet<Dictionary> Dictionary { get; set; }
+    public virtual DbSet<DictionaryItem> Dictionary { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
@@ -39,7 +39,7 @@ public partial class DictionaryContext : DbContext
 
         modelBuilder.HasSequence<int>("seq_test").HasMin(1L);
 
-        modelBuilder.Entity<Dictionary>().OwnsOne(
+        modelBuilder.Entity<DictionaryItem>().OwnsOne(
             owner => owner.Data, ownedNavigationBuilder =>
             {
                 ownedNavigationBuilder.ToJson();

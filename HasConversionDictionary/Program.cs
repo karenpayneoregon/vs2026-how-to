@@ -18,7 +18,7 @@ internal partial class Program
 
         var keyToFind = "Anne";
 
-        Dictionary item = context.Dictionary.FirstOrDefault(x => x.Data.Key == keyToFind)!;
+        DictionaryItem item = context.Dictionary.FirstOrDefault(x => x.Data.Key == keyToFind)!;
 
         Console.WriteLine();
         if (item != null)
@@ -94,12 +94,13 @@ internal partial class Program
     /// </exception>
     private static void Prepare(DictionaryContext context)
     {
-        if (context.DatabaseExists())
-        {
-            AnsiConsole.MarkupLine("[cyan]database already exists[/] :check_mark:");
-            Console.WriteLine("\n");
-            return;
-        }
+
+        //if (context.DatabaseExists())
+        //{
+        //    AnsiConsole.MarkupLine("[cyan]Database already exists[/] :check_mark:");
+        //    Console.WriteLine("\n");
+        //    return;
+        //}
 
         AnsiConsole.MarkupLine("[cyan]Creating database[/]");
 
@@ -108,12 +109,13 @@ internal partial class Program
 
         AnsiConsole.MarkupLine("[cyan]Database created...[/] :check_mark:");
 
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Karen", Value = "C#" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Anne", Value = "C#" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Mike", Value = "TypeScript" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Sara", Value = "VB.NET" } });
+        context.Add(new DictionaryItem() { Data = new DataEntity() { Key = "Karen", Value = "C#" } });
+        context.Add(new DictionaryItem() { Data = new DataEntity() { Key = "Anne", Value = "C#" } });
+        context.Add(new DictionaryItem() { Data = new DataEntity() { Key = "Mike", Value = "TypeScript" } });
+        context.Add(new DictionaryItem() { Data = new DataEntity() { Key = "Sara", Value = "VB.NET" } });
 
         context.SaveChanges();
+        AnsiConsole.MarkupLine("[cyan]Populated table[/] :check_mark:");
 
         Console.WriteLine("\n");
     }
