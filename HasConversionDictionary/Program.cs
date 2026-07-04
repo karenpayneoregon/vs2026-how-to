@@ -15,8 +15,38 @@ internal partial class Program
         using var context = new DictionaryContext();
         Prepare(context);
         ShowData(context);
-        Dictionary item = context.Dictionary.FirstOrDefault(x => x.Data.Key == "Karen")!;
 
+        var keyToFind = "Anne";
+
+        Dictionary item = context.Dictionary.FirstOrDefault(x => x.Data.Key == keyToFind)!;
+
+        Console.WriteLine();
+        if (item != null)
+        {
+            AnsiConsole.MarkupLine($"[Yellow]Found item with key[/] '{keyToFind}': " +
+                $"[Yellow]Id[/] = {item.Id}, [Yellow]Key[/] = {item.Data.Key}, [Yellow]Value[/] = {item.Data.Value}");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"[Red]Item with key '{keyToFind}' not found.[/]");
+        }
+
+        Console.WriteLine();
+
+        keyToFind = "Jill";
+
+        item = context.Dictionary.FirstOrDefault(x => x.Data.Key == keyToFind)!;
+
+        Console.WriteLine();
+        if (item != null)
+        {
+            AnsiConsole.MarkupLine($"[Yellow]Found item with key[/] '{keyToFind}': " +
+                $"[Yellow]Id[/] = {item.Id}, [Yellow]Key[/] = {item.Data.Key}, [Yellow]Value[/] = {item.Data.Value}");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"[Red]Item with key '{keyToFind}' not found.[/]");
+        }
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
@@ -47,7 +77,7 @@ internal partial class Program
         }
     }
 
-    
+
     /// <summary>
     /// Prepares the specified <see cref="DictionaryContext"/> by ensuring the database is created and populated with initial data.
     /// </summary>
@@ -79,10 +109,10 @@ internal partial class Program
         AnsiConsole.MarkupLine("[cyan]Database created...[/] :check_mark:");
 
         context.Add(new Dictionary() { Data = new DataEntity() { Key = "Karen", Value = "C#" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Anne", Value = "TypeScript" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Mike", Value = "VB.NET" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Sara", Value = "SQL" } });
-        
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Anne", Value = "C#" } });
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Mike", Value = "TypeScript" } });
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Sara", Value = "VB.NET" } });
+
         context.SaveChanges();
 
         Console.WriteLine("\n");

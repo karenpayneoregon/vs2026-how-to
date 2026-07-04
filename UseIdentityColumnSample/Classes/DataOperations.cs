@@ -41,7 +41,7 @@ public static class DataOperations
         await context.Database.EnsureDeletedAsync();
         await context.Database.EnsureCreatedAsync();
 
-        AnsiConsole.MarkupLine("[yellow]Database recreated[/] :check_mark:");
+        AnsiConsole.MarkupLine("[yellow]Database created[/] :check_mark:");
 
         context.Customers.AddRange(customers);
 

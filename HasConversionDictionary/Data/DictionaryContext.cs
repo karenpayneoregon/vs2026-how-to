@@ -36,11 +36,14 @@ public partial class DictionaryContext : DbContext
     /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.HasSequence<int>("seq_test").HasMin(1L);
+
         modelBuilder.Entity<Dictionary>().OwnsOne(
             owner => owner.Data, ownedNavigationBuilder =>
             {
                 ownedNavigationBuilder.ToJson();
             });
+
     }
 }
