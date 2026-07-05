@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using ParameterizedCollectionModeSample.Classes;
+﻿using ParameterizedCollectionModeSample.Classes;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
 
@@ -11,7 +9,7 @@ internal partial class Program
     static async Task Main(string[] args)
     {
 
-        AnsiConsole.MarkupLine($"{EnvironmentSettings.Instance.CurrentEnvironment}"); 
+        AnsiConsole.MarkupLine($"[bold]Environment[/] {EnvironmentSettings.Instance.CurrentEnvironment}\n"); 
         await Samples.FiltersIdentifiers();
         //await Samples.FixIsDeleted();
 

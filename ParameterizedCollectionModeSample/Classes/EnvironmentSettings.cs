@@ -18,17 +18,16 @@ public sealed class EnvironmentSettings
 
     public bool IsDevelopment { get; set; }
     public bool IsProduction { get; set; }
-    public string CurrentEnvironment { get; set; }
+    public string? CurrentEnvironment { get; set; }
     /// <summary>
     /// Initializes a new instance of the <see cref="EnvironmentSettings"/> class.
     /// </summary>
     /// <remarks>
     /// This constructor is private to enforce the singleton pattern. It initializes the environment settings
     /// by determining whether the application is running in a development or production environment.
+    ///
+    /// Note colors for Spectre.Console: [yellow bold]Development[/] and [green bold]Production[/]
     /// </remarks>
-    /// <exception cref="ArgumentNullException">
-    /// Thrown if the <see cref="IHostEnvironment"/> service is not available or is null.
-    /// </exception>
     private EnvironmentSettings()
     {
         using IHost host = Host.CreateDefaultBuilder().Build();
@@ -38,13 +37,13 @@ public sealed class EnvironmentSettings
         if (environment.IsDevelopmentEnvironment())
         {
             IsDevelopment = true;
-            CurrentEnvironment = "Development";
+            CurrentEnvironment = "[yellow bold]Development[/]";
         }
 
         if (environment.IsProductionEnvironment())
         {
             IsProduction = true;
-            CurrentEnvironment = "Production";
+            CurrentEnvironment = "[green bold]Production[/]";
         }
     }
 }

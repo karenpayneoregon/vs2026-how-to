@@ -2,25 +2,32 @@
 
 namespace ParameterizedCollectionModeSample.Classes;
 
+/// <summary>
+/// Provides extension methods for the <see cref="Microsoft.Extensions.Hosting.IHostEnvironment"/> interface 
+/// to determine the current hosting environment.
+/// </summary>
 public static class HostEnvironmentExtensions
 {
-    public static bool IsDevelopmentEnvironment(this IHostEnvironment environment)
+    extension(IHostEnvironment environment)
     {
-        ArgumentNullException.ThrowIfNull(environment);
+        public bool IsDevelopmentEnvironment()
+        {
+            ArgumentNullException.ThrowIfNull(environment);
 
-        return string.Equals(
-            environment.EnvironmentName,
-            Environments.Development,
-            StringComparison.OrdinalIgnoreCase);
-    }
+            return string.Equals(
+                environment.EnvironmentName,
+                Environments.Development,
+                StringComparison.OrdinalIgnoreCase);
+        }
 
-    public static bool IsProductionEnvironment(this IHostEnvironment environment)
-    {
-        ArgumentNullException.ThrowIfNull(environment);
+        public bool IsProductionEnvironment()
+        {
+            ArgumentNullException.ThrowIfNull(environment);
 
-        return string.Equals(
-            environment.EnvironmentName,
-            Environments.Production,
-            StringComparison.OrdinalIgnoreCase);
+            return string.Equals(
+                environment.EnvironmentName,
+                Environments.Production,
+                StringComparison.OrdinalIgnoreCase);
+        }
     }
 }
