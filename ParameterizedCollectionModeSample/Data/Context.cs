@@ -39,8 +39,12 @@ public partial class Context : DbContext
         if (!optionsBuilder.IsConfigured)
         {
 
+            if (EnvironmentSettings.Instance.IsDevelopment)
+            {
+                optionsBuilder.EnableSensitiveDataLogging();
+            }
+
             optionsBuilder
-                .EnableSensitiveDataLogging()
                 .UseSqlServer(AppConnections.Instance.MainConnection,
                     o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
                 .LogTo(new DbContextToFileLogger().Log, new[]
@@ -48,6 +52,7 @@ public partial class Context : DbContext
                         DbLoggerCategory.Database.Command.Name
                     },
                     LogLevel.Information);
+
         }
     }
 

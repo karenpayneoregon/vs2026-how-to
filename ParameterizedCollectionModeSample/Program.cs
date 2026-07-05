@@ -1,11 +1,8 @@
-﻿using ConsoleConfigurationLibrary.Classes;
-using EntityFrameworkLibrary;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using ParameterizedCollectionModeSample.Classes;
-using ParameterizedCollectionModeSample.Data;
 using Spectre.Console;
 using SpectreConsoleLibrary.Core;
-using ParameterizedCollectionModeSample.Models;
 
 namespace ParameterizedCollectionModeSample;
 
@@ -13,6 +10,8 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
+
+        AnsiConsole.MarkupLine($"{EnvironmentSettings.Instance.CurrentEnvironment}"); 
         await Samples.FiltersIdentifiers();
         //await Samples.FixIsDeleted();
 
