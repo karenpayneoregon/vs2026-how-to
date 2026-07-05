@@ -35,16 +35,21 @@ public partial class Context : DbContext
     /// Additionally, it logs database commands to a file using <see cref="DbContextToFileLogger"/>.
     /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder
-            .EnableSensitiveDataLogging()
-            .UseSqlServer(AppConnections.Instance.MainConnection,
-                o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
-            .LogTo(new DbContextToFileLogger().Log, new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
-                LogLevel.Information);
-    
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder
+                .EnableSensitiveDataLogging()
+                .UseSqlServer(AppConnections.Instance.MainConnection,
+                    o => o.UseParameterizedCollectionMode(ParameterTranslationMode.Constant))
+                .LogTo(new DbContextToFileLogger().Log, new[]
+                    {
+                        DbLoggerCategory.Database.Command.Name
+                    },
+                    LogLevel.Information);
+        }
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
