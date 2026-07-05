@@ -38,6 +38,7 @@ public partial class Context : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
+
             optionsBuilder
                 .EnableSensitiveDataLogging()
                 .UseSqlServer(AppConnections.Instance.MainConnection,
