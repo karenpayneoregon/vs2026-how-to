@@ -9,7 +9,8 @@ internal partial class Program
     static async Task Main(string[] args)
     {
 
-        AnsiConsole.MarkupLine($"[bold]Environment[/] {EnvironmentSettings.Instance.CurrentEnvironment}\n"); 
+        AnsiConsole.MarkupLine($"[bold]Environment[/] {EnvironmentSettings.Instance.CurrentEnvironment}\n");
+        
         await Samples.FiltersIdentifiers();
         //await Samples.FixIsDeleted();
 
