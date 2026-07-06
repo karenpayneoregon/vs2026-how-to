@@ -104,8 +104,15 @@ internal class Samples
 
     }
 
+    public static void Like()
+    {
+        using var context = new Context();
+        var result = context.Employees
+            .Where(b => EF.Functions.Like(b.FirstName,"j%") && b.IsManager)
+            .ToList();
+    }
 
-    /// <summary>
+/// <summary>
     /// Creates and configures a table for displaying employee data.
     /// </summary>
     /// <returns>
