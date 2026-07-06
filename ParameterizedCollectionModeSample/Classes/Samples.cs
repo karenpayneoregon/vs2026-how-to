@@ -73,7 +73,7 @@ internal class Samples
 
         await context.Employees
             .TagWithDebugInfo("ExecuteUpdateAsync operation")
-            .Where(b => ((IEnumerable<int>)EF.Constant(ids)).Contains(b.Id))
+            .Where(b => EF.Constant(ids).AsEnumerable().Contains(b.Id))
             .ExecuteUpdateAsync(x => x
                 .SetProperty(u => u.IsDeleted, false));
 
