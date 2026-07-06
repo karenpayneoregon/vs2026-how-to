@@ -9,7 +9,7 @@
 
 	<PropertyGroup>
 		<Product>UseParameterizedCollectionMode</Product>
-		<Description>A sample project demonstrating assembly metadata retrieval.</Description>
+		<Description>A sample project demonstrating EF Core UseParameterizedCollectionMode.</Description>
 		<Company>Payne services</Company>
 		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
 	</PropertyGroup>
