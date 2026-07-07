@@ -20,7 +20,7 @@ public sealed class AppConfiguration
     {
         Configuration = LoadConfiguration();
 
-        MainConnection = Configuration.GetConnectionString("MainConnection")!;
+        MainConnection = Configuration.GetConnectionString(nameof(DataConnections.MainConnection))!;
         HelpDesk = Configuration.GetSection(nameof(HelpDesk)).Get<HelpDesk>()!;
     }
 
