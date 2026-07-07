@@ -10,6 +10,10 @@
     <Project Path="FluenyValidationLibrary/FluenyValidationLibrary.csproj" Id="6e01ba9f-40c1-4ca5-9532-dab687725217" />
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
+  <Folder Name="/Class projects/Windows forms/">
+    <Project Path="CommonLangageExtensionsLibraryCore/CommonLangageExtensionsLibraryCore.csproj" />
+    <Project Path="WindowFormsControlsCore/WindowFormsControlsCore.csproj" />
+  </Folder>
   <Folder Name="/Console projects/" />
   <Folder Name="/Console projects/Dapper SQL Server/">
     <Project Path="DeleteDuplicateRowsSqlServerTable/DeleteDuplicateRowsSqlServerTable.csproj" />
@@ -163,5 +167,8 @@
   </Folder>
   <Folder Name="/Web/Validation/">
     <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
+  </Folder>
+  <Folder Name="/Windows forms/">
+    <Project Path="ListBxOnlyCore/ListBxOnlyCore.csproj" />
   </Folder>
 </Solution>
