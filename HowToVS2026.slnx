@@ -57,6 +57,9 @@
   <Folder Name="/Console projects/Studio/">
     <Project Path="ViewExternalTools/ViewExternalTools.csproj" Id="91395e2b-c934-407b-884e-4e6f227b1fb9" />
   </Folder>
+  <Folder Name="/Console projects/Validation/">
+    <Project Path="UsingIncludeInValidation/UsingIncludeInValidation.csproj" />
+  </Folder>
   <Folder Name="/Experiments projects/">
     <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />
   </Folder>

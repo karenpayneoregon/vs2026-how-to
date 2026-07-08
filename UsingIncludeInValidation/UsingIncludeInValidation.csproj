@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Product>FluentValidation includes</Product>
+		<Description>A sample project demonstrating FluentValidation includes.</Description>
+		<Company>Payne services</Company>
+		<Copyright>2019-$([System.DateTime]::Now.Year)</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<BuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</BuildDate>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="assets\csharp.ico" />
+	  <Content Include="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-447r-wph3-92pm" />
+		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-hh2w-p6rv-4g7w" />
+		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<!-- for ConsoleConfigurationLibrary dependent package -->
+		<NuGetAuditMode>direct</NuGetAuditMode>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.10.0" />
+		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Spectre.Console" Version="0.55.2" />
+		<PackageReference Include="Spectre.Console.Json" Version="0.55.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog" Version="4.3.1" />
+		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>
