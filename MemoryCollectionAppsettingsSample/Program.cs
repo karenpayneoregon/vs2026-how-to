@@ -10,7 +10,7 @@ internal partial class Program
     {
         AnsiConsole.MarkupLine("[cyan]From InMemoryCollection[/]");
         AnsiConsole.MarkupLine($"Help desk email [green bold]{AppConfiguration.Instance.HelpDesk.Email}[/]");
-        AnsiConsole.MarkupLine($"Help desk phone [green bold]{AppConfiguration.Instance.HelpDesk.Email}[/]");
+        AnsiConsole.MarkupLine($"Help desk phone [green bold]{AppConfiguration.Instance.HelpDesk.Phone}[/]");
         AnsiConsole.MarkupLine("[cyan]In appsettings.json[/]");
         AnsiConsole.MarkupLine($"Connection [green bold]{AppConfiguration.Instance.MainConnection};[/]");
         Console.WriteLine();
