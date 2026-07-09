@@ -52,7 +52,7 @@ public class Program
         }else
         {
             builder.Services.AddDbContextPool<Context>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(builder.Configuration.DefaultConnectionString()));
         }
         
         builder.Services
