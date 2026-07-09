@@ -44,4 +44,9 @@
 	<ItemGroup>
 		<Folder Include="DatabaseScripts\" />
 	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\WebClassLibrary\WebClassLibrary.csproj" />
+	</ItemGroup>
 </Project>

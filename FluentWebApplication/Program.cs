@@ -9,6 +9,7 @@ using Serilog.Events;
 using static System.DateTime;
 using Serilog.Sinks.SystemConsole.Themes;
 using System.Diagnostics;
+using WebClassLibrary;
 
 namespace FluentWebApplication;
 
@@ -25,7 +26,6 @@ public class Program
         //builder.Services.AddFluentValidationAutoValidation();
 
         builder.Services.AddValidatorsFromAssemblyContaining<PersonValidator>();
-
 
         if (builder.Environment.IsDevelopment())
         {
@@ -45,7 +45,7 @@ public class Program
 
 
             builder.Services.AddDbContextPool<Context>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+                options.UseSqlServer(builder.Configuration.DefaultConnectionString())
                     .EnableSensitiveDataLogging()
                     .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name],
                         LogLevel.Information));
