@@ -108,10 +108,7 @@ internal partial class Program
             {
                 files = Directory.GetFiles(currentFolder);
             }
-            catch (Exception exception) when (
-                exception is UnauthorizedAccessException or
-                IOException or
-                System.Security.SecurityException)
+            catch (Exception exception) when (exception is UnauthorizedAccessException or IOException or System.Security.SecurityException)
             {
                 Console.Error.WriteLine($"Skipped folder: {currentFolder}");
 
