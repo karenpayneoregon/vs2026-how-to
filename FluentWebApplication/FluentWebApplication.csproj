@@ -47,6 +47,7 @@
 
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SerilogLinrary\SerilogLibrary.csproj" />
 	  <ProjectReference Include="..\WebClassLibrary\WebClassLibrary.csproj" />
 	</ItemGroup>
 </Project>

@@ -6,10 +6,11 @@ using FluentWebApplication.Models.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
-using static System.DateTime;
 using Serilog.Sinks.SystemConsole.Themes;
+using SerilogLibrary;
 using System.Diagnostics;
 using WebClassLibrary;
+using static System.DateTime;
 
 namespace FluentWebApplication;
 
@@ -22,28 +23,13 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
 
-        //builder.Services.AddScoped<IValidator<Person>, PersonValidator>();
-        //builder.Services.AddFluentValidationAutoValidation();
-
         builder.Services.AddValidatorsFromAssemblyContaining<PersonValidator>();
+        
+        builder.SerilogDevelopmentLoggingSetup();
 
         if (builder.Environment.IsDevelopment())
         {
-            builder.Host.UseSerilog((context, configuration) =>
-            {
-
-                configuration.WriteTo.File(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LogFiles"), $"{Now.Year}-{Now.Month:D2}-{Now.Day:D2}", "Log.txt"),
-                    rollingInterval: RollingInterval.Infinite,
-                    outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}");
-
-                configuration.MinimumLevel.Information();
-                configuration.MinimumLevel.Override("Microsoft", LogEventLevel.Warning);
-                configuration.MinimumLevel.Override("System", LogEventLevel.Warning);
-
-            });
-
-
-
+    
             builder.Services.AddDbContextPool<Context>(options =>
                 options.UseSqlServer(builder.Configuration.DefaultConnectionString())
                     .EnableSensitiveDataLogging()

@@ -1,5 +1,6 @@
 ﻿using FluentWebApplication.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Serilog;
 
 namespace FluentWebApplication.Pages;
 public class IndexModel(Context context, IWebHostEnvironment env) : PageModel
@@ -10,6 +11,7 @@ public class IndexModel(Context context, IWebHostEnvironment env) : PageModel
         if (env.IsDevelopment())
         {
             Console.WriteLine("Running in dev environment"); 
+            Log.Information("In development");
         }
     }
 

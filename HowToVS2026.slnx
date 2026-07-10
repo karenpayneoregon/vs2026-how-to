@@ -8,6 +8,7 @@
     <Project Path="EntityFrameworkLibrary/EntityFrameworkLibrary.csproj" Id="b1463bab-13f0-475c-83c0-48340918bbd1" />
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
     <Project Path="FluenyValidationLibrary/FluenyValidationLibrary.csproj" Id="6e01ba9f-40c1-4ca5-9532-dab687725217" />
+    <Project Path="SerilogLinrary/SerilogLibrary.csproj" Id="b8c64963-05f9-40bc-8f8d-0965623c9e84" />
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
   <Folder Name="/Class projects/Windows forms/">
@@ -142,6 +143,7 @@
     </Project>
   </Folder>
   <Folder Name="/Web/Class projects/">
+    <Project Path="RazorClassLibrary1/RazorClassLibrary1.csproj" Id="3e5c61ae-0edd-4544-88be-6a28e3ee23bf" />
     <Project Path="WebClassLibrary/WebClassLibrary.csproj" Id="1c11524d-19f0-498c-97ea-eee1fb29da8f" />
   </Folder>
   <Folder Name="/Web/Unusual/">

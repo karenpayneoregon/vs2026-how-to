@@ -12,23 +12,39 @@ internal partial class Program
     [
         " - Copy.png",
         " - Copy.jpg",
+        " - Copy.zip",
+        " - Copy (2).zip",
         " - Copy.snag",
         " - Copy.snagx"
     ];
 
     private static void Main(string[] args)
     {
+        /*
+         * C:\Users\paynek\OneDrive - Oregon\Documents\Visual Studio 18
+         * C:\Users\paynek\Documents\Visual Studio 18\Templates\ProjectTemplates
+         * C:\Users\paynek\Documents\Visual Studio 2022\Templates\ProjectTemplates
+         * 
+         * C:\Users\paynek\Documents\Snagit
+         */
         var options = new CleanerOptions(
-            RootFolder: @"C:\Users\paynek\Documents\Snagit",
+            RootFolder: @"C:\Users\paynek\Documents\Visual Studio 2022\Templates\ProjectTemplates",
+            //RootFolder: @"C:\Users\paynek\OneDrive - Oregon\Documents\Visual Studio 18",
             DryRun: false);
 
-        if (!Directory.Exists(options.RootFolder))
-        {
-            Console.Error.WriteLine(
-                $"Folder does not exist: {options.RootFolder}");
+        //if (!Directory.Exists(options.RootFolder))
+        //{
+        //    Console.Error.WriteLine($"Folder does not exist: {options.RootFolder}");
 
-            return;
-        }
+        //    return;
+        //}
+        
+        
+
+        var rootFolder = Path.GetFullPath(Environment.ExpandEnvironmentVariables(options.RootFolder));
+        var test = Directory.Exists(rootFolder);
+        
+        AnsiConsole.MarkupLine($"[cyan]Folder exists {test}[/]");
 
         Console.WriteLine($"Root folder : {options.RootFolder}");
         Console.WriteLine($"Mode        : {(options.DryRun ? "Dry run" : "Delete")}");
