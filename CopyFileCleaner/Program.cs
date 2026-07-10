@@ -177,9 +177,8 @@ internal partial class Program
 
             if (fileInfo.Exists)
             {
-                errorMessage =
-                    "Delete completed without an exception, " +
-                    "but the file still exists.";
+                errorMessage = "Delete completed without an exception, " +
+                               "but the file still exists.";
 
                 return false;
             }
@@ -188,8 +187,7 @@ internal partial class Program
         }
         catch (Exception exception)
         {
-            errorMessage =
-                $"{exception.GetType().Name}: {exception.Message}";
+            errorMessage = $"{exception.GetType().Name}: {exception.Message}";
 
             return false;
         }
