@@ -27,7 +27,7 @@ internal static partial class Program
     static async Task Main(string[] args)
     {
         await Task.Delay(1);
-        
+
         //DisplayItemDetails();
 
         //DisplayCommaDelimitedMonths();
@@ -50,21 +50,22 @@ internal static partial class Program
         //Samples.CombineIEnumerableInt();
         //Samples.LogicalPattern();
 
-        await GlobbingCode.DemonstrateGlobbing();
+        //await GlobbingCode.DemonstrateGlobbing();
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
-    
+
+
     // caution: this is just an example of pattern matching and extension methods,
     // not a recommended way to convert floats/doubles to strings
     private static string AsString(this object input) => input switch
-        {
-            float f => $"It's a float: {f}",
-            double d => $"It's a double: {d}",
-            _ => "Not a float or double"
-        };
+    {
+        float f => $"It's a float: {f}",
+        double d => $"It's a double: {d}",
+        _ => "Not a float or double"
+    };
 
-   
+
 
     /// <summary>
     /// Displays the occurrences of each character in a predefined string.
@@ -79,7 +80,7 @@ internal static partial class Program
     {
 
         SpectreConsoleHelpers.PrintPink();
-        
+
         var words = "Karen Payne posted this";
         AnsiConsole.MarkupLine($"[yellow]{words}[/]\n");
         var results = words.Occurrences();
@@ -101,7 +102,7 @@ internal static partial class Program
     {
 
         SpectreConsoleHelpers.PrintPink();
-        
+
         AnsiConsole.MarkupLine("[yellow]Comma delimited full month names[/]");
         CommaDelimitedStringCollection months = [];
 
@@ -140,7 +141,7 @@ internal static partial class Program
         AnsiConsole.MarkupLine($"[bold yellow]Item at index 10 (via TryGetAt):[/] {itemAtIndex10 ?? "null"}");
 
         Console.WriteLine();
-        
+
     }
 
 

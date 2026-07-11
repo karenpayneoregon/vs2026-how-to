@@ -36,6 +36,7 @@
   <Folder Name="/Console projects/Experiments/">
     <Project Path="DotNetProjectScannerApp/DotNetProjectScannerApp.csproj" Id="c2a9eb75-daa3-421a-a0a6-b5c8bae3b0eb" />
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
+    <Project Path="PropertySettersDemo/PropertySettersDemo.csproj" Id="ca1d407e-dc73-429f-afa6-059a0f1764a0" />
     <Project Path="ReadMockJsonUsingDapperApp/ReadMockJsonUsingDapperApp.csproj" Id="6b0b760b-7a8e-46b3-8ba2-d9f5093287c7" />
   </Folder>
   <Folder Name="/Console projects/Features/">
