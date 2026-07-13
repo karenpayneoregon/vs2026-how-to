@@ -20,23 +20,17 @@ internal partial class Program
         //Samples.EnumRandomizeExample();
 
 
-        DateOnlySamples.PriorWeek();
-        DateOnlySamples.ThisWeek();
-        DateOnlySamples.NextWeek();
-        DateOnlySamples.GetMonthDays(DateTime.Now.Month);
-
-        Console.WriteLine("\n\n\n\n");
-        
-        
-        const string text = "Splits a \"PascalCase\" or \"camelCase\" string into " +
-                            "'separate' \"words\" by inserting \"spaces\" before \"uppercase letters\".";
-
-        // Splits a PascalCase or camelCase string into separate words by inserting spaces before uppercase letters.
-        Console.WriteLine(text.RemoveQuotes());
+        //DateOnlySamples.PriorWeek();
+        //DateOnlySamples.ThisWeek();
+        //DateOnlySamples.NextWeek();
+        //DateOnlySamples.GetMonthDays(DateTime.Now.Month);
+        //Samples.ProcessLines();
 
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    
 
+    
 }

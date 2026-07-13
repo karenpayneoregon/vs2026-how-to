@@ -198,4 +198,32 @@ internal class Samples
         
         Console.WriteLine();
     }
+
+    /// <summary>
+    /// Processes lines from a CSV file by removing enclosing quotation marks
+    /// and printing each processed line to the console.
+    /// </summary>
+    /// <remarks>
+    /// This method reads all lines from the "People.csv" file, applies the
+    /// <see cref="ExtensionsLibrary.StringExtensions.RemoveQuotes"/> extension method
+    /// to remove quotation marks, and then prints each processed line.
+    /// </remarks>
+    /// <exception cref="System.IO.FileNotFoundException">
+    /// Thrown if the "People.csv" file is not found.
+    /// </exception>
+    /// <exception cref="System.IO.IOException">
+    /// Thrown if an I/O error occurs while reading the file.
+    /// </exception>
+    public static void ProcessLines()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        var lines = File.ReadAllLines("People.csv")
+            .Select(x => x.RemoveQuotes());
+
+        foreach (var line in lines)
+        {
+            Console.WriteLine(line);
+        }
+    }
 }
