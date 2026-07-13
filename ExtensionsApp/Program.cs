@@ -25,6 +25,15 @@ internal partial class Program
         DateOnlySamples.NextWeek();
         DateOnlySamples.GetMonthDays(DateTime.Now.Month);
 
+        Console.WriteLine("\n\n\n\n");
+        
+        
+        const string text = "Splits a \"PascalCase\" or \"camelCase\" string into " +
+                            "'separate' \"words\" by inserting \"spaces\" before \"uppercase letters\".";
+
+        // Splits a PascalCase or camelCase string into separate words by inserting spaces before uppercase letters.
+        Console.WriteLine(text.RemoveQuotes());
+
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

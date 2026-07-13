@@ -139,6 +139,27 @@ public static partial class StringExtensions
                 }))
             .ToList()
             .OrderBy(item => item.Character.ToString());
+
+        /// <summary>
+        /// Removes quotation marks surrounding quoted values while preserving
+        /// the rest of the original string.
+        /// </summary>
+        /// <returns>
+        /// The original string with enclosing quotation marks removed.
+        /// </returns>
+        public string RemoveQuotes()
+        {
+            if (string.IsNullOrWhiteSpace(sender))
+            {
+                return sender;
+            }
+
+            return QuotesRegex().Replace(
+                sender,
+                match => match.Value.Length > 2
+                    ? match.Value[1..^1]
+                    : string.Empty);
+        }
     }
 
 
@@ -163,5 +184,8 @@ public static partial class StringExtensions
     /// </remarks>
     [GeneratedRegex(@"\s{2,}", RegexOptions.None)]
     private static partial Regex ExtraSpacesRegex();
+
+    [GeneratedRegex("([\"'])(?:(?=(\\\\?))\\2.)*?\\1")]
+    public static partial Regex QuotesRegex();
 }
 
