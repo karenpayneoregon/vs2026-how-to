@@ -6,9 +6,9 @@ namespace ExtensionsLibrary.Classes;
 /// Provides utility methods for working with the appsettings.json file, 
 /// including functionality to check for the existence of specific properties within sections.
 /// </summary>
-public static class Utilities
+public static class JsonUtilities
 {
-    private static string FileName => "appsettings.json";
+    public static string FileName { get; set; } = "appsettings.json";
 
     /// <summary>
     /// Determines whether a specified property exists within a given section of the appsettings.json file.

@@ -14,7 +14,9 @@
     <Project Path="CommonLangageExtensionsLibraryCore/CommonLangageExtensionsLibraryCore.csproj" />
     <Project Path="WindowFormsControlsCore/WindowFormsControlsCore.csproj" />
   </Folder>
-  <Folder Name="/Console projects/" />
+  <Folder Name="/Console projects/">
+    <Project Path="PropertyExistsApp/PropertyExistsApp.csproj" Id="ec9a2339-4361-4cf0-b991-5692fd829a2b" />
+  </Folder>
   <Folder Name="/Console projects/Dapper SQL Server/">
     <Project Path="DeleteDuplicateRowsSqlServerTable/DeleteDuplicateRowsSqlServerTable.csproj" />
   </Folder>
