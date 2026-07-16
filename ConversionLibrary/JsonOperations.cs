@@ -3,6 +3,13 @@ using System.Xml.Linq;
 
 namespace ConversionLibrary;
 
+/// <summary>
+/// Provides operations for converting JSON data to other formats.
+/// </summary>
+/// <remarks>
+/// This class includes methods to facilitate the transformation of JSON strings into XML representations.
+/// It is designed to handle JSON data where the root element is an array.
+/// </remarks>
 public class JsonOperations
 {
     /// <summary>
@@ -15,6 +22,7 @@ public class JsonOperations
     /// <exception cref="ArgumentException">Thrown when the root element of the JSON is not an array.</exception>
     public static string ToXml(string json, string rootElementName, string itemElementName)
     {
+        
         using var doc = JsonDocument.Parse(json);
         XElement root = new(rootElementName);
 
@@ -32,19 +40,23 @@ public class JsonOperations
             throw new ArgumentException("JSON root must be an array.");
         }
 
-        return root.ToString();
+        var document = new XDocument(new XDeclaration("1.0", null, "no"), root);
+        var declaration = new XDeclaration("1.0", null, "no");
+
+        return $"{declaration}{Environment.NewLine}{root}";
+        
     }
 
+
     /// <summary>
-    /// Parses a <see cref="JsonElement"/> and adds its properties as child elements to the specified <see cref="XElement"/>.
+    /// Parses a <see cref="System.Text.Json.JsonElement"/> and appends its content to the specified <see cref="System.Xml.Linq.XElement"/>.
     /// </summary>
-    /// <param name="element">The <see cref="JsonElement"/> to parse.</param>
-    /// <param name="parent">The <see cref="XElement"/> to which the parsed properties will be added as child elements.</param>
+    /// <param name="element">The JSON element to parse.</param>
+    /// <param name="parent">The XML element to which the parsed content will be added.</param>
     private static void ParseJsonElement(JsonElement element, XElement parent)
     {
-        foreach (var property in element.EnumerateObject())
+        foreach (var child in element.EnumerateObject().Select(property => new XElement(property.Name, property.Value.ToString())))
         {
-            var child = new XElement(property.Name, property.Value.ToString());
             parent.Add(child);
         }
     }
