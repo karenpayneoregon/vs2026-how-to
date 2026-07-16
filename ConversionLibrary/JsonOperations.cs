@@ -40,7 +40,7 @@ public class JsonOperations
             throw new ArgumentException("JSON root must be an array.");
         }
 
-        var document = new XDocument(new XDeclaration("1.0", null, "no"), root);
+        var document = new XDocument(root);
         var declaration = new XDeclaration("1.0", null, "no");
 
         return $"{declaration}{Environment.NewLine}{root}";
