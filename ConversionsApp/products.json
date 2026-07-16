@@ -1,0 +1,82 @@
+[
+  {
+    "ProductId": 1,
+    "ProductName": "Unbranded Plastic Chair",
+    "CategoryId": 4,
+    "UnitPrice": 455.88,
+    "UnitsInStock": 153,
+    "CategoryName": "Clothing"
+  },
+  {
+    "ProductId": 2,
+    "ProductName": "Incredible Frozen Gloves",
+    "CategoryId": 3,
+    "UnitPrice": 60.10,
+    "UnitsInStock": 472,
+    "CategoryName": "Books"
+  },
+  {
+    "ProductId": 3,
+    "ProductName": "Awesome Fresh Mouse",
+    "CategoryId": 4,
+    "UnitPrice": 386.16,
+    "UnitsInStock": 57,
+    "CategoryName": "Clothing"
+  },
+  {
+    "ProductId": 4,
+    "ProductName": "Ergonomic Fresh Sausages",
+    "CategoryId": 3,
+    "UnitPrice": 58.44,
+    "UnitsInStock": 454,
+    "CategoryName": "Books"
+  },
+  {
+    "ProductId": 5,
+    "ProductName": "Gorgeous Frozen Shoes",
+    "CategoryId": 2,
+    "UnitPrice": 231.74,
+    "UnitsInStock": 333,
+    "CategoryName": "Industrial"
+  },
+  {
+    "ProductId": 6,
+    "ProductName": "Fantastic Steel Fish",
+    "CategoryId": 2,
+    "UnitPrice": 437.57,
+    "UnitsInStock": 494,
+    "CategoryName": "Industrial"
+  },
+  {
+    "ProductId": 7,
+    "ProductName": "Generic Granite Hat",
+    "CategoryId": 1,
+    "UnitPrice": 226.08,
+    "UnitsInStock": 166,
+    "CategoryName": "Home"
+  },
+  {
+    "ProductId": 8,
+    "ProductName": "Handmade Wooden Salad",
+    "CategoryId": 4,
+    "UnitPrice": 28.68,
+    "UnitsInStock": 132,
+    "CategoryName": "Clothing"
+  },
+  {
+    "ProductId": 9,
+    "ProductName": "Incredible Fresh Hat",
+    "CategoryId": 5,
+    "UnitPrice": 457.30,
+    "UnitsInStock": 438,
+    "CategoryName": "Jewelery"
+  },
+  {
+    "ProductId": 10,
+    "ProductName": "Unbranded Cotton Bike",
+    "CategoryId": 1,
+    "UnitPrice": 251.07,
+    "UnitsInStock": 472,
+    "CategoryName": "Home"
+  }
+]

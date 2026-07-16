@@ -5,6 +5,7 @@
   </Folder>
   <Folder Name="/Class projects/">
     <Project Path="CommonLibrary/CommonLibrary.csproj" />
+    <Project Path="ConversionLibrary/ConversionLibrary.csproj" Id="ae772485-26bd-4770-979b-c16c98ff4380" />
     <Project Path="EntityFrameworkLibrary/EntityFrameworkLibrary.csproj" Id="b1463bab-13f0-475c-83c0-48340918bbd1" />
     <Project Path="ExtensionsLibrary/ExtensionsLibrary.csproj" />
     <Project Path="FluenyValidationLibrary/FluenyValidationLibrary.csproj" Id="6e01ba9f-40c1-4ca5-9532-dab687725217" />
@@ -43,6 +44,7 @@
   </Folder>
   <Folder Name="/Console projects/Features/">
     <Project Path="BasicConsoleProject20261/BasicConsoleProject20261.csproj" Id="993119f1-b60e-422b-abd6-9f8bcfdd71b9" />
+    <Project Path="ConversionsApp/ConversionsApp.csproj" Id="5df225eb-4443-41d5-b3f2-ffe47ef13bd5" />
     <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
     <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
     <Project Path="LambdaParametersApp/LambdaParametersApp.csproj" Id="0ec6652c-b26c-4cdd-9084-e3bec7273ca4" />
