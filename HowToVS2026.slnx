@@ -41,6 +41,7 @@
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
     <Project Path="PropertySettersDemo/PropertySettersDemo.csproj" Id="ca1d407e-dc73-429f-afa6-059a0f1764a0" />
     <Project Path="ReadMockJsonUsingDapperApp/ReadMockJsonUsingDapperApp.csproj" Id="6b0b760b-7a8e-46b3-8ba2-d9f5093287c7" />
+    <Project Path="ScreenSaverApp/ScreenSaverApp.csproj" Id="58dd064a-b216-427b-bdf3-00662da16993" />
   </Folder>
   <Folder Name="/Console projects/Features/">
     <Project Path="BasicConsoleProject20261/BasicConsoleProject20261.csproj" Id="993119f1-b60e-422b-abd6-9f8bcfdd71b9" />
@@ -67,6 +68,7 @@
     <Project Path="UsingIncludeInValidation/UsingIncludeInValidation.csproj" />
   </Folder>
   <Folder Name="/Experiments projects/">
+    <Project Path="BasicConsoleProject20262/BasicConsoleProject20262.csproj" Id="edd74e6b-f3c9-4e23-9bb6-b42020b62bac" />
     <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />
   </Folder>
   <Folder Name="/Solution Items/">
@@ -78,6 +80,7 @@
     <Project Path="FrameworkLifeCycle/FrameworkLifeCycle.csproj" Id="1de30548-f54a-4d32-ad76-b0c81b9d2a4e" />
     <Project Path="RamUsage/RamUsage.csproj" />
     <Project Path="UpdateFrameworkApp/UpdateFrameworkApp.csproj" />
+    <Project Path="VisualStudioExternalToolsApp/VisualStudioExternalToolsApp.csproj" />
     <Project Path="VsWhereDataApp/VsWhereDataApp.csproj" />
   </Folder>
   <Folder Name="/Web/">
@@ -98,7 +101,7 @@
         <Property Name="Release.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_57917\&quot;" />
         <Property Name="Release.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
         <Property Name="Release.AspNetCompiler.VirtualPath" Value="&quot;/localhost_57917&quot;" />
-        <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv4.0&quot;" />
+        <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv4.8.1&quot;" />
         <Property Name="VWDPort" Value="&quot;57917&quot;" />
       </Properties>
     </Project>
@@ -120,7 +123,7 @@
         <Property Name="Release.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_58219\&quot;" />
         <Property Name="Release.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
         <Property Name="Release.AspNetCompiler.VirtualPath" Value="&quot;/localhost_58219&quot;" />
-        <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv4.0&quot;" />
+        <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv4.8.1&quot;" />
         <Property Name="VWDPort" Value="&quot;58219&quot;" />
       </Properties>
     </Project>
