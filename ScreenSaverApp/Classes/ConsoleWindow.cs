@@ -2,6 +2,13 @@
 
 namespace ScreenSaverApp.Classes;
 
+/// <summary>
+/// Provides utility methods for interacting with the console window in the application.
+/// </summary>
+/// <remarks>
+/// This static class includes methods to manipulate the console window, such as minimizing it.
+/// It utilizes Windows API functions to perform these operations.
+/// </remarks>
 internal static class ConsoleWindow
 {
     private const int SwMinimize = 6;
