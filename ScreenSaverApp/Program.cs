@@ -18,10 +18,12 @@ namespace ScreenSaverApp
         /// </summary>>
         static void Main(string[] args)
         {
+            
             ConsoleWindow.Minimize();
+            
             SpectreConsoleHelpers.WindowTitle(Justify.Left, "Preventing screen saver from starting...");
 
-            // 3. Disable the screen saver and monitor sleep
+            // Disable the screen saver and monitor sleep
             // This tells Windows that this thread requires the display to stay active continuously.
             SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
 
@@ -31,13 +33,14 @@ namespace ScreenSaverApp
             Console.Clear();
             SpectreConsoleHelpers.WindowTitle(Justify.Left, "Preventing screen saver from starting...");
 
-            // 4. Reset the state back to normal
+            // Reset the state back to normal
             // Failing to call this is usually safe as Windows clears it when the thread/app exits,
             // but explicit cleanup is best practice.
             SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
 
             AnsiConsole.MarkupLine("[cyan]Screen saver settings restored.[/]");
             AnsiConsole.MarkupLine("[cyan]Press[/] [DeepPink1_1]ENTER[/] [cyan]to exit.[/]");
+            
             Console.ReadLine();
         }
     }
