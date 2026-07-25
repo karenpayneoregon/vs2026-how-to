@@ -87,8 +87,6 @@ public static partial class DateOnlyExtensions
         public DateOnly AddBusinessDays(int days)
         {
 
-            //TODO add holiday exclusions
-
             int fullWeeks = days / 5;
             dateOnly = dateOnly.AddDays(fullWeeks * 7);
 

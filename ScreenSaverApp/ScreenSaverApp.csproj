@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Include="monitor.ico" />
 	  <Content Include="readme.md" />
 	</ItemGroup>
 
@@ -37,6 +38,7 @@
 
 	<PropertyGroup>
 		<BuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</BuildDate>
+		<ApplicationIcon>monitor.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>

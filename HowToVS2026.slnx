@@ -76,6 +76,8 @@
     <File Path="readme.md" />
   </Folder>
   <Folder Name="/Tools/">
+    <Project Path="../_vs2026-how-to/DisableScreensaver/DisableScreensaver.csproj" Id="f7f54a12-3ecc-4fd5-9d84-75a854f9c6bc" />
+    <Project Path="CleanSnagItDirectoryApp/CleanSnagItDirectoryApp.csproj" />
     <Project Path="CopyFileCleaner/CopyFileCleaner.csproj" Id="c2f9dbcd-49b8-405b-9fd4-371571ae3651" />
     <Project Path="FrameworkLifeCycle/FrameworkLifeCycle.csproj" Id="1de30548-f54a-4d32-ad76-b0c81b9d2a4e" />
     <Project Path="RamUsage/RamUsage.csproj" />

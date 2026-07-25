@@ -11,7 +11,8 @@ public sealed class EnvironmentSettings
     private EnvironmentSettings()
     {
         var userName = Environment.UserName;
-        FilePath = $"C:\\Users\\{userName}\\AppData\\Local\\Microsoft\\VisualStudio\\17.0_f56beab6\\Settings";
+        FilePath = $"C:\\Users\\{userName}\\AppData\\Local\\Microsoft\\VisualStudio\\18.0_869d41d2\\Settings";
+        //c:\Users\paynek\AppData\Local\Microsoft\VisualStudio\18.0_869d41d2\Settings\
         DirectoryExists = Directory.Exists(FilePath);
         FileName = Path.Combine(FilePath, "CurrentSettings.vssettings");
     }

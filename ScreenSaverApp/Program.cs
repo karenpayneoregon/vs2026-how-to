@@ -1,4 +1,6 @@
-﻿using Spectre.Console;
+﻿using ScreenSaverApp.Classes;
+using Spectre.Console;
+using SpectreConsoleLibrary.Core;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,14 +18,18 @@ namespace ScreenSaverApp
         /// </summary>>
         static void Main(string[] args)
         {
-            AnsiConsole.MarkupLine("[cyan]Preventing screen saver from starting...[/]");
+            ConsoleWindow.Minimize();
+            SpectreConsoleHelpers.WindowTitle(Justify.Left, "Preventing screen saver from starting...");
 
             // 3. Disable the screen saver and monitor sleep
             // This tells Windows that this thread requires the display to stay active continuously.
             SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
 
-            AnsiConsole.MarkupLine("[cyan]Press ENTER to allow the screen saver to work normally again.[/]");
+            AnsiConsole.MarkupLine("[cyan]Press[/] [DeepPink1_1]ENTER[/] [cyan]to allow the screen saver to work normally again.[/]");
             Console.ReadLine();
+            
+            Console.Clear();
+            SpectreConsoleHelpers.WindowTitle(Justify.Left, "Preventing screen saver from starting...");
 
             // 4. Reset the state back to normal
             // Failing to call this is usually safe as Windows clears it when the thread/app exits,
@@ -31,6 +37,7 @@ namespace ScreenSaverApp
             SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
 
             AnsiConsole.MarkupLine("[cyan]Screen saver settings restored.[/]");
+            AnsiConsole.MarkupLine("[cyan]Press[/] [DeepPink1_1]ENTER[/] [cyan]to exit.[/]");
             Console.ReadLine();
         }
     }
