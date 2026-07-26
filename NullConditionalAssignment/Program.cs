@@ -14,9 +14,9 @@ internal partial class Program
         
         AnsiConsole.MarkupLine("[yellow bold]Null-conditional assignment examples[/]\n");
 
-        //HandleAccountAssignment();
+        HandleAccountAssignment();
         //HandleCustomerOrderAssignment();
-        HandleOrderItems();
+        //HandleOrderItems();
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
 
