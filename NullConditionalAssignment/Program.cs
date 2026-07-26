@@ -37,11 +37,13 @@ internal partial class Program
         Customer customer = new();
 
         customer?.Order = GetCurrentOrder();  // order is assigned to customer.Order 
-        Console.WriteLine(customer!.Order.Id);
+        AnsiConsole.MarkupLine($"[DeepPink1]customer!.Order.Id[/] {customer!.Order.Id}");
 
         customer = null;
-        customer?.Order = GetCurrentOrder(); // Null-conditional assignment, no exception is thrown, and the assignment is skipped
-        Console.WriteLine("No exceptions");
+
+        // Null-conditional assignment, no exception is thrown, and the assignment is skipped
+        customer?.Order = GetCurrentOrder(); 
+        AnsiConsole.MarkupLine("[DeepPink1]No exceptions[/]");
     }
 
     private static Order GetCurrentOrder() => new() { Id = 111 };
@@ -112,7 +114,7 @@ internal partial class Program
         };
 
         // Display order with null-conditional access to OrderItems
-        Console.WriteLine($"[DeepPink1]Order ID:[/] {order.Id}");
+        AnsiConsole.MarkupLine($"[DeepPink1]Order ID:[/] {order.Id}");
         AnsiConsole.MarkupLine("[DeepPink1]Order Items:[/]");
         order.OrderItems?.ToList()
             .ForEach(item =>
