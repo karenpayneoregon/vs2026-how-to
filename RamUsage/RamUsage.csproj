@@ -20,6 +20,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Classes\Configuration\**" />
+	  <EmbeddedResource Remove="Classes\Configuration\**" />
+	  <None Remove="Classes\Configuration\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="readme.md" />
 	</ItemGroup>
 
@@ -64,9 +70,5 @@
 		<None Update="appsettings.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Classes\Configuration\" />
 	</ItemGroup>
 </Project>

@@ -38,7 +38,7 @@ public sealed class RamUsageService
     /// }
     /// </code>
     /// </example>
-    public IReadOnlyList<ApplicationRamUsage> GetTopFiveApplicationsByRam()
+    public IReadOnlyList<ApplicationRamUsage> GetTopApplicationsByRam()
     {
         var windowTitles = WindowTitleService.GetMainWindowTitlesByProcessId();
 

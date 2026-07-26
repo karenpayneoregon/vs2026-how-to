@@ -78,7 +78,7 @@ internal class MainOperation
     /// <remarks>
     /// This method retrieves memory usage statistics using the <see cref="SystemMemory.GetMemoryUsage"/> method
     /// and outputs the total, available, and used memory, as well as the percentage of memory used.
-    /// It also retrieves the top five applications consuming the most RAM using the <see cref="RamUsageService.GetTopFiveApplicationsByRam"/> method.
+    /// It also retrieves the top five applications consuming the most RAM using the <see cref="RamUsageService.GetTopApplicationsByRam"/> method.
     /// The output is formatted using the Spectre.Console library for enhanced readability.
     /// </remarks>
     public static void Display()
@@ -95,7 +95,7 @@ internal class MainOperation
         Console.WriteLine();
 
         var service = new RamUsageService();
-        var applications = service.GetTopFiveApplicationsByRam();
+        var applications = service.GetTopApplicationsByRam();
 
         var table = new Table()
             .Border(TableBorder.Rounded)
