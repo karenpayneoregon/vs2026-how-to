@@ -41,6 +41,9 @@
     <Project Path="ExperimentsApp/ExperimentsApp.csproj" Id="a8af9089-04fc-478a-a893-4c8d89fc6c30" />
     <Project Path="PropertySettersDemo/PropertySettersDemo.csproj" Id="ca1d407e-dc73-429f-afa6-059a0f1764a0" />
     <Project Path="ReadMockJsonUsingDapperApp/ReadMockJsonUsingDapperApp.csproj" Id="6b0b760b-7a8e-46b3-8ba2-d9f5093287c7" />
+  </Folder>
+  <Folder Name="/Console projects/Experiments/Windows Lock projects/">
+    <Project Path="DisableScreensaver/DisableScreensaver.csproj" Id="f7f54a12-3ecc-4fd5-9d84-75a854f9c6bc" />
     <Project Path="ScreenSaverApp/ScreenSaverApp.csproj" Id="58dd064a-b216-427b-bdf3-00662da16993" />
   </Folder>
   <Folder Name="/Console projects/Features/">
