@@ -30,17 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisableScreenSaverForm));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.OkayButton = new System.Windows.Forms.Button();
             this.aboutTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(Timer1Tick);
             // 
             // notifyIcon1
             // 
@@ -97,8 +90,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button OkayButton;
         private System.Windows.Forms.TextBox aboutTextBox;
