@@ -1,4 +1,5 @@
 ﻿using IComparerIEqualityComparerApp.Models;
+// ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
 
 namespace IComparerIEqualityComparerApp.Classes.Comparers;
 public class ProductComparer : IEqualityComparer<Product>

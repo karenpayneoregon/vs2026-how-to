@@ -37,5 +37,5 @@ public class PersonComparer : IComparer<Person>
     /// Thrown when <paramref name="left"/> is <c>null</c>.
     /// </exception>
     public int Compare(Person? left, Person? right) 
-        => string.Compare(left.LastName, right.LastName, StringComparison.Ordinal);
+        => string.Compare(left!.LastName, right!.LastName, StringComparison.Ordinal);
 }

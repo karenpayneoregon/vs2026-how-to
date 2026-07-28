@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace DisableScreensaver
@@ -94,10 +93,12 @@ namespace DisableScreensaver
             disabledMenuItem.CheckOnClick = true;
             disabledMenuItem.Text = @"Disabled";
             disabledMenuItem.Click += DisabledClick;
+            
             autoStartMenuItem.CheckOnClick = true;
             autoStartMenuItem.Text = @"Automatically start";
             autoStartMenuItem.Click += AutostartClick;
             aboutMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            
             aboutMenuItem.Text = @"About";
             aboutMenuItem.Click += AboutMenuItemClick;
             exitMenuItem.Text = @"Exit";

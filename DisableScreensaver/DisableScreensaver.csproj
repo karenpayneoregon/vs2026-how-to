@@ -119,6 +119,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\LockConfiguration.cs" />
     <Compile Include="Classes\SetupLogging.cs" />
     <Compile Include="DisableScreensaverForm.cs">
       <SubType>Form</SubType>

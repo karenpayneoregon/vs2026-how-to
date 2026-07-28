@@ -15,8 +15,9 @@ namespace DisableScreensaver
             Application.SetCompatibleTextRenderingDefault(false);
             
             SetupLogging.Development();
-            DisableScreenLock();
-            
+            LockConfiguration.Instance.DisableScreenLock();
+
+
             Application.Run(new DisableScreenSaverForm());
         }
 
