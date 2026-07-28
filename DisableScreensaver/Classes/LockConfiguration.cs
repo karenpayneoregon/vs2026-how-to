@@ -4,6 +4,16 @@ using static DisableScreensaver.Classes.ImportsDefinitions;
 
 namespace DisableScreensaver.Classes
 {
+    /// <summary>
+    /// Represents a configuration for managing the system's screen lock behavior.
+    /// </summary>
+    /// <remarks>
+    /// This class provides functionality to disable or enable the screen lock by manipulating the system's thread execution state.
+    /// It is implemented as a singleton to ensure a single instance is used throughout the application.
+    /// </remarks>
+    /// <threadsafety>
+    /// This class is thread-safe due to the use of the <see cref="System.Lazy{T}"/> type for its singleton implementation.
+    /// </threadsafety>
     public sealed class LockConfiguration
     {
         private static readonly Lazy<LockConfiguration> Lazy = new Lazy<LockConfiguration>(() => new LockConfiguration());

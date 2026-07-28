@@ -1,8 +1,19 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+// ReSharper disable InconsistentNaming
 
 namespace DisableScreensaver.Classes
 {
+    /// <summary>
+    /// Provides definitions for importing native methods and related constants 
+    /// used to manage thread execution states, such as preventing the system 
+    /// from entering sleep mode or activating the screensaver.
+    /// </summary>
+    /// <remarks>
+    /// This class contains P/Invoke declarations and associated enumerations 
+    /// for interacting with the Windows API, specifically the 
+    /// <c>SetThreadExecutionState</c> function from <c>kernel32.dll</c>.
+    /// </remarks>
     public static class ImportsDefinitions
     {
         // 1. Import the SetThreadExecutionState function from kernel32.dll
