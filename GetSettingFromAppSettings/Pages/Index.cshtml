@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div style="max-width: 600px; margin: 0 auto;">
+
+    <h1 style="text-align: center;">
+        Logging Settings
+    </h1>
+
+    <ul style="text-align: left; margin: 0 auto; display: inline-block; padding: 0;">
+        <li><strong>Default:</strong> <span class="text-primary">@Model.Default</span></li>
+        <li><strong>Microsoft.AspNetCore:</strong> <span class="text-primary">@Model.AspNetCore</span></li>
+        <li><strong>EF Command:</strong> <span class="text-primary">@Model.EfCommand</span></li>
+    </ul>
+
+</div>

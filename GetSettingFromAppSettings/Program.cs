@@ -1,0 +1,73 @@
+using GetSettingFromAppSettings.Classes;
+using GetSettingFromAppSettings.Models;
+using Microsoft.Extensions.Options;
+
+namespace GetSettingFromAppSettings;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        
+        builder.Services.AddRazorPages();
+
+        ConfigureServicesWithValidation(builder);
+
+        var app = builder.Build();
+
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseRouting();
+        app.UseAuthorization();
+        app.MapStaticAssets();
+        app.MapRazorPages().WithStaticAssets();
+        app.Run();
+    }
+
+    /// <summary>
+    /// Configures services with validation for the application.
+    /// </summary>
+    /// <param name="builder">The <see cref="WebApplicationBuilder"/> used to configure the application's services.</param>
+    /// <remarks>
+    /// This method performs the following actions:
+    /// <list type="bullet">
+    /// <item>Ensures the "Logging" configuration section exists; otherwise, throws an <see cref="InvalidOperationException"/>.</item>
+    /// <item>Binds and validates the "Logging" configuration section to the <see cref="LoggingSettings"/> class.</item>
+    /// <item>Binds and validates the "HelpDesk" configuration section to the <see cref="HelpDesk"/> class.</item>
+    /// <item>Registers validation logic for <see cref="LoggingSettings"/> and <see cref="HelpDesk"/> using <see cref="LoggingSettingsValidation"/> and <see cref="HelpdeskValidation"/> respectively.</item>
+    /// </list>
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">Thrown if the "Logging" configuration section is missing.</exception>
+    private static void ConfigureServicesWithValidation(WebApplicationBuilder builder)
+    {
+        if (!builder.Configuration.GetSection("Logging").Exists())
+        {
+            throw new InvalidOperationException("Configuration section 'Logging' is missing.");
+        }
+
+        if (!builder.Configuration.GetSection("HelpDesk").Exists())
+        {
+            throw new InvalidOperationException("Configuration section 'HelpDesk' is missing.");
+        }
+
+
+        builder.Services
+            .AddOptions<LoggingSettings>()
+            .Bind(builder.Configuration.GetSection("Logging"))
+            .ValidateOnStart();
+        
+        builder.Services
+            .AddOptions<HelpDesk>()
+            .Bind(builder.Configuration.GetSection("HelpDesk"))
+            .ValidateOnStart();
+        
+        builder.Services.AddSingleton<IValidateOptions<LoggingSettings>, LoggingSettingsValidation>();
+        builder.Services.AddSingleton<IValidateOptions<HelpDesk>, HelpdeskValidation>();
+    }
+}

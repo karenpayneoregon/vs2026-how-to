@@ -113,6 +113,7 @@
       </Properties>
     </Project>
     <Project Path="EnvironmentApplication/EnvironmentApplication.csproj" Id="8fdd2b2e-684d-44c4-b173-36c0f7a4c277" />
+    <Project Path="GetSettingFromAppSettings/GetSettingFromAppSettings.csproj" />
     <Project Path="GoogleTranslateFix/" Type="Website" DisplayName="GoogleTranslateFix">
       <BuildType Project="Debug" />
       <Properties Name="WebsiteProperties">
