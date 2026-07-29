@@ -11,9 +11,13 @@ namespace DisableScreensaver
     public partial class DisableScreenSaverForm : Form
     {
 
+        #region Registry
+
         private const string RegistryAutoRunName = "DisableScreensaver";
         private const string RegistryKey = @"SOFTWARE\DisableScreensaver\";
         private const string RunKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+
+        #endregion
 
         public DisableScreenSaverForm()
         {
@@ -24,16 +28,26 @@ namespace DisableScreensaver
 
         private void ExitClick(object sender, EventArgs e)
         {
+            
+            if (LockConfiguration.Instance.IsDisabled)
+            {
+                LockConfiguration.Instance.EnableScreenLock();
+            }
+            
             Close();
+            
         }
 
 
 
         private void DisabledClick(object sender, EventArgs e)
         {
+            
             if (LockConfiguration.Instance.IsDisabled)
             {
+                
                 bool disabled = ((ToolStripMenuItem)sender).Checked;
+                
                 try
                 {
                     SetRegistryValue("Disabled", disabled.ToString());
@@ -44,6 +58,7 @@ namespace DisableScreensaver
                     Log.Error(exception, "An error occurred while enabling the screensaver.");
                 }
             }
+            
         }
 
         /// <summary>
@@ -58,8 +73,6 @@ namespace DisableScreensaver
         {
             SetAutoStart(((ToolStripMenuItem)sender).Checked);
         }
-
-
 
         private void AboutMenuItemClick(object sender, EventArgs e)
         {
@@ -80,7 +93,7 @@ namespace DisableScreensaver
 
         private void AboutMenu()
         {
-            aboutTextBox.Text = $@"Disable ScreenSaver 2026 version {Assembly.GetExecutingAssembly().GetName().Version}";
+            aboutTextBox.Text = $@"Disable ScreenSaver {DateTime.Now.Year} version {Assembly.GetExecutingAssembly().GetName().Version}";
             aboutTextBox.SelectionLength = 0;
             aboutTextBox.SelectionStart = 0;
 
@@ -149,38 +162,48 @@ namespace DisableScreensaver
 
 
             return contextMenuStrip;
+            
         }
 
         private void DisableScreensaverForm_Paint(object sender, PaintEventArgs e)
         {
+            
             if (notifyIcon1.ContextMenuStrip != null)
             {
                 Hide();
             }
+            
         }
 
         private void DisableScreensaverForm_Load(object sender, EventArgs e)
         {
+            
             if (notifyIcon1.ContextMenuStrip != null)
             {
                 Hide();
             }
+            
         }
 
         private void NotifyIcon1Click(object sender, EventArgs e)
         {
+            
             if (notifyIcon1.ContextMenuStrip == null)
             {
                 Activate();
             }
+            
         }
 
         private void OkayButtonClick(object sender, EventArgs e)
         {
+            
             notifyIcon1.ContextMenuStrip = GenerateContextMenuStrip();
             ShowInTaskbar = false;
+            
             WindowState = FormWindowState.Minimized;
             Hide();
+            
         }
 
 
