@@ -1,3 +1,5 @@
 ﻿# About
 
-TODO: Add a description of the project here.
+Tray application to disable the screensaver and prevent the computer from going to sleep.
+
+- Logs information to LogFiles

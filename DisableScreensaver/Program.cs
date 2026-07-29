@@ -1,6 +1,7 @@
 ﻿using DisableScreensaver.Classes;
 using System;
 using System.Windows.Forms;
+
 using Serilog;
 using static DisableScreensaver.Classes.ImportsDefinitions;
 
