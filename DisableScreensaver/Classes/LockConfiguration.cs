@@ -16,11 +16,25 @@ namespace DisableScreensaver.Classes
     /// </threadsafety>
     public sealed class LockConfiguration
     {
+
+        // Singleton implementation using Lazy<T> to ensure thread-safe, lazy initialization.   
         private static readonly Lazy<LockConfiguration> Lazy = new Lazy<LockConfiguration>(() => new LockConfiguration());
+        /*
+         * 
+         */
         public static LockConfiguration Instance => Lazy.Value;
 
         public bool IsDisabled { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LockConfiguration"/> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is private to enforce the singleton pattern, ensuring that only one instance of the 
+        /// <see cref="LockConfiguration"/> class is created and used throughout the application.
+        /// It is invoked during the lazy initialization of the <see cref="Instance"/> property.
+        /// </remarks>
+        /// <seealso cref="LockConfiguration.Instance"/>
         private LockConfiguration()
         {
             // disable screen lock on initialization in Program.cs
@@ -35,9 +49,6 @@ namespace DisableScreensaver.Classes
         /// <see cref="ImportsDefinitions.EXECUTION_STATE.ES_DISPLAY_REQUIRED"/>, 
         /// ensuring that the display remains active and the system does not lock.
         /// </remarks>
-        /// <exception cref="System.Exception">
-        /// Thrown when an error occurs while disabling the screen lock. The error is logged using Serilog.
-        /// </exception>
         public void DisableScreenLock()
         {
             try
