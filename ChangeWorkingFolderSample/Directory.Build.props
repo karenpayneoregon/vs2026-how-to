@@ -1,0 +1,12 @@
+﻿<Project>
+	<PropertyGroup Label="ExtraInfo">
+		<Version>1.0</Version>
+		<FileVersion>1.0.0.0</FileVersion>
+		<Product>Set working folder</Product>
+		<OwnerName>Karen Payne</OwnerName>
+		<Company>$(OwnerName)</Company>
+		<Copyright>Created by $(OwnerName) MVP use freely</Copyright>
+		<Description>Set working folder sample</Description>
+		<NeutralLanguage>en</NeutralLanguage>
+	</PropertyGroup>
+</Project>

@@ -44,6 +44,7 @@
   </Folder>
   <Folder Name="/Console projects/Features/">
     <Project Path="BasicConsoleProject20261/BasicConsoleProject20261.csproj" Id="993119f1-b60e-422b-abd6-9f8bcfdd71b9" />
+    <Project Path="ChangeWorkingFolderSample/ChangeWorkingFolderSample.csproj" />
     <Project Path="ConversionsApp/ConversionsApp.csproj" Id="5df225eb-4443-41d5-b3f2-ffe47ef13bd5" />
     <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
     <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
