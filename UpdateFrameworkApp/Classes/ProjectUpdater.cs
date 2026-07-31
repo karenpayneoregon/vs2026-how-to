@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Xml.Linq;
+using Serilog;
 
 namespace UpdateFrameworkApp.Classes;
 
@@ -42,9 +43,10 @@ public class ProjectUpdater
         var path = Path.GetDirectoryName(csprojPath);
         var proj = Path.GetFileName(csprojPath);
         
+        
         if (!File.Exists(proj))
         {
-            return $"[red]File not found:[/] {proj}";
+            return $"[red]File not found:[/] `{proj}`";
         }
 
         try
