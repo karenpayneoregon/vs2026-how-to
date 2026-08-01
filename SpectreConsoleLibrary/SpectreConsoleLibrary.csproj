@@ -5,6 +5,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Include="..\..\..\VS2022\command-line-exploration\Holidays\Classes\ExceptionHelpers.cs" Link="ExceptionHelpers.cs" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.55.2" />
 		<PackageReference Include="Spectre.Console.Json" Version="0.55.2" />

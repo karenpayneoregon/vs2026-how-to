@@ -17,11 +17,7 @@ namespace DisableScreensaver.Classes
     public sealed class LockConfiguration
     {
 
-        // Singleton implementation using Lazy<T> to ensure thread-safe, lazy initialization.   
         private static readonly Lazy<LockConfiguration> Lazy = new Lazy<LockConfiguration>(() => new LockConfiguration());
-        /*
-         * 
-         */
         public static LockConfiguration Instance => Lazy.Value;
 
         public bool IsDisabled { get; set; }
@@ -54,12 +50,16 @@ namespace DisableScreensaver.Classes
             try
             {
                 SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
+#if SERI_LOGGING
                 Log.Information("Screen lock disabled.");
+#endif
                 IsDisabled = true;
             }
             catch (Exception e)
             {
+#if SERI_LOGGING
                 Log.Error(e, "An error occurred while disabling screen lock.");
+#endif
                 IsDisabled = false;
             }
         }
@@ -79,12 +79,16 @@ namespace DisableScreensaver.Classes
             try
             {
                 SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
+#if SERI_LOGGING
                 Log.Information("Screen lock enabled.");
+#endif
                 IsDisabled = false;
             }
             catch (Exception e)
             {
+#if SERI_LOGGING
                 Log.Error(e, "An error occurred while enabling screen lock.");
+#endif
                 IsDisabled = true;
             }
         }

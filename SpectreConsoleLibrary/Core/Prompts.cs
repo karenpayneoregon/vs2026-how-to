@@ -36,8 +36,8 @@ public static class Prompts
                 .DefaultValue(1.0m)
                 .DefaultValueStyle(Style));
 
-    private static string promptColor => "[cyan]";
-    private static string inputColor => "white";
+    private static string PromptColor => "[cyan]";
+    private static string InputColor => "white";
 
     /// <summary>
     /// Prompts the user to enter a password with the specified prompt text.
@@ -51,8 +51,8 @@ public static class Prompts
     /// The prompt text is styled with a predefined color for better visual distinction.
     /// </remarks>
     public static string SecretPrompt(string text) => AnsiConsole.Prompt(
-        new TextPrompt<string>($"Enter {promptColor}{text}[/]?")
-            .PromptStyle(inputColor)
+        new TextPrompt<string>($"Enter {PromptColor}{text}[/]?")
+            .PromptStyle(InputColor)
             .Secret()
             .AllowEmpty());
 
