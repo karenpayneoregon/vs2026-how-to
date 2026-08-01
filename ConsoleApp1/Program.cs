@@ -1,7 +1,18 @@
-﻿internal class Program
+﻿using System.DirectoryServices.AccountManagement;
+using System.Security.Principal;
+using ConsoleApp1.Classes;
+
+namespace ConsoleApp1;
+
+internal class Program
 {
-    private static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello, World!");
+        string firstName = EnviromentHelpers.GetCurrentUserFirstName();
+
+        Console.WriteLine($"Hello, {firstName}!");
+        Console.ReadLine();
     }
+
+
 }
