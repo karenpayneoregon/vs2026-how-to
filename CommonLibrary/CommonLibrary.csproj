@@ -5,6 +5,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Include="..\..\..\VS2022\learn-to-code-2026\PropertyExistsAppsettingsSample\Classes\Configuration\JsonHelpers.cs" Link="JsonHelpers.cs" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="10.0.9" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />

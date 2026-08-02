@@ -59,6 +59,10 @@
     <Project Path="NumericNodeSorterApp/NumericSorterApp.csproj" />
     <Project Path="PartialSamples1/PartialSamples1.csproj" />
   </Folder>
+  <Folder Name="/Console projects/Features/Module Initializers/">
+    <Project Path="ModuleInitializersApp1/ModuleInitializersApp1.csproj" Id="8534c4a0-aecf-497d-9c54-4022817880ee" />
+    <Project Path="ModuleInitializersApp2/ModuleInitializersApp2.csproj" Id="1ee99f6c-5ae6-4b26-beaf-82ad8943f3eb" />
+  </Folder>
   <Folder Name="/Console projects/JSON examples/">
     <Project Path="RemovePropertyApp/RemovePropertyApp.csproj" />
   </Folder>

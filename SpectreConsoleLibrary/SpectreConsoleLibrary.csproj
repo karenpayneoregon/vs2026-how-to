@@ -4,11 +4,21 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+
+		<!-- NuGet package metadata -->
+		<PackageId>SpectreConsoleLibrary2026</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Karen Payne</Authors>
+		<Company>Payne Services</Company>
+		<Description>Helpers and utilities that wrap Spectre.Console for building styled console UI and validated prompts.</Description>
+		<PackageTags>spectre.console;console;prompts;helpers</PackageTags>
+		<RepositoryUrl>https://github.com/karenpayneoregon/vs2026-how-to</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>false</IncludeSymbols>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <Compile Include="..\..\..\VS2022\command-line-exploration\Holidays\Classes\ExceptionHelpers.cs" Link="ExceptionHelpers.cs" />
-	</ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.55.2" />
 		<PackageReference Include="Spectre.Console.Json" Version="0.55.2" />

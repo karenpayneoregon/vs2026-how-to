@@ -6,6 +6,10 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Include="..\..\..\VS2022\web-app-code-samples\RazorLibrary\Classes\WindowHelper.cs" Link="WindowHelper.cs" />
+	</ItemGroup>
+
 	<!--<ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.3.0" />
 	</ItemGroup>-->

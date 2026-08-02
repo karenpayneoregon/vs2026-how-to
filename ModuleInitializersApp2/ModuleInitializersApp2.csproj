@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.55.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
+    <ProjectReference Include="..\WebClassLibrary\WebClassLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
