@@ -13,7 +13,9 @@
   </Folder>
   <Folder Name="/Class projects/Windows forms/">
     <Project Path="CommonLangageExtensionsLibraryCore/CommonLangageExtensionsLibraryCore.csproj" />
+    <Project Path="DialogsCoreLibrary/DialogsCoreLibrary.csproj" />
     <Project Path="WindowFormsControlsCore/WindowFormsControlsCore.csproj" />
+    <Project Path="WinFormsSystemColorModeLibrary/WinFormsSystemColorModeLibrary.csproj" />
   </Folder>
   <Folder Name="/Console projects/">
     <Project Path="PropertyExistsApp/PropertyExistsApp.csproj" Id="ec9a2339-4361-4cf0-b991-5692fd829a2b" />
@@ -199,6 +201,7 @@
     <Project Path="FluentWebApplication/FluentWebApplication.csproj" />
   </Folder>
   <Folder Name="/Windows forms/">
+    <Project Path="DarkModeApp/DarkModeApp.csproj" />
     <Project Path="ListBxOnlyCore/ListBxOnlyCore.csproj" />
   </Folder>
 </Solution>
