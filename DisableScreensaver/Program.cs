@@ -2,7 +2,6 @@
 using System;
 using System.Windows.Forms;
 
-using Serilog;
 using static DisableScreensaver.Classes.ImportsDefinitions;
 
 namespace DisableScreensaver
@@ -39,11 +38,15 @@ namespace DisableScreensaver
             try
             {
                 SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
+#if SERI_LOGGING
                 Log.Information("Screen lock disabled.");
+#endif
             }
             catch (Exception e)
             {
+#if SERI_LOGGING
                 Log.Error(e, "An error occurred while disabling screen lock.");
+#endif
             }
         }
     }

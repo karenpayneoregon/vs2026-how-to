@@ -3,7 +3,6 @@ using Microsoft.Win32;
 using System;
 using System.Reflection;
 using System.Windows.Forms;
-using Serilog;
 
 namespace DisableScreensaver
 {
@@ -53,9 +52,11 @@ namespace DisableScreensaver
                     SetRegistryValue("Disabled", disabled.ToString());
                     LockConfiguration.Instance.EnableScreenLock();
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
+#if SERI_LOGGING
                     Log.Error(exception, "An error occurred while enabling the screensaver.");
+#endif
                 }
             }
             

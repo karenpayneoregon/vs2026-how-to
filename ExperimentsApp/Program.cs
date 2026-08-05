@@ -1,14 +1,16 @@
-﻿using Spectre.Console;
-using SpectreConsoleLibrary.Core;
-using System.Configuration;
-using System.Globalization;
-using ExperimentsApp.Classes;
+﻿using ExperimentsApp.Classes;
 using ExperimentsApp.Interfaces;
 using ExperimentsApp.Models;
 using ExtensionsLibrary;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
+using Spectre.Console;
+using SpectreConsoleLibrary.Core;
+using System.Configuration;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using PartialExamples = ExperimentsApp.Classes.PartialExamples;
+// ReSharper disable UseVerbatimString
 
 namespace ExperimentsApp;
 
@@ -51,6 +53,8 @@ internal static partial class Program
         //Samples.LogicalPattern();
 
         //await GlobbingCode.DemonstrateGlobbing();
+        
+        GetFilesWithDigits();
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
@@ -64,6 +68,43 @@ internal static partial class Program
         double d => $"It's a double: {d}",
         _ => "Not a float or double"
     };
+
+    private static void GetFilesWithDigits()
+    {
+        int? Sorter(string fileName) => int.TryParse(DigitsRegex().Match(
+            Path.GetFileName(fileName)).Value, out var value) ? (int?)value : null;
+        
+        string[] fileNamesPath1 = 
+        [
+            "C:\\DownLoads\\Path1\\image1.gif", "C:\\DownLoads\\Path1\\imageNoInt.gif", 
+            "C:\\DownLoads\\Path1\\image123.gif", "C:\\DownLoads\\Path1\\image342.gif", "C:\\DownLoads\\Path1\\image2.gif"
+        ];
+        string[] fileNamesPath2 = 
+        [
+            "C:\\DownLoads\\Path2\\image12.gif", "C:\\DownLoads\\Path2\\Glob.gif", 
+            "C:\\DownLoads\\Path2\\image129.gif", "C:\\DownLoads\\Path2\\image32.gif", "C:\\DownLoads\\Path2\\image14.gif"
+        ];
+        var sortedFileNames = fileNamesPath1
+            .Union(fileNamesPath2)
+            .Select(fileName => new
+            {
+                FileName = fileName,
+                Match = DigitsRegex().Match(Path.GetFileName(fileName))
+            })
+            .Where(item => item.Match.Success)
+            .OrderBy(item => int.Parse(item.Match.Value))
+            .Select(item => item.FileName)
+            .ToList();
+
+        foreach ((int index, string fileName) in sortedFileNames.Index())
+        {
+            Console.WriteLine($"{index,-10}{fileName}");
+        }
+    }
+
+    [GeneratedRegex(@"\d+")]
+    private static partial Regex DigitsRegex();
+
 
 
 

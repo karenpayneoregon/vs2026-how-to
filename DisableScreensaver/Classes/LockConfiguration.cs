@@ -1,5 +1,4 @@
-﻿using Serilog;
-using System;
+﻿using System;
 using static DisableScreensaver.Classes.ImportsDefinitions;
 
 namespace DisableScreensaver.Classes
