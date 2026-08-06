@@ -4,6 +4,7 @@
     <Project Path="BootstrapComponentsApp/BootstrapComponentsApp.csproj" Id="0158b0aa-c496-449a-8b9b-f979397a5922" />
   </Folder>
   <Folder Name="/Class projects/">
+    <Project Path="AutoIncrementLibrary/AutoIncrementLibrary.csproj" />
     <Project Path="CommonLibrary/CommonLibrary.csproj" />
     <Project Path="ConversionLibrary/ConversionLibrary.csproj" Id="ae772485-26bd-4770-979b-c16c98ff4380" />
     <Project Path="EntityFrameworkLibrary/EntityFrameworkLibrary.csproj" Id="b1463bab-13f0-475c-83c0-48340918bbd1" />
@@ -18,6 +19,7 @@
     <Project Path="WinFormsSystemColorModeLibrary/WinFormsSystemColorModeLibrary.csproj" />
   </Folder>
   <Folder Name="/Console projects/">
+    <Project Path="AutoIncrementApp/AutoIncrementApp.csproj" />
     <Project Path="PropertyExistsApp/PropertyExistsApp.csproj" Id="ec9a2339-4361-4cf0-b991-5692fd829a2b" />
   </Folder>
   <Folder Name="/Console projects/Dapper SQL Server/">
