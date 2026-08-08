@@ -55,9 +55,86 @@ public class JsonOperations
     /// <param name="parent">The XML element to which the parsed content will be added.</param>
     private static void ParseJsonElement(JsonElement element, XElement parent)
     {
-        foreach (var child in element.EnumerateObject().Select(property => new XElement(property.Name, property.Value.ToString())))
-        {
+        foreach (var child in element.EnumerateObject()
+                     .Select(property => new XElement(property.Name, property.Value.ToString())))
             parent.Add(child);
+    }
+
+    public static string ToXmlStacked(string json, string rootElementName, string itemElementName)
+    {
+        using JsonDocument document = JsonDocument.Parse(json);
+
+        XElement root = new(rootElementName);
+
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+            throw new JsonException("Expected the JSON root element to be an array.");
+
+        foreach (JsonElement item in document.RootElement.EnumerateArray())
+        {
+            XElement itemElement = new(itemElementName);
+
+            AddObjectProperties(itemElement, item);
+
+            root.Add(itemElement);
+        }
+
+        XDocument xmlDocument = new(new XDeclaration("1.0", "utf-8", null), root);
+
+        return xmlDocument.ToString();
+    }
+
+    private static void AddObjectProperties(XElement parent, JsonElement jsonObject)
+    {
+        foreach (JsonProperty property in jsonObject.EnumerateObject())
+        {
+            AddElement(parent, property.Name, property.Value);
+        }
+    }
+
+    private static void AddElement(XElement parent, string elementName, JsonElement value)
+    {
+        switch (value.ValueKind)
+        {
+            case JsonValueKind.Object:
+                {
+                    XElement child = new(elementName);
+
+                    AddObjectProperties(child, value);
+
+                    parent.Add(child);
+                    break;
+                }
+
+            case JsonValueKind.Array:
+                {
+                    XElement array = new(elementName);
+
+                    foreach (JsonElement item in value.EnumerateArray())
+                    {
+                        AddElement(array, "Item", item);
+                    }
+
+                    parent.Add(array);
+                    break;
+                }
+
+            case JsonValueKind.String:
+                parent.Add(new XElement(elementName, value.GetString()));
+                break;
+
+            case JsonValueKind.Number:
+                parent.Add(new XElement(elementName, value.GetRawText()));
+                break;
+
+            case JsonValueKind.True:
+            case JsonValueKind.False:
+                parent.Add(new XElement(elementName, value.GetBoolean()));
+                break;
+
+            case JsonValueKind.Null:
+            case JsonValueKind.Undefined:
+                parent.Add(new XElement(elementName));
+                break;
         }
     }
 }

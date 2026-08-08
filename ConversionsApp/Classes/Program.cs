@@ -38,4 +38,5 @@ internal partial class Program
 
         SpectreConsoleHelpers.SetEncoding();
     }
+
 }

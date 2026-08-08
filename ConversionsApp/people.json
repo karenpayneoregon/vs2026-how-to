@@ -1,0 +1,57 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "James",
+    "LastName": "Anderson",
+    "BirthDate": "1985-03-14",
+    "Address": {
+      "Street": "123 Maple Street",
+      "City": "Portland",
+      "Postcode": "97201"
+    }
+  },
+  {
+    "Id": 2,
+    "FirstName": "Sarah",
+    "LastName": "Mitchell",
+    "BirthDate": "1992-07-22",
+    "Address": {
+      "Street": "456 Oak Avenue",
+      "City": "Salem",
+      "Postcode": "97301"
+    }
+  },
+  { 
+    "Id": 3,
+    "FirstName": "Michael",
+    "LastName": "Thompson",
+    "BirthDate": "1978-11-05",
+    "Address": {
+      "Street": "789 Pine Road",
+      "City": "Eugene",
+      "Postcode": "97401"
+    }
+  },
+  {
+    "Id": 4,
+    "FirstName": "Emily",
+    "LastName": "Carter",
+    "BirthDate": "2000-01-18",
+    "Address": {
+      "Street": "321 Cedar Lane",
+      "City": "Bend",
+      "Postcode": "97701"
+    }
+  },
+  {
+    "Id": 5,
+    "FirstName": "Daniel",
+    "LastName": "Wilson",
+    "BirthDate": "1989-09-30",
+    "Address": {
+      "Street": "654 Birch Drive",
+      "City": "Medford",
+      "Postcode": "97501"
+    }
+  }
+]
