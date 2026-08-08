@@ -8,12 +8,12 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        
+
         var fileName = "Products.json";
 
-        string xml = JsonOperations.ToXml(File.ReadAllText(fileName), "Products", "Products");
+        string xml = JsonOperations.ToXml(File.ReadAllText(fileName), "Products", "Product");
         File.WriteAllText("Products.xml", xml);
-        
+
         WindowHelpers.CenterLines("[white]Done[/]", "Inspect [cyan]Products.xml[/] in the executable folder");
 
         SpectreConsoleHelpers.ExitPrompt();
