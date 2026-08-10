@@ -14,7 +14,7 @@ public class Person
     public DateOnly? BirthDate { get; set; }
 
     [XmlElement("BirthDate")]
-    public string? BirthDateXml
+    public string? BirthDate1
     {
         get => BirthDate?.ToString("yyyy-MM-dd");
 

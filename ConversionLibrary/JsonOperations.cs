@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace ConversionLibrary;
 
@@ -56,8 +57,7 @@ public class JsonOperations
     private static void ParseJsonElement(JsonElement element, XElement parent)
     {
         foreach (var child in element.EnumerateObject()
-                     .Select(property => new XElement(property.Name, property.Value.ToString())))
-            parent.Add(child);
+                     .Select(property => new XElement(property.Name, property.Value.ToString()))) parent.Add(child);
     }
 
     public static string ToXmlStacked(string json, string rootElementName, string itemElementName)
@@ -137,4 +137,56 @@ public class JsonOperations
                 break;
         }
     }
+
+    public static string ConvertXmlToJson<T>(string xmlString)
+    {
+        // 1. Deserialize XML to C# Object
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+        using StringReader stringReader = new StringReader(xmlString);
+        T obj = (T)xmlSerializer.Deserialize(stringReader)!;
+
+        // 2. Serialize C# Object to JSON using System.Text.Json
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        return JsonSerializer.Serialize(obj, options);
+    }
+
+    /// <summary>
+    /// Converts a JSON string to its XML representation.
+    /// </summary>
+    /// <param name="json">The JSON string to convert. The root element of the JSON must be an array.</param>
+    /// <param name="rootElementName">The name of the root element in the resulting XML document.</param>
+    /// <param name="itemElementName">The name of each item element in the resulting XML document.</param>
+    /// <returns>A string containing the XML representation of the provided JSON.</returns>
+    /// <exception cref="JsonException">Thrown when the root element of the JSON is not an array.</exception>
+    /// <remarks>
+    /// This method parses a JSON string and converts it into an XML document. 
+    /// It assumes that the JSON root element is an array and creates an XML structure 
+    /// with a specified root element and item element names.
+    /// </remarks>
+    public static void ConvertJsonToXml(string json, string outputFilePath, string rootElementName, string itemElementName)
+    {
+        using JsonDocument document = JsonDocument.Parse(json);
+
+        XElement root = new(rootElementName);
+
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+        {
+            throw new JsonException(
+                "Expected the JSON root element to be an array.");
+        }
+
+        foreach (JsonElement item in document.RootElement.EnumerateArray())
+        {
+            XElement itemElement = new(itemElementName);
+
+            AddObjectProperties(itemElement, item);
+
+            root.Add(itemElement);
+        }
+
+        XDocument xmlDocument = new(new XDeclaration("1.0", "utf-8", null), root);
+
+        xmlDocument.Save(outputFilePath);
+    }
+
 }
