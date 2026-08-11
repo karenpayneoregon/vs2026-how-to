@@ -12,6 +12,9 @@
     <Project Path="FluenyValidationLibrary/FluenyValidationLibrary.csproj" Id="6e01ba9f-40c1-4ca5-9532-dab687725217" />
     <Project Path="SpectreConsoleLibrary/SpectreConsoleLibrary.csproj" Id="ce05f1b4-e4c5-4450-94e0-4ad6270b1935" />
   </Folder>
+  <Folder Name="/Class projects/Fluent Validation/">
+    <Project Path="ValidationLibrary/ValidationLibrary.csproj" />
+  </Folder>
   <Folder Name="/Class projects/Windows forms/">
     <Project Path="CommonLangageExtensionsLibraryCore/CommonLangageExtensionsLibraryCore.csproj" />
     <Project Path="DialogsCoreLibrary/DialogsCoreLibrary.csproj" />
@@ -67,6 +70,9 @@
   <Folder Name="/Console projects/Features/Module Initializers/">
     <Project Path="ModuleInitializersApp1/ModuleInitializersApp1.csproj" Id="8534c4a0-aecf-497d-9c54-4022817880ee" />
     <Project Path="ModuleInitializersApp2/ModuleInitializersApp2.csproj" Id="1ee99f6c-5ae6-4b26-beaf-82ad8943f3eb" />
+  </Folder>
+  <Folder Name="/Console projects/Fluent Validation/">
+    <Project Path="MatchPasswordsApp/MatchPasswordsApp.csproj" Id="60f62d90-6531-4fb9-9c0b-535a90b3693e" />
   </Folder>
   <Folder Name="/Console projects/JSON examples/">
     <Project Path="RemovePropertyApp/RemovePropertyApp.csproj" />
