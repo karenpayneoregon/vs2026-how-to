@@ -73,6 +73,7 @@
   </Folder>
   <Folder Name="/Console projects/Fluent Validation/">
     <Project Path="MatchPasswordsApp/MatchPasswordsApp.csproj" Id="60f62d90-6531-4fb9-9c0b-535a90b3693e" />
+    <Project Path="ValidateBirthDateApp/ValidateBirthDateApp.csproj" />
   </Folder>
   <Folder Name="/Console projects/JSON examples/">
     <Project Path="RemovePropertyApp/RemovePropertyApp.csproj" />
