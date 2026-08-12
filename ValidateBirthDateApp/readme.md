@@ -2,6 +2,8 @@
 
 An example for `IRuleBuilder<T, DateOnly>`
 
+:bulb: [Custom Validators](https://docs.fluentvalidation.net/en/latest/custom-validators.html)
+
 - LanguageExtensions
   - Custom rule `BirthDateRule` using an extension method which implements `IRuleBuilderOptions`
 - A shared validator for two properties FirstName and LastName
