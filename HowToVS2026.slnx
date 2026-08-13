@@ -80,6 +80,7 @@
   </Folder>
   <Folder Name="/Console projects/Serilog/">
     <Project Path="DestructuringSamples/DestructuringSamples.csproj" />
+    <Project Path="SerilogFiltering/SerilogFiltering.csproj" />
   </Folder>
   <Folder Name="/Console projects/Studio/">
     <Project Path="ViewExternalTools/ViewExternalTools.csproj" Id="91395e2b-c934-407b-884e-4e6f227b1fb9" />
