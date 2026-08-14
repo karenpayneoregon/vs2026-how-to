@@ -244,7 +244,20 @@ internal static class DbContextHelpers
         /// Thrown when the required database services are not available in the provided context.
         /// </exception>
         [DebuggerStepThrough]
-        public bool FullCheck(params string[] tableNames) => DatabaseExists(context) && HasTables(context) && TablesExist(context, tableNames);
+        public bool FullCheck(params string[] tableNames) 
+            => DatabaseExists(context) && HasTables(context) && TablesExist(context, tableNames);
+
+
+        /// <summary>
+        /// Generates the SQL script required to create the database schema for the provided <see cref="DbContext"/>.
+        /// </summary>
+        /// <returns>A string containing the SQL script to create the database schema.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the relational database creator service is not available in the provided context.
+        /// </exception>
+        public string GenerateScripts() =>
+            context.GetService<IRelationalDatabaseCreator>() is not 
+                RelationalDatabaseCreator databaseCreator ? throw new InvalidOperationException("Database creator service is not available.") : 
+                databaseCreator.GenerateCreateScript();
     }
-    
 }
