@@ -88,10 +88,7 @@
   <Folder Name="/Console projects/Validation/">
     <Project Path="UsingIncludeInValidation/UsingIncludeInValidation.csproj" />
   </Folder>
-  <Folder Name="/Console projects/Windows Lock projects/">
-    <Project Path="DisableScreensaver/DisableScreensaver.csproj" Id="f7f54a12-3ecc-4fd5-9d84-75a854f9c6bc" />
-    <Project Path="ScreenSaverApp/ScreenSaverApp.csproj" Id="58dd064a-b216-427b-bdf3-00662da16993" />
-  </Folder>
+  <Folder Name="/Console projects/Windows Lock projects/" />
   <Folder Name="/Experiments projects/">
     <Project Path="BasicConsoleProject20262/BasicConsoleProject20262.csproj" Id="edd74e6b-f3c9-4e23-9bb6-b42020b62bac" />
     <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />
