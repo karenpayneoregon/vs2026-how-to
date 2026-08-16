@@ -54,6 +54,7 @@
     <Project Path="BasicConsoleProject20261/BasicConsoleProject20261.csproj" Id="993119f1-b60e-422b-abd6-9f8bcfdd71b9" />
     <Project Path="ChangeWorkingFolderSample/ChangeWorkingFolderSample.csproj" />
     <Project Path="ConversionsApp/ConversionsApp.csproj" Id="5df225eb-4443-41d5-b3f2-ffe47ef13bd5" />
+    <Project Path="ExceptionDispatchInfoApp/ExceptionDispatchInfoApp.csproj" />
     <Project Path="ExtensionsApp/ExtensionsApp.csproj" Id="782aed98-60f1-4980-838f-6fdd50321bac" />
     <Project Path="FieldKeywordSample/FieldKeywordSample.csproj" />
     <Project Path="FormattableStringApp/FormattableStringApp.csproj" Id="c388e12d-17b9-4893-a503-d85dbaac3486" />
@@ -98,6 +99,7 @@
     <File Path="readme.md" />
   </Folder>
   <Folder Name="/Tools/">
+    <Project Path="ActivityLogFinder/ActivityLogFinder.csproj" />
     <Project Path="CleanSnagItDirectoryApp/CleanSnagItDirectoryApp.csproj" />
     <Project Path="CopyFileCleaner/CopyFileCleaner.csproj" Id="c2f9dbcd-49b8-405b-9fd4-371571ae3651" />
     <Project Path="DirectoryHelperSample/DirectoryHelperSample.csproj" />

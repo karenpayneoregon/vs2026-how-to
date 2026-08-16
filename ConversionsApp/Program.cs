@@ -1,7 +1,5 @@
 ﻿using ConversionLibrary;
 using ConversionsApp.Classes.Core;
-using Spectre.Console;
-using System.Xml;
 using System.Xml.Linq;
 using ConversionsApp.Classes;
 using ConversionsApp.Models;
