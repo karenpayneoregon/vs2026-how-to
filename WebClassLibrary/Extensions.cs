@@ -15,9 +15,6 @@ public static class Extensions
         /// <returns>
         /// The default connection string associated with the key "DefaultConnection".
         /// </returns>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the connection string with the key "DefaultConnection" is not found.
-        /// </exception>
         public string DefaultConnectionString() => configuration.GetConnectionString("DefaultConnection")!;
 
         /// <summary>
