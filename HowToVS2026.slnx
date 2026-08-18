@@ -154,6 +154,7 @@
         <Property Name="VWDPort" Value="&quot;58219&quot;" />
       </Properties>
     </Project>
+    <Project Path="SkipLinkApplication/SkipLinkApplication.csproj" />
     <Project Path="SvgIconsSamples/" Type="Website" DisplayName="SvgIconsSamples">
       <BuildType Project="Debug" />
       <Properties Name="WebsiteProperties">
