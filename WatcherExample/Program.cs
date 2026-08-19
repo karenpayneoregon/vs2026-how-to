@@ -17,6 +17,8 @@ internal partial class Program
         Console.WriteLine("Press Enter to quit.");
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
+
+        watcher.Stop();
     }
 
 }

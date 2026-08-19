@@ -24,7 +24,6 @@
   <Folder Name="/Console projects/">
     <Project Path="AutoIncrementApp/AutoIncrementApp.csproj" />
     <Project Path="PropertyExistsApp/PropertyExistsApp.csproj" Id="ec9a2339-4361-4cf0-b991-5692fd829a2b" />
-    <Project Path="WatcherExample/WatcherExample.csproj" Id="17008911-d097-4cbd-8efd-ba6f4dc037e1" />
   </Folder>
   <Folder Name="/Console projects/Dapper SQL Server/">
     <Project Path="DeleteDuplicateRowsSqlServerTable/DeleteDuplicateRowsSqlServerTable.csproj" />
@@ -91,6 +90,9 @@
     <Project Path="UsingIncludeInValidation/UsingIncludeInValidation.csproj" />
   </Folder>
   <Folder Name="/Console projects/Windows Lock projects/" />
+  <Folder Name="/Demos/">
+    <Project Path="WatcherExample/WatcherExample.csproj" Id="17008911-d097-4cbd-8efd-ba6f4dc037e1" />
+  </Folder>
   <Folder Name="/Experiments projects/">
     <Project Path="BasicConsoleProject20262/BasicConsoleProject20262.csproj" Id="edd74e6b-f3c9-4e23-9bb6-b42020b62bac" />
     <Project Path="Dummy/Dummy.csproj" Id="6ee9016e-2261-4c01-b357-1d623c2e9176" />

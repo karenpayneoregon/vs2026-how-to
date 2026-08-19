@@ -12,5 +12,5 @@ Learn more: https://code.visualstudio.com/docs/copilot/customization/custom-inst
 
 The summary should be concise and descriptive using one paragraph.
 
-After summary add by 'Karen Payne'
+After summary add by Karen Payne
 
