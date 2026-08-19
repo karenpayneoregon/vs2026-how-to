@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using Serilog;
+using Spectre.Console;
 // ReSharper disable MemberCanBeMadeStatic.Local
 #pragma warning disable CA1822
 #pragma warning disable CA1816
@@ -194,6 +195,7 @@ public class FolderWatcher : IDisposable
     private void OnError(object sender, ErrorEventArgs e)
     {
         Console.WriteLine($"[red]FileSystemWatcher error: {e.GetException()}[/]");
+        Log.Error(e.GetException(), "FileSystemWatcher error");
     }
 
     /// <summary>
