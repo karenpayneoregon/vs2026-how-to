@@ -24,6 +24,7 @@
   <Folder Name="/Console projects/">
     <Project Path="AutoIncrementApp/AutoIncrementApp.csproj" />
     <Project Path="PropertyExistsApp/PropertyExistsApp.csproj" Id="ec9a2339-4361-4cf0-b991-5692fd829a2b" />
+    <Project Path="WatcherExample/WatcherExample.csproj" Id="17008911-d097-4cbd-8efd-ba6f4dc037e1" />
   </Folder>
   <Folder Name="/Console projects/Dapper SQL Server/">
     <Project Path="DeleteDuplicateRowsSqlServerTable/DeleteDuplicateRowsSqlServerTable.csproj" />
