@@ -124,6 +124,27 @@ public class FolderWatcher : IDisposable
         GroundFile(e.FullPath);
     }
 
+    /// <summary>
+    /// Handles the event triggered when a file in the monitored folder is changed.
+    /// </summary>
+    /// <param name="sender">The source of the event, typically the <see cref="FileSystemWatcher"/> instance.</param>
+    /// <param name="e">
+    /// An <see cref="FileSystemEventArgs"/> that contains the event data, including the full path of the changed file
+    /// and the type of change that occurred.
+    /// </param>
+    /// <remarks>
+    /// This method logs the updated file path and processes the file by invoking the <see cref="GroundFile"/> method.
+    /// </remarks>
+    /// <example>
+    /// Example of handling a file change event:
+    /// <code>
+    /// private void OnFileChanged(object sender, FileSystemEventArgs e)
+    /// {
+    ///     Console.WriteLine($"[yellow]UPDATED FILE: {e.FullPath}[/]");
+    ///     GroundFile(e.FullPath);
+    /// }
+    /// </code>
+    /// </example>
     private void OnFileChanged(object sender, FileSystemEventArgs e)
     {
         Console.WriteLine($"[yellow]UPDATED FILE: {e.FullPath}[/]");
