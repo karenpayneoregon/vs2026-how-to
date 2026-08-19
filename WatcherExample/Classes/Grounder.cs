@@ -13,7 +13,7 @@ public class Grounder
     public static void GroundFile(string filePath)
     {
         /*
-         *  FILO AI grounding of the file
+         *  AI grounding of the file
          * 
          */
     }
