@@ -15,11 +15,18 @@ internal partial class Program
          */
         const string url = "https://raw.githubusercontent.com/karenpayneoregon/json-samples/master/unitedStates.json";
         
-        var states = await Operations.LoadStatesFromUrlAsync(url);
+        (bool success, List<State> states) = await Operations.LoadStatesFromUrlAsync(url);
         
-        foreach (var state in states)
+        if (success)
         {
-            AnsiConsole.MarkupLine($"[yellow]{state.Abbreviation,-5}[/][cyan]{state.Name}[/]");
+            foreach (var state in states)
+            {
+                AnsiConsole.MarkupLine($"[yellow]{state.Abbreviation,-5}[/][cyan]{state.Name}[/]");
+            }
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[red]Failed to load states from the URL.[/]");
         }
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);

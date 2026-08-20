@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Serilog;
 
 namespace ReadJsonFromGitHubRepositoryApp.Classes;
 
@@ -11,13 +12,21 @@ public class Operations
     /// <returns>A task representing the asynchronous operation. The task result contains a list of <see cref="State"/> objects deserialized from the JSON resource.</returns>
     /// <exception cref="HttpRequestException">Thrown if there is an error while sending the HTTP request or receiving the response.</exception>
     /// <exception cref="JsonException">Thrown if there is an error during JSON deserialization.</exception>
-    public static async Task<List<State>> LoadStatesFromUrlAsync(string url)
+    public static async Task<(bool, List<State>)> LoadStatesFromUrlAsync(string url)
     {
-        var json = await Client.GetStringAsync(url);
+        try
+        {
+            var json = await Client.GetStringAsync(url);
 
-        var states = JsonSerializer.Deserialize<List<State>>(json, CachedJsonSerializerOptions);
+            var states = JsonSerializer.Deserialize<List<State>>(json, CachedJsonSerializerOptions);
 
-        return states ?? [];
+            return (true, states ?? new List<State>());
+        }
+        catch (Exception e)
+        {
+            Log.Error(e, "An error occurred while loading states from URL: {Url}", url);
+            return (false,new List<State>());
+        }
     }
 
     private static readonly JsonSerializerOptions CachedJsonSerializerOptions = new()
