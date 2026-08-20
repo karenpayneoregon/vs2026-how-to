@@ -87,6 +87,7 @@
   </Folder>
   <Folder Name="/Console projects/Windows Lock projects/" />
   <Folder Name="/Demos/">
+    <Project Path="ReadJsonFromGitHubRepositoryApp/ReadJsonFromGitHubRepositoryApp.csproj" />
     <Project Path="WatcherExample/WatcherExample.csproj" Id="17008911-d097-4cbd-8efd-ba6f4dc037e1" />
   </Folder>
   <Folder Name="/Experiments projects/">
