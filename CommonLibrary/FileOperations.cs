@@ -68,4 +68,53 @@ public static class FileOperations
             
         }
     }
+
+    /// <summary>
+    /// Copies the creation, last write, and last access timestamps
+    /// from the source file to the destination file.
+    /// </summary>
+    /// <param name="sourceFile">
+    /// The path of the source file from which the timestamps will be copied. 
+    /// This parameter cannot be null, empty, or consist only of white-space characters.
+    /// </param>
+    /// <param name="destinationFile">
+    /// The path of the destination file to which the timestamps will be applied. 
+    /// This parameter cannot be null, empty, or consist only of white-space characters.
+    /// </param>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="sourceFile"/> or <paramref name="destinationFile"/> 
+    /// is null, empty, or consists only of white-space characters.
+    /// </exception>
+    /// <exception cref="FileNotFoundException">
+    /// Thrown if the <paramref name="sourceFile"/> or <paramref name="destinationFile"/> does not exist.
+    /// </exception>
+    /// <remarks>
+    /// This method updates the creation, last write, and last access timestamps of the 
+    /// destination file to match those of the source file.
+    ///
+    /// * Recommend adding error handling when calling this method to manage potential
+    ///   exceptions that may arise during file operations.
+    /// 
+    /// </remarks>
+    public static void SetFileDateTime(string sourceFile, string destinationFile)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(sourceFile);
+        ArgumentException.ThrowIfNullOrWhiteSpace(destinationFile);
+
+        if (!File.Exists(sourceFile))
+        {
+            throw new FileNotFoundException("Source file does not exist.", sourceFile);
+        }
+
+        if (!File.Exists(destinationFile))
+        {
+            throw new FileNotFoundException("Destination file does not exist.", destinationFile);
+        }
+
+        var sourceInfo = new FileInfo(sourceFile);
+
+        File.SetCreationTimeUtc(destinationFile, sourceInfo.CreationTimeUtc);
+        File.SetLastWriteTimeUtc(destinationFile, sourceInfo.LastWriteTimeUtc);
+        File.SetLastAccessTimeUtc(destinationFile, sourceInfo.LastAccessTimeUtc);
+    }
 }
