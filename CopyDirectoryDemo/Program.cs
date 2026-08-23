@@ -26,8 +26,8 @@ internal partial class Program
     /// </exception>
     private static void CopyFilesWithStatus()
     {
-        var sourceFolder = @"C:\OED\NotePadFiles";
-        var destinationFolder = @"C:\OED\Destination";
+        const string sourceFolder = @"C:\OED\NotePadFiles";
+        const string destinationFolder = @"C:\OED\Destination";
 
         if (Directory.Exists(sourceFolder) && Directory.Exists(destinationFolder))
         {
@@ -49,4 +49,5 @@ internal partial class Program
             SpectreConsoleHelpers.ErrorPill(Justify.Left, "Source or destination folder does not exist.");
         }
     }
+    
 }
