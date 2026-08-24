@@ -35,7 +35,6 @@ internal partial class Program
             Thread.Sleep(1000); 
             
             AnsiConsole.Status()
-                .Spinner(Spinner.Known.Star)
                 .Start("Copying files..", ctx =>
                 {
                     FileOperations.CopyFolder(sourceFolder, destinationFolder, "*.txt");
