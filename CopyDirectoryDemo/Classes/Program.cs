@@ -5,6 +5,7 @@ using CopyDirectoryDemo.Classes.Core;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using SpectreConsoleLibrary.Core;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 // ReSharper disable once CheckNamespace

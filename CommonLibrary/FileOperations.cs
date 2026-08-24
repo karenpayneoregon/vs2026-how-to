@@ -1,4 +1,6 @@
-﻿namespace CommonLibrary;
+﻿using Serilog;
+
+namespace CommonLibrary;
 
 public static class FileOperations
 {
@@ -31,8 +33,6 @@ public static class FileOperations
     /// <remarks>
     /// * This method preserves file attributes and timestamps during the copy process. 
     ///   Subdirectories within the source folder are also processed recursively.
-    /// * Recommend adding error handling when calling this method to manage potential
-    ///   exceptions that may arise during file operations.
     /// </remarks>
     public static void CopyFolder(string sourceFolder, string destinationFolder, string searchPattern = "*.*", bool overwrite = true)
     {
@@ -53,25 +53,31 @@ public static class FileOperations
 
             var destinationDirectory = Path.GetDirectoryName(destinationFile);
 
-            if (destinationDirectory is not null)
+            try
             {
-                Directory.CreateDirectory(destinationDirectory);
+                if (destinationDirectory is not null)
+                {
+                    Directory.CreateDirectory(destinationDirectory);
+                }
+
+                File.Copy(sourceFile, destinationFile, overwrite);
+
+                var sourceInfo = new FileInfo(sourceFile);
+                File.SetCreationTime(destinationFile, sourceInfo.CreationTime);
+                File.SetLastWriteTime(destinationFile, sourceInfo.LastWriteTime);
+                File.SetLastAccessTime(destinationFile, sourceInfo.LastAccessTime);
+                File.SetAttributes(destinationFile, sourceInfo.Attributes);
             }
-
-            File.Copy(sourceFile, destinationFile, overwrite);
-
-            var sourceInfo = new FileInfo(sourceFile);
-            File.SetCreationTime(destinationFile, sourceInfo.CreationTime);
-            File.SetLastWriteTime(destinationFile, sourceInfo.LastWriteTime);
-            File.SetLastAccessTime(destinationFile, sourceInfo.LastAccessTime);
-            File.SetAttributes(destinationFile, sourceInfo.Attributes);
+            catch (Exception e)
+            {
+                Log.Error(e, "An error occurred while copying file {SourceFile} to {DestinationFile}", sourceFile, destinationFile);
+            }
             
         }
     }
 
     /// <summary>
-    /// Copies the creation, last write, and last access timestamps
-    /// from the source file to the destination file.
+    /// Sets the file timestamps for a specified destination file to match those of a source file.
     /// </summary>
     /// <param name="sourceFile">
     /// The path of the source file from which the timestamps will be copied. 
@@ -81,6 +87,9 @@ public static class FileOperations
     /// The path of the destination file to which the timestamps will be applied. 
     /// This parameter cannot be null, empty, or consist only of white-space characters.
     /// </param>
+    /// <returns>
+    /// <c>true</c> if the file timestamps were successfully updated; otherwise, <c>false</c>.
+    /// </returns>
     /// <exception cref="ArgumentException">
     /// Thrown if <paramref name="sourceFile"/> or <paramref name="destinationFile"/> 
     /// is null, empty, or consists only of white-space characters.
@@ -90,13 +99,10 @@ public static class FileOperations
     /// </exception>
     /// <remarks>
     /// This method updates the creation, last write, and last access timestamps of the 
-    /// destination file to match those of the source file.
-    ///
-    /// * Recommend adding error handling when calling this method to manage potential
-    ///   exceptions that may arise during file operations.
-    /// 
+    /// destination file to match those of the source file. Additionally, it copies the 
+    /// file attributes from the source file to the destination file.
     /// </remarks>
-    public static void SetFileDateTime(string sourceFile, string destinationFile)
+    public static bool SetFileDateTime(string sourceFile, string destinationFile)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(sourceFile);
         ArgumentException.ThrowIfNullOrWhiteSpace(destinationFile);
@@ -113,8 +119,21 @@ public static class FileOperations
 
         var sourceInfo = new FileInfo(sourceFile);
 
-        File.SetCreationTimeUtc(destinationFile, sourceInfo.CreationTimeUtc);
-        File.SetLastWriteTimeUtc(destinationFile, sourceInfo.LastWriteTimeUtc);
-        File.SetLastAccessTimeUtc(destinationFile, sourceInfo.LastAccessTimeUtc);
+        try
+        {
+            File.SetCreationTimeUtc(destinationFile, sourceInfo.CreationTimeUtc);
+            File.SetLastWriteTimeUtc(destinationFile, sourceInfo.LastWriteTimeUtc);
+            File.SetLastAccessTimeUtc(destinationFile, sourceInfo.LastAccessTimeUtc);
+
+            File.SetAttributes(destinationFile, File.GetAttributes(sourceFile));
+            
+            return true;
+        }
+        catch (Exception e)
+        {
+            Log.Error(e, "An error occurred while setting file timestamps for {DestinationFile}", destinationFile);
+            return false;
+        }
+
     }
 }
