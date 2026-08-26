@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
+using System.Reflection;
 
 namespace WebClassLibrary;
 
@@ -24,6 +27,26 @@ public class PageHelpers
     {
         string path = request.Path;
         return path == "/" ? "Index" : Path.GetFileNameWithoutExtension(path);
+    }
+
+    public static List<string> GetPageNames()
+    {
+        var assembly = Assembly.GetEntryAssembly();
+
+        if (assembly is null)
+        {
+            return [];
+        }
+
+        return assembly
+            .GetTypes()
+            .Where(type =>
+                type.Name.EndsWith("Model", StringComparison.Ordinal) &&
+                type.Namespace?.Contains(".Pages", StringComparison.Ordinal) == true)
+            .Select(type => type.Name[..^"Model".Length])
+            .Distinct()
+            .OrderBy(name => name)
+            .ToList();
     }
 }
 

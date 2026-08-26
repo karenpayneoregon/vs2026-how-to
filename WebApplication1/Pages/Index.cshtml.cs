@@ -1,14 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Serilog;
 using WebApplication1.Classes;
+using WebApplication1.Models;
+using static WebApplication1.Classes.EndPointHelpers;
 
 namespace WebApplication1.Pages;
 
-public class IndexModel(IEnumerable<EndpointDataSource> endpointSources) : PageModel
+public class IndexModel(IEnumerable<EndpointDataSource> endpointSources, IActionDescriptorCollectionProvider provider) : PageModel
 {
     private readonly IEnumerable<EndpointDataSource> _endpointSources = endpointSources;
     public required IEnumerable<RouteEndpoint> EndpointSources { get; set; }
+
+    private readonly IActionDescriptorCollectionProvider _provider = provider;
+
+    public List<PageInfo> Pages { get; private set; } = [];
 
     /// <summary>
     /// This method initializes the <see cref="EndpointSources"/> property by retrieving route endpoints
@@ -20,6 +27,13 @@ public class IndexModel(IEnumerable<EndpointDataSource> endpointSources) : PageM
         foreach (var rep in EndpointSources)
         {
             Log.Information("{P1,-50} {P2}", rep.RoutePattern.RawText, rep.DisplayName);
+        }
+
+        Pages = GetPages(_provider);
+        
+        foreach (var page in Pages)
+        {
+            Log.Information("Page:  {Path}",  page.Path);
         }
     }
 }
