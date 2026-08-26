@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Serilog;
-using WebApplication1.Classes;
-using WebApplication1.Models;
-using static WebApplication1.Classes.EndPointHelpers;
+using WebClassLibrary;
+using WebClassLibrary.Models;
 
 namespace WebApplication1.Pages;
 
@@ -29,7 +27,7 @@ public class IndexModel(IEnumerable<EndpointDataSource> endpointSources, IAction
             Log.Information("{P1,-50} {P2}", rep.RoutePattern.RawText, rep.DisplayName);
         }
 
-        Pages = GetPages(_provider);
+        Pages = EndPointHelpers.GetPages(_provider);
         
         foreach (var page in Pages)
         {

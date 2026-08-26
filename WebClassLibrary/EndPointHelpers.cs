@@ -1,22 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using WebApplication1.Models;
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
+using WebClassLibrary.Models;
 
-namespace WebApplication1.Classes;
+namespace WebClassLibrary;
 
 /// <summary>
 /// Provides helper methods for working with endpoint data sources and route endpoints.
 /// </summary>
 public class EndPointHelpers
 {
+
     /// <summary>
-    /// Retrieves a collection of <see cref="RouteEndpoint"/> instances from the provided endpoint sources.
+    /// Retrieves a collection of <see cref="RouteEndpoint"/> objects from the provided endpoint data sources.
     /// </summary>
     /// <param name="endpointSources">
-    /// A collection of <see cref="EndpointDataSource"/> objects from which the endpoints will be extracted.
+    /// A collection of <see cref="EndpointDataSource"/> objects from which to extract route endpoints.
     /// </param>
     /// <returns>
-    /// An <see cref="IEnumerable{T}"/> containing the <see cref="RouteEndpoint"/> instances found in the provided sources.
+    /// An <see cref="IEnumerable{T}"/> of <see cref="RouteEndpoint"/> objects that have non-empty route patterns.
     /// </returns>
     public static IEnumerable<RouteEndpoint> GetEndpoints(IEnumerable<EndpointDataSource> endpointSources)
     {
@@ -62,6 +64,7 @@ public class EndPointHelpers
     /// </returns>
     public static List<PageInfo> GetPages(IActionDescriptorCollectionProvider provider)
     {
+        
         var pages = provider
             .ActionDescriptors
             .Items
@@ -73,6 +76,7 @@ public class EndPointHelpers
             })
             .OrderBy(page => page.Name)
             .ToList();
+        
         return pages;
     }
 

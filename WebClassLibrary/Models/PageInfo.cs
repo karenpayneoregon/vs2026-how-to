@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models;
+﻿namespace WebClassLibrary.Models;
 
 /// <summary>
 /// Represents information about a Razor Page, including its name and path.
