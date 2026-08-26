@@ -8,10 +8,7 @@ namespace WebApplication1.Pages;
 
 public class IndexModel(IEnumerable<EndpointDataSource> endpointSources, IActionDescriptorCollectionProvider provider) : PageModel
 {
-    private readonly IEnumerable<EndpointDataSource> _endpointSources = endpointSources;
     public required IEnumerable<RouteEndpoint> EndpointSources { get; set; }
-
-    private readonly IActionDescriptorCollectionProvider _provider = provider;
 
     public List<PageInfo> Pages { get; private set; } = [];
 
@@ -21,17 +18,20 @@ public class IndexModel(IEnumerable<EndpointDataSource> endpointSources, IAction
     /// </summary>
     public void OnGet()
     {
-        EndpointSources = EndPointHelpers.GetEndpoints(_endpointSources);
+      
+        EndpointSources = EndPointHelpers.GetEndpoints(endpointSources);
+        
         foreach (var rep in EndpointSources)
         {
             Log.Information("{P1,-50} {P2}", rep.RoutePattern.RawText, rep.DisplayName);
         }
 
-        Pages = EndPointHelpers.GetPages(_provider);
+        Pages = EndPointHelpers.GetPages(provider);
         
         foreach (var page in Pages)
         {
             Log.Information("Page:  {Path}",  page.Path);
         }
+        
     }
 }
