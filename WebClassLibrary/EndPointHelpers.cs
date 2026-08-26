@@ -20,14 +20,11 @@ public class EndPointHelpers
     /// <returns>
     /// An <see cref="IEnumerable{T}"/> of <see cref="RouteEndpoint"/> objects that have non-empty route patterns.
     /// </returns>
-    public static IEnumerable<RouteEndpoint> GetEndpoints(IEnumerable<EndpointDataSource> endpointSources)
-    {
-        return endpointSources
+    public static IEnumerable<RouteEndpoint> GetEndpoints(IEnumerable<EndpointDataSource> endpointSources) =>
+        endpointSources
             .SelectMany(x => x.Endpoints)
             .OfType<RouteEndpoint>()
             .Where(x => !string.IsNullOrWhiteSpace(x.RoutePattern.RawText));
-    }
-
 
 
     /// <summary>
@@ -40,17 +37,14 @@ public class EndPointHelpers
     /// A <see cref="List{T}"/> of <see cref="string"/> representing the names of Razor Pages, 
     /// ordered alphabetically by their view engine paths.
     /// </returns>
-    public static List<string> GetPageNames(IActionDescriptorCollectionProvider provider)
-    {
-        var pages = provider
+    public static List<string> GetPageNames(IActionDescriptorCollectionProvider provider) =>
+        provider
             .ActionDescriptors
             .Items
             .OfType<PageActionDescriptor>()
             .Select(page => page.ViewEnginePath)
             .OrderBy(page => page)
             .ToList();
-        return pages;
-    }
 
     /// <summary>
     /// Retrieves a collection of <see cref="PageInfo"/> objects representing Razor Pages
@@ -62,10 +56,8 @@ public class EndPointHelpers
     /// <returns>
     /// A <see cref="List{T}"/> of <see cref="PageInfo"/> objects, each containing the name and path of a Razor Page.
     /// </returns>
-    public static List<PageInfo> GetPages(IActionDescriptorCollectionProvider provider)
-    {
-        
-        var pages = provider
+    public static List<PageInfo> GetPages(IActionDescriptorCollectionProvider provider) =>
+        provider
             .ActionDescriptors
             .Items
             .OfType<PageActionDescriptor>()
@@ -76,9 +68,4 @@ public class EndPointHelpers
             })
             .OrderBy(page => page.Name)
             .ToList();
-        
-        return pages;
-    }
-
-
 }
