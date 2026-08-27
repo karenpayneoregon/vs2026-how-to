@@ -14,19 +14,28 @@ namespace WebClassLibrary;
 /// </remarks>
 public class PageHelpers
 {
+        
     /// <summary>
-    /// Retrieves the name of the current page based on the provided HTTP request.
+    /// Retrieves the name of the current page from the specified HTTP request.
     /// </summary>
-    /// <param name="request">The <see cref="HttpRequest"/> object representing the current HTTP request. Cannot be <see langword="null"/>.</param>
+    /// <param name="request">The <see cref="HttpRequest"/> object representing the current HTTP request.</param>
     /// <returns>
     /// A <see cref="string"/> representing the name of the current page. 
-    /// Returns "Index" if the request path is the root ("/"), otherwise returns the file name without its extension.
+    /// Returns "Index" if the request path is empty or the root ("/").
     /// </returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="request"/> is <see langword="null"/>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if the <paramref name="request"/> is <c>null</c>.</exception>
     public static string GetCurrentPageName(HttpRequest request)
     {
-        string path = request.Path;
-        return path == "/" ? "Index" : Path.GetFileNameWithoutExtension(path);
+        ArgumentNullException.ThrowIfNull(request);
+
+        var path = request.Path.Value;
+
+        if (string.IsNullOrWhiteSpace(path) || path == "/")
+        {
+            return "Index";
+        }
+
+        return path.TrimStart('/');
     }
 
     public static List<string> GetPageNames()
