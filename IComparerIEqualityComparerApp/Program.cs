@@ -1,8 +1,5 @@
 ﻿using IComparerIEqualityComparerApp.Classes;
-using IComparerIEqualityComparerApp.Classes.Comparers;
 using IComparerIEqualityComparerApp.Classes.SystemCode;
-using IComparerIEqualityComparerApp.Models;
-using Spectre.Console;
 
 namespace IComparerIEqualityComparerApp;
 internal partial class Program
@@ -12,6 +9,8 @@ internal partial class Program
         Operations.DistinctPeople1();
         Operations.DistinctPeople2();
         Operations.CompareProducts();
+
+        var peopleDataList = Operations.PeopleDataList();
         
         SpectreConsoleHelpers.ExitPrompt();
     }
