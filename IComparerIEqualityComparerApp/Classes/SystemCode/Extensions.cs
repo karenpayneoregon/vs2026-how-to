@@ -1,4 +1,5 @@
 ﻿namespace IComparerIEqualityComparerApp.Classes.SystemCode;
+
 internal static class Extensions
 {
     /// <param name="source">The <see cref="SortedSet{T}"/> to add the items to.</param>
@@ -17,7 +18,7 @@ internal static class Extensions
             {
                 allAdded = allAdded & source.Add(item);
             }
-        
+
             return allAdded;
         }
     }
@@ -26,6 +27,6 @@ internal static class Extensions
     {
         public string? CapitalizeFirstLetter()
             => string.IsNullOrWhiteSpace(source) ?
-                source : char.ToUpper(source[0]) + source.AsSpan(1).ToString();
+                source : char.ToUpper(source[0]) + source.AsSpan(1).ToString().ToLower();
     }
 }
